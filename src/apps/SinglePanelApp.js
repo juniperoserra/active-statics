@@ -47,7 +47,16 @@ export default class SinglePanelApp extends AppBase {
     }
 
     makeNodes() {
-        this.node1 = new TPoint(this.graphics, 20, 20);
+        this.mTrussNodes = [];
+        let x = 150;
+        const height = 72.0;
+        this.mTrussNodes[0] = new TPoint(this.graphics, x, 350.0);
+        this.mTrussNodes[1] = new TPoint(this.graphics, x + 90.0, 350 - height);
+        this.mTrussNodes[2] = new TPoint(this.graphics, x + 180, 350.0);
+        x = 240;
+        this.mForceTail = new TPoint(this.graphics, x, 350 - height - 165);
+        this.mTrussNodes[1].dragAlso(this.mForceTail);
+
     }
 
 }
