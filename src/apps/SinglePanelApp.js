@@ -112,6 +112,9 @@ export default class SinglePanelApp extends AppBase {
     }
 
     makeButtons() {
-        const b = this.mScene.createButton([20, 30], 'What the heck?');
+        const b1 = this.mScene.createButton([20, 30], 'What the heck?',
+            () => {console.log('Action!')});
+        const b2 = this.mScene.createButton([20, 130], 'This is a toggle',
+            (val) => {console.log('Toggle! ' + val)}, {isToggle: true});
     }
 }

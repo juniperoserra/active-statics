@@ -19,8 +19,8 @@ export default class Scene {
         return new TPoint(this.mGraphics, [x, y]);
     }
 
-    createButton([x = 0, y = 0], text) {
-        return new TButton(this.mGraphics, [x, y], text);
+    createButton([x = 0, y = 0], text, callback, options = {}) {
+        return new TButton(this.mGraphics, [x, y], text, callback, options);
     }
 
 
