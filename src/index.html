@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <title>Active Statics</title>
     <script src="/assets/app.bundle.js"></script>
+    <script type="text/javascript">
+        // Only executed our code once the DOM is ready.
+        window.onload = function() {
+            window.startApp();
+        }
+    </script>
 </head>
 <body>
-<div id="main"></div>
-<script>
-    // self executing function here
-    (function() {
-        // your page initialization code here
-        // the DOM will be available here
-        window.addContent();
-
-    })();
-</script>
+<div id="main">
+    <canvas id="myCanvas" resize></canvas>
+</div>
 </body>
 </html>

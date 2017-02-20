@@ -3,9 +3,11 @@
  */
 console.log('hi there');
 
+require("script-loader!paper");
+
 import { text } from './mod1';
 
-window.addContent = function() {
+window.startApp = function() {
     document.getElementById('main')
         .insertAdjacentHTML('afterbegin', `<div id="newChild">${text()}</div>`);
 }
