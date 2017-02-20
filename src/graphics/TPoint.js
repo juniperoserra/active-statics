@@ -11,17 +11,10 @@ const hitOptions = {
     tolerance: 5
 };
 
-
-function onMouseDown(event) {
-    this.position = event.point;
-};
-
 export default class TPoint extends GraphicEntity {
 
     static DEFAULT_SIZE = 10;
     static LABEL_EXTENT_WIDTH = 30;
-
-
 
     constructor(graphics, x = 0, y = 0) {
         super(graphics);
@@ -38,9 +31,13 @@ export default class TPoint extends GraphicEntity {
                 strokeColor: 'black'
             });
 
-        const g = graphics.addGroup([c1, c2]);
+        this.item = graphics.addGroup([c1, c2]);
 
-        g.onMouseDown = onMouseDown;
-        g.onMouseDrag = onMouseDown;
+        this.item.onMouseDown = this::this.onMouseDown;
+        this.item.onMouseDrag = this::this.onMouseDown;
     }
+
+    onMouseDown(event) {
+        this.item.position = event.point;
+    };
 }
