@@ -1,13 +1,16 @@
 /**
  * Created by simong on 2/20/17.
  */
-console.log('hi there');
+import { draw } from './mod1';
+import { init } from './graphics/Paper';
+import Graphics from './graphics/Graphics';
 
-require("script-loader!paper");
 
-import { text } from './mod1';
+import SinglePanelApp from './apps/SinglePanelApp';
 
 window.startApp = function() {
-    document.getElementById('main')
-        .insertAdjacentHTML('afterbegin', `<div id="newChild">${text()}</div>`);
+    init();
+    draw();
+    const graphics = new Graphics();
+    const singlePanelApp = new SinglePanelApp(graphics);
 }
