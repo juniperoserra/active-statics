@@ -4,7 +4,8 @@
 
 import Paper from './Paper';
 
-const hitOptions = {
+
+const gHitOptions = {
     segments: true,
     stroke: true,
     fill: true,
@@ -13,7 +14,7 @@ const hitOptions = {
 
 /*
 const onMouseDown = (event) => {
-    var hitResult = Paper.project.hitTest(event.point, hitOptions);
+    var hitResult = Paper.project.hitTest(event.point, gHitOptions);
     if (!hitResult) {
         return;
     }
@@ -39,8 +40,16 @@ export default class Graphics {
         this.paper.view.setViewSize(700, 700);
     }
 
-    setStyle(obj, style) {
-        obj.style = style;
+    getItemHit(point, hitOptions = gHitOptions) {
+        var hitResult = Paper.project.hitTest(point, hitOptions);
+        if (!hitResult) {
+            return null;
+        }
+        return hitResult.item;
+    }
+
+    setStyle(item, style) {
+        item.style = style;
     }
 
     addGroup(items) {
@@ -48,10 +57,27 @@ export default class Graphics {
     }
 
     addCircle(center, radius, style) {
-        const c = new this.paper.Shape.Circle(center, radius);
+        const item = new this.paper.Shape.Circle(center, radius);
         if (style) {
-            this.setStyle(c, style);
+            this.setStyle(item, style);
         }
-        return c;
+        return item;
+    }
+
+    addText(point, text, style) {
+        const item = new this.paper.PointText(point);
+        item.content = text;
+        if (style) {
+            this.setStyle(item, style);
+        }
+        return item;
+    }
+
+    addRect(rect, style) {
+        const item = new this.paper.Shape.Rectangle(rect);
+        if (style) {
+            this.setStyle(item, style);
+        }
+        return item;
     }
 }
