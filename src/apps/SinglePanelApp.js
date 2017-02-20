@@ -112,9 +112,82 @@ export default class SinglePanelApp extends AppBase {
     }
 
     makeButtons() {
+
+        /*
         const b1 = this.mScene.createButton([20, 30], 'What the heck?',
             () => {console.log('Action!')});
         const b2 = this.mScene.createButton([20, 130], 'This is a toggle',
             (val) => {console.log('Toggle! ' + val)}, {isToggle: true});
+            */
+
+        const x = 20;
+        let y = 70;
+        const moveButton = this.mScene.createButton([x, y], 'Return To Starting Position',
+            () => {
+                /*
+                 if (SinglePanelApplet.this.mCircleLoad != null) {
+                 SinglePanelApplet.this.g.mTimer.removeJob(SinglePanelApplet.this.mCircleLoad);
+                 SinglePanelApplet.this.mCircleLoad = null;
+                 SinglePanelApplet.access$1((SinglePanelApplet)SinglePanelApplet.this).mSelected = false;
+                 }
+                 JobMoveViewToOrigin originMove = new JobMoveViewToOrigin(SinglePanelApplet.this.g);
+                 originMove.mView = SinglePanelApplet.this.mUpdateCanvas;
+                 SinglePanelApplet.this.g.mTimer.addJob(originMove);
+                 JobMovePointToStart newJob = new JobMovePointToStart(SinglePanelApplet.this.g);
+                 newJob.mMovePoint = SinglePanelApplet.this.mLoadLine[0];
+                 SinglePanelApplet.this.g.mTimer.addJob(newJob);
+                 for (int i = 0; i < 3; ++i) {
+                 newJob = new JobMovePointToStart(SinglePanelApplet.this.g);
+                 newJob.mMovePoint = SinglePanelApplet.this.mTrussNodes[i];
+                 SinglePanelApplet.this.g.mTimer.addJob(newJob);
+                 }
+                 newJob = new JobMovePointToStart(SinglePanelApplet.this.g);
+                 newJob.mMovePoint = SinglePanelApplet.this.mForceTail;
+                 SinglePanelApplet.this.g.mTimer.addJob(newJob);
+                 */
+            }, {width: 190});
+
+//        moveButton.mWidth = 170.0f;
+//        moveButton.mHeight = 20.0f;
+
+        y += 30;
+        this.mCircleLoadButton = this.mScene.createButton([x, y], 'Circle Load',
+            () => {
+                /*
+                if (SinglePanelApplet.this.mCircleLoad == null) {
+                    SinglePanelApplet.this.mCircleLoad = new JobCirclePoint(SinglePanelApplet.this.g);
+                    SinglePanelApplet.this.mCircleLoad.mMovePoint = SinglePanelApplet.this.mForceTail;
+                    SinglePanelApplet.this.mCircleLoad.mPivot = SinglePanelApplet.this.mTrussNodes[1];
+                    SinglePanelApplet.this.g.mTimer.addJob(SinglePanelApplet.this.mCircleLoad);
+                } else {
+                    SinglePanelApplet.this.g.mTimer.removeJob(SinglePanelApplet.this.mCircleLoad);
+                    SinglePanelApplet.this.mCircleLoad = null;
+                }
+                */
+            }, {isToggle: true, width: 190});
+
+
+//                this.mCircleLoadButton.mWidth = 170.0f;
+//                this.mCircleLoadButton.mHeight = 20.0f;
+
+        y += 30;
+        this.mLoadsVertCheck = this.mScene.createButton([x, y], 'Keep Load Vertical',
+            () => {
+                /*
+                 SinglePanelApplet.this.mLoadsVertical = SinglePanelApplet.access$2((SinglePanelApplet)SinglePanelApplet.this).mSelected;
+                 SinglePanelApplet.this.repaint();
+                 SinglePanelApplet.this.mUpdateCanvas.globalUpdate();
+                 SinglePanelApplet.this.repaint();
+                 */
+            }, {isToggle: true, width: 190});
+
+        y += 30;
+        this.mLinesOfActionCheck = this.mScene.createButton([x, y], 'Extend Lines of Action',
+            () => {
+                /*
+                 SinglePanelApplet.this.mLinesOfAction = SinglePanelApplet.access$3((SinglePanelApplet)SinglePanelApplet.this).mSelected;
+                 SinglePanelApplet.this.repaint();
+                 */
+            }, {isToggle: true, width: 190});
     }
 }

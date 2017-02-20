@@ -42,7 +42,14 @@ export default class TButton extends GraphicEntity {
             {
                 fontSize: 14
             });
-        this.mRect = graphics.addRect(this.mText.getHandleBounds().expand(24, 8), {
+        const bounds = this.mText.getHandleBounds().expand(24, 8);
+        if (options.width) {
+            bounds.width = options.width;
+        }if (options.height) {
+            bounds.height = options.height;
+        }
+
+        this.mRect = graphics.addRect(bounds, {
             strokeColor: 'black',
             fillColor: 'gray'
         });
