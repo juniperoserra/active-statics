@@ -36,8 +36,8 @@ export default class Graphics {
 
     }
 
-    setSize(w, h) {
-        this.paper.view.setViewSize(700, 700);
+    setSize(size) {
+        this.paper.view.setViewSize(size[0], size[1]);
     }
 
     getItemHit(point, hitOptions = gHitOptions) {

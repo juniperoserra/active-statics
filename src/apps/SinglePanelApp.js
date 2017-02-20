@@ -3,8 +3,6 @@
  */
 
 import AppBase from './AppBase';
-import TPoint from '../graphics/TPoint';
-import TButton from '../graphics/TButton';
 
 export default class SinglePanelApp extends AppBase {
 
@@ -27,8 +25,8 @@ export default class SinglePanelApp extends AppBase {
     static BUTTON_START_Y = 70;
     static BUTTON_Y_OFFSET = 30;
 
-    constructor(graphics) {
-        super(graphics,
+    constructor(scene) {
+        super(scene,
             [SinglePanelApp.APPLET_WIDTH, SinglePanelApp.APPLET_HEIGHT]);
 
         this.makeButtons();
@@ -105,15 +103,15 @@ export default class SinglePanelApp extends AppBase {
         this.mTrussNodes = [];
         let x = 150;
         const height = 72.0;
-        this.mTrussNodes[0] = new TPoint(this.graphics, [x, 350.0]);
-        this.mTrussNodes[1] = new TPoint(this.graphics, [x + 90.0, 350 - height]);
-        this.mTrussNodes[2] = new TPoint(this.graphics, [x + 180, 350.0]);
+        this.mTrussNodes[0] = this.mScene.createPoint([x, 350.0]);
+        this.mTrussNodes[1] = this.mScene.createPoint([x + 90.0, 350 - height]);
+        this.mTrussNodes[2] = this.mScene.createPoint([x + 180, 350.0]);
         x = 240;
-        this.mForceTail = new TPoint(this.graphics, [x, 350 - height - 165]);
+        this.mForceTail = this.mScene.createPoint([x, 350 - height - 165]);
         this.mTrussNodes[1].dragAlso(this.mForceTail);
     }
 
     makeButtons() {
-        const b = new TButton(this.graphics, [20, 30], 'What the heck?');
+        const b = this.mScene.createButton([20, 30], 'What the heck?');
     }
 }

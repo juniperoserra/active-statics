@@ -4,9 +4,9 @@
 
 export default class AppBase {
 
-    constructor(graphics, size) {
-        this.graphics = graphics;
-        this.updateList = [];
-        graphics.setSize(size[0], size[1]);
+    constructor(scene, size) {
+        this.mScene = scene;
+        this.mUpdateList = [];
+        this.mScene.setSize(size);
     }
 };
