@@ -32,7 +32,7 @@ export default class SinglePanelApp extends AppBase {
 
         this.makeButtons();
         this.makeNodes();
-        //this.makeMembers();
+        this.makeMembers();
         //this.makeLoads();
         //this.addNodes();
         //this.makeRb();
@@ -98,6 +98,41 @@ export default class SinglePanelApp extends AppBase {
             this.mTrussNodes[8].x = this.mTrussNodes[7].x;
             this.mTrussNodes[10].x = this.mTrussNodes[9].x;
         }
+    }
+
+    makeMembers() {
+        this.mMembers = [];
+        this.mMembers[0] = this.mScene.createLine(this.mTrussNodes[0], this.mTrussNodes[1],
+            {thickness: 20});
+        /*
+        for (let i = 0; i < 3; ++i) {
+            this.mMembers[i] = new TLineMember(this.g);
+        }
+        this.mMembers[0].mStartPoint = this.mTrussNodes[0];
+        this.mMembers[0].mEndPoint = this.mTrussNodes[1];
+        this.mMembers[0].mLabelXOff = -14;
+        this.mMembers[0].mLabelYOff = -14;
+        this.mMembers[0].mLabel = "A";
+        this.mMembers[0].dragAlso(this.mTrussNodes[0]);
+        this.mMembers[0].dragAlso(this.mTrussNodes[1]);
+        this.mMembers[0].dragAlso(this.mTrussNodes[2]);
+        this.mMembers[1].mStartPoint = this.mTrussNodes[1];
+        this.mMembers[1].mEndPoint = this.mTrussNodes[2];
+        this.mMembers[1].mLabelXOff = 14;
+        this.mMembers[1].mLabelYOff = -14;
+        this.mMembers[1].mLabel = "B";
+        this.mMembers[1].dragAlso(this.mTrussNodes[0]);
+        this.mMembers[1].dragAlso(this.mTrussNodes[1]);
+        this.mMembers[1].dragAlso(this.mTrussNodes[2]);
+        this.mMembers[2].mStartPoint = this.mTrussNodes[2];
+        this.mMembers[2].mEndPoint = this.mTrussNodes[0];
+        this.mMembers[2].mLabelXOff = 0;
+        this.mMembers[2].mLabelYOff = 20;
+        this.mMembers[2].mLabel = "C";
+        this.mMembers[2].dragAlso(this.mTrussNodes[0]);
+        this.mMembers[2].dragAlso(this.mTrussNodes[1]);
+        this.mMembers[2].dragAlso(this.mTrussNodes[2]);
+        */
     }
 
     makeNodes() {

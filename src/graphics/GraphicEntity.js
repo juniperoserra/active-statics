@@ -26,4 +26,12 @@ export default class GraphicEntity {
 
     };
 
+    get visible() {
+        return this.item.visible;
+    }
+
+    set visible(val) {
+        this.item.visible = val;
+    }
+
 };

@@ -3,6 +3,7 @@
  */
 
 import GraphicEntity from './GraphicEntity';
+import styles from './styles';
 
 export default class TPoint extends GraphicEntity {
 
@@ -15,16 +16,25 @@ export default class TPoint extends GraphicEntity {
 
         const c1 = graphics.addCircle([x, y], this.mSize,
             {
-                fillColor: '#e1a028',
+                fillColor: styles.controlPointColor,
                 strokeColor: 'black'
             });
         const c2 = graphics.addCircle([x, y], this.mSize / 1.4,
             {
-                fillColor: '#e1a028',
+                fillColor: styles.controlPointColor,
                 strokeColor: 'black'
             });
 
         this.item = graphics.addGroup([c1, c2]);
         this.item.onMouseDrag = this::this.onMouseDrag;
     }
+
+    get x() {
+        return this.item.position.x;
+    }
+
+    get y() {
+        return this.item.position.y;
+    }
+
 }

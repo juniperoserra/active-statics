@@ -87,4 +87,12 @@ export default class Graphics {
         }
         return item;
     }
+
+    addPath(points, style) {
+        const item = new this.paper.Path(points);
+        if (style) {
+            this.setStyle(item, style);
+        }
+        return item;
+    }
 }

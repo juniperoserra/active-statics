@@ -14,8 +14,6 @@ export default class TTextPoint extends TText {
     }
 
     update() {
-        console.log(this.item.position);
         this.item.position = this.mTPoint.item.position.add(this.mOffset);
-
     }
 };
