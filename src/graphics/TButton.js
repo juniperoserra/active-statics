@@ -11,37 +11,17 @@ function selectedAlpha(selected) {
 
 export default class TButton extends GraphicEntity {
 
-    static DEFAULT_SIZE = 10;
-    static LEFT_MARGIN = 12;
+    static DEFAULT_SIZE = 12;
 
-    /*
-    Color mHighlightColor = new Color(180, 180, 180);
-    mDrawOutline = true;
-    mFont;
-    mSize;
-    mOldSize;
-    mHitPoint = new Point();
-    mText;
-    mHighlight = false;
-    mIsToggle = false;
-    mSelected = false;
-    x;
-    y;
-    mWidth;
-    mHeight;
-    mAction;
-    mMetrics;
-*/
     constructor(graphics, [x = 0, y = 0], text, callback, options = {}) {
         super(graphics);
         this.mIsToggle = !!options.isToggle;
         this.mSelected = this.mIsToggle && !!options.selected;
         this.mCallback = callback;
 
-        this.mText = graphics.addText([x, y], text,
-            {
-                fontSize: 14
-            });
+        this.mText = graphics.addText([x, y], text, {
+            fontSize: TButton.DEFAULT_SIZE
+        });
         const bounds = this.mText.getHandleBounds().expand(24, 8);
         if (options.width) {
             bounds.width = options.width;

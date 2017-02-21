@@ -21,8 +21,9 @@ export default class SinglePanelApp extends AppBase {
     static REPORT_Y_START = 440;
     static REPORT_LINE_SPACE = 17;
     static REPORT_COLUMN_SPACE = 110;
-    static BUTTON_START_X = 20;
-    static BUTTON_START_Y = 70;
+    static BUTTON_WIDTH = 180;
+    static BUTTON_START_X = 30;
+    static BUTTON_START_Y = 90;
     static BUTTON_Y_OFFSET = 30;
 
     constructor(scene) {
@@ -39,7 +40,7 @@ export default class SinglePanelApp extends AppBase {
         //this.makeRa();
         //this.makeForcePolygon();
         //this.makeTriangleLabels();
-        //this.makeText();
+        this.makeText();
         //this.makeSupports();
         //this.makeReport();
         //this.makeLinesOfAction();
@@ -112,16 +113,8 @@ export default class SinglePanelApp extends AppBase {
     }
 
     makeButtons() {
-
-        /*
-        const b1 = this.mScene.createButton([20, 30], 'What the heck?',
-            () => {console.log('Action!')});
-        const b2 = this.mScene.createButton([20, 130], 'This is a toggle',
-            (val) => {console.log('Toggle! ' + val)}, {isToggle: true});
-            */
-
-        const x = 20;
-        let y = 70;
+        const x = SinglePanelApp.BUTTON_START_X;
+        let y = SinglePanelApp.BUTTON_START_Y;
         const moveButton = this.mScene.createButton([x, y], 'Return To Starting Position',
             () => {
                 /*
@@ -145,12 +138,10 @@ export default class SinglePanelApp extends AppBase {
                  newJob.mMovePoint = SinglePanelApplet.this.mForceTail;
                  SinglePanelApplet.this.g.mTimer.addJob(newJob);
                  */
-            }, {width: 190});
+            }, {width: SinglePanelApp.BUTTON_WIDTH}
+        );
 
-//        moveButton.mWidth = 170.0f;
-//        moveButton.mHeight = 20.0f;
-
-        y += 30;
+        y += SinglePanelApp.BUTTON_Y_OFFSET;
         this.mCircleLoadButton = this.mScene.createButton([x, y], 'Circle Load',
             () => {
                 /*
@@ -164,13 +155,10 @@ export default class SinglePanelApp extends AppBase {
                     SinglePanelApplet.this.mCircleLoad = null;
                 }
                 */
-            }, {isToggle: true, width: 190});
+            }, {isToggle: true, width: SinglePanelApp.BUTTON_WIDTH}
+        );
 
-
-//                this.mCircleLoadButton.mWidth = 170.0f;
-//                this.mCircleLoadButton.mHeight = 20.0f;
-
-        y += 30;
+        y += SinglePanelApp.BUTTON_Y_OFFSET;
         this.mLoadsVertCheck = this.mScene.createButton([x, y], 'Keep Load Vertical',
             () => {
                 /*
@@ -179,15 +167,45 @@ export default class SinglePanelApp extends AppBase {
                  SinglePanelApplet.this.mUpdateCanvas.globalUpdate();
                  SinglePanelApplet.this.repaint();
                  */
-            }, {isToggle: true, width: 190});
+            }, {isToggle: true, width: SinglePanelApp.BUTTON_WIDTH});
 
-        y += 30;
+        y += SinglePanelApp.BUTTON_Y_OFFSET;
         this.mLinesOfActionCheck = this.mScene.createButton([x, y], 'Extend Lines of Action',
             () => {
                 /*
                  SinglePanelApplet.this.mLinesOfAction = SinglePanelApplet.access$3((SinglePanelApplet)SinglePanelApplet.this).mSelected;
                  SinglePanelApplet.this.repaint();
                  */
-            }, {isToggle: true, width: 190});
+            }, {isToggle: true, width: SinglePanelApp.BUTTON_WIDTH}
+        );
+    }
+
+    makeText() {
+        this.mScene.createText([20, 50], 'Single Panel Truss', {fontSize: 24});
+
+
+        /*
+        TText title = new TText();
+        title.mText = "Single Panel Truss";
+        title.mSize = 24;
+        title.x = 20.0f;
+        title.y = 50.0f;
+        title.mPosRelativeTo = 0;
+        this.addToDrawList(title);
+        TTextPoint forcePoly = new TTextPoint();
+        forcePoly.mBasePoint = this.mLoadLine[0];
+        forcePoly.mXOffset = -100;
+        forcePoly.mYOffset = -20;
+        forcePoly.mSize = 20;
+        forcePoly.mText = "Force Polygon";
+        this.addToDrawList(forcePoly);
+        TTextPoint formDiag = new TTextPoint();
+        formDiag.mBasePoint = this.mTrussNodes[1];
+        formDiag.mXOffset = -220;
+        formDiag.mYOffset = 0;
+        formDiag.mSize = 20;
+        formDiag.mText = "Form Diagram";
+        this.addToDrawList(formDiag);
+        */
     }
 }

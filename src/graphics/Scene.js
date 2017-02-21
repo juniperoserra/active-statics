@@ -4,6 +4,7 @@
 
 import TPoint from './TPoint';
 import TButton from './TButton';
+import TText from './TText';
 
 export default class Scene {
 
@@ -21,6 +22,10 @@ export default class Scene {
 
     createButton([x = 0, y = 0], text, callback, options = {}) {
         return new TButton(this.mGraphics, [x, y], text, callback, options);
+    }
+
+    createText([x = 0, y = 0], text, options = {}) {
+        return new TText(this.mGraphics, [x, y], text, options);
     }
 
 
