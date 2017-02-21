@@ -102,8 +102,12 @@ export default class SinglePanelApp extends AppBase {
 
     makeMembers() {
         this.mMembers = [];
-        this.mMembers[0] = this.mScene.createLine(this.mTrussNodes[0], this.mTrussNodes[1],
+        this.mMembers[0] = this.mScene.createMember(this.mTrussNodes[0], this.mTrussNodes[1],
             {thickness: 20});
+        this.mMembers[0].dragAlso(this.mTrussNodes[0]);
+        this.mMembers[0].dragAlso(this.mTrussNodes[1]);
+        this.mMembers[0].dragAlso(this.mTrussNodes[2]);
+
         /*
         for (let i = 0; i < 3; ++i) {
             this.mMembers[i] = new TLineMember(this.g);
@@ -116,6 +120,7 @@ export default class SinglePanelApp extends AppBase {
         this.mMembers[0].dragAlso(this.mTrussNodes[0]);
         this.mMembers[0].dragAlso(this.mTrussNodes[1]);
         this.mMembers[0].dragAlso(this.mTrussNodes[2]);
+
         this.mMembers[1].mStartPoint = this.mTrussNodes[1];
         this.mMembers[1].mEndPoint = this.mTrussNodes[2];
         this.mMembers[1].mLabelXOff = 14;

@@ -5,16 +5,6 @@
 import GraphicEntity from './GraphicEntity';
 import styles from './styles';
 
-/*
-hit(Point p) {
-    if (!new Polygon(this.xTaperPoints, this.yTaperPoints, 6).contains(p)) {
-        return false;
-    }
-    this.prepareDrag(p);
-    return true;
-}
-*/
-
 function near(first, second, tolerance) {
     return Math.abs(first - second) <= tolerance;
 }
@@ -102,6 +92,7 @@ export default class TLine extends GraphicEntity {
         //this.item.smooth({ type: 'catmull-rom', factor: 0.2 });
         this.item.sendToBack();
         this.update();
+        this.item.onMouseDrag = this::this.onMouseDrag;
     }
 
 

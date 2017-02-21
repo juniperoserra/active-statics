@@ -7,6 +7,7 @@ import TButton from './TButton';
 import TText from './TText';
 import TTextPoint from './TTextPoint';
 import TLine from './TLine';
+import TLineMember from './TLineMember';
 
 export default class Scene {
 
@@ -36,6 +37,10 @@ export default class Scene {
 
     createLine(start, end, options = {}) {
         return new TLine(this.mGraphics, start, end, options);
+    }
+
+    createMember(start, end, options = {}) {
+        return new TLineMember(this.mGraphics, start, end, options);
     }
 
 

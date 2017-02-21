@@ -2,6 +2,7 @@
  * Created by simong on 2/20/17.
  */
 
+import TLine from './TLine';
 import styles from './styles';
 
 export default class TLineMember extends TLine {
@@ -13,23 +14,23 @@ export default class TLineMember extends TLine {
     static ColorTensile = styles.blue;
     static ColorZero = styles.yellow;
 
-    constructor() {
+    constructor(graphics, startPoint, endPoint, options = {}) {
+        super(graphics, startPoint, endPoint, options);
         this.mIsWeightMember = false;
         this.mForcePolyMember = null; //TLineForcePoly
     }
 
     update() {
-        super.update();
-        if (!this.mForcePolyMember) {
-            return;
+        if (this.mForcePolyMember) {
+            this.item.fillColor = this.mForcePolyMember.mCharacter === 0 ?
+                TLineMember.ColorZero : (this.mForcePolyMember.mCharacter === 1 ?
+                TLineMember.ColorCompressive : TLineMember.ColorTensile);
+            this.mSize = Math.min(Math.max(
+                TLineMember.MIN_WIDTH,
+                !this.mIsWeightMember ? this.mForcePolyMember.length() * TLineMember.WIDTH_MULT :
+                    this.mForcePolyMember.length() * this.length() / (styles.lengthDivisor * styles.lengthDivisor) * TLineMember.WIDTH_MULT)
+                , TLineMember.MAX_WIDTH);
         }
-        this.item.fillColor = this.mForcePolyMember.mCharacter === 0 ?
-            TLineMember.ColorZero : (this.mForcePolyMember.mCharacter === 1 ?
-            TLineMember.ColorCompressive : TLineMember.ColorTensile);
-        this.mSize = Math.min(Math.max(
-            TLineMember.MIN_WIDTH,
-            !this.mIsWeightMember ? this.mForcePolyMember.length() * TLineMember.WIDTH_MULT :
-                this.mForcePolyMember.length() * this.length() / (styles.lengthDivisor * styles.lengthDivisor) * TLineMember.WIDTH_MULT)
-            , TLineMember.MAX_WIDTH);
+        super.update();
     }
 }
