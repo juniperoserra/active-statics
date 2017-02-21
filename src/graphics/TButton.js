@@ -54,7 +54,7 @@ export default class TButton extends GraphicEntity {
     };
 
     onMouseDrag(event) {
-        const hitItem = this.graphics.getItemHit(event.point);
+        const hitItem = this.mGraphics.getItemHit(event.point);
         const inButton = (hitItem === this.mRect || hitItem === this.mText);
         if (this.mIsToggle) {
             this.mSelected = inButton ? !this.mWasSelected : this.mWasSelected;

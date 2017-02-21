@@ -182,16 +182,11 @@ export default class SinglePanelApp extends AppBase {
 
     makeText() {
         this.mScene.createText([20, 50], 'Single Panel Truss', {fontSize: 24});
+        this.mScene.createTextPoint([20, 50], 'Truss Node', this.mTrussNodes[0],
+            {fontSize: 14});
 
 
         /*
-        TText title = new TText();
-        title.mText = "Single Panel Truss";
-        title.mSize = 24;
-        title.x = 20.0f;
-        title.y = 50.0f;
-        title.mPosRelativeTo = 0;
-        this.addToDrawList(title);
         TTextPoint forcePoly = new TTextPoint();
         forcePoly.mBasePoint = this.mLoadLine[0];
         forcePoly.mXOffset = -100;

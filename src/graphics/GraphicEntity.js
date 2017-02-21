@@ -6,8 +6,9 @@
 export default class GraphicEntity {
 
     constructor(graphics) {
-        this.graphics = graphics;
+        this.mGraphics = graphics;
         this.mDragAlso = [];
+        this.mGraphics.mEntities.push(this);
     }
 
     update() {}

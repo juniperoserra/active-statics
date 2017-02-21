@@ -6,7 +6,6 @@ export default class AppBase {
 
     constructor(scene, size) {
         this.mScene = scene;
-        this.mUpdateList = [];
         this.mScene.setSize(size);
     }
 };

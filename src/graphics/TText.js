@@ -14,5 +14,6 @@ export default class TText extends GraphicEntity {
         this.mText = graphics.addText([x, y], text, {
             fontSize: options.fontSize || TText.DEFAULT_SIZE
         });
+        this.item = this.mText;
     }
 };

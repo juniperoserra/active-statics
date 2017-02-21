@@ -33,7 +33,14 @@ export default class Graphics {
         this.paper = Paper;
         //this.paper.project.view.onMouseDown = onMouseDown;
         //this.paper.project.view.onMouseDrag = onMouseDown;
+        this.paper.project.view.onFrame = this::this.onFrame;
+        this.mEntities = [];
+    }
 
+    onFrame(event) {
+        for (let entity of this.mEntities) {
+            entity.update();
+        }
     }
 
     setSize(size) {
