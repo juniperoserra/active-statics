@@ -15,7 +15,7 @@ export default class TLineMember extends TLine {
     static ColorZero = styles.yellow;
 
     constructor(graphics, startPoint, endPoint, options = {}) {
-        super(graphics, startPoint, endPoint, options);
+        super(graphics, startPoint, endPoint, {...options, tapered: true});
         this.mIsWeightMember = false;
         this.mForcePolyMember = null; //TLineForcePoly
     }

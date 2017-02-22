@@ -43,6 +43,8 @@ export default class TLine extends GraphicEntity {
 
         this.mStartPoint = startPoint;
         this.mEndPoint = endPoint;
+        this.mTapered = !!options.tapered;
+
         //mLocation = new Point();
         this.mOutline = true;
         this.mDashed = false;
@@ -53,16 +55,27 @@ export default class TLine extends GraphicEntity {
         this.mColor = styles.green;
         this.mLabelText = options.label || null;
         this.mLabelOffset = options.labelOffset || [0, -20];
-        const pts = getThickTaperPoints(
-            this.mStartPoint.x, this.mStartPoint.y,
-            this.mEndPoint.x, this.mEndPoint.y, 1
-        );
-        this.item = this.mGraphics.addPath(pts, {
-            strokeColor: 'black',
-            fillColor: styles.green
-        });
-        this.item.closePath();
-        //this.item.smooth({ type: 'catmull-rom', factor: 0.2 });
+
+        if (this.mTapered) {
+            const pts = getThickTaperPoints(
+                this.mStartPoint.x, this.mStartPoint.y,
+                this.mEndPoint.x, this.mEndPoint.y, this.mSize
+            );
+            this.item = this.mGraphics.addPath(pts, {
+                strokeColor: options.strokeColor || 'black',
+                fillColor: options.fillColor || styles.green
+            });
+            this.item.closePath();
+            //this.item.smooth({ type: 'catmull-rom', factor: 0.2 });
+        }
+        else {
+            this.item = this.mGraphics.addPath([
+                [this.mStartPoint.x, this.mStartPoint.y], [this.mEndPoint.x, this.mEndPoint.y]], {
+                strokeColor: options.strokeColor || 'black',
+                strokeWidth: this.mSize
+            });
+        }
+
         this.item.sendToBack();
 
         this.update();
@@ -86,8 +99,7 @@ export default class TLine extends GraphicEntity {
         const endPoint = [(this.mEndPoint.x + endOffset * Math.cos(tempDir)),
             (this.mEndPoint.y + endOffset * Math.sin(tempDir))];
 
-
-        if (!this.mDashed) {
+        if (this.mTapered) {
             const pts = getThickTaperPoints(
                 this.mStartPoint.x, this.mStartPoint.y,
                 endPoint[0], endPoint[1], this.mSize
@@ -98,6 +110,12 @@ export default class TLine extends GraphicEntity {
                 seg.point.y = pts[i][1];
                 i++;
             }
+        }
+        else {
+            this.item.segments[0].point.x = this.mStartPoint.x;
+            this.item.segments[0].point.y = this.mStartPoint.y;
+            this.item.segments[1].point.x = endPoint[0];
+            this.item.segments[1].point.y = endPoint[1];
         }
     }
 
@@ -181,13 +199,14 @@ export default class TLine extends GraphicEntity {
     }
 
     /*
-    static CCW(X1, Y1, X2, Y2, PX, PY) {
+    static ccw(X1, Y1, X2, Y2, PX, PY) {
         let ccw = (PX -= X1) * (Y2 -= Y1) - (PY -= Y1) * (X2 -= X1);
-        if (ccw == 0.0 && (PX * X2 + PY * Y2) > 0.0 && ((PX - X2) * X2 + (PY - Y2) * Y2) < 0.0) {
+        if (ccw == 0.0 && (ccw = PX * X2 + PY * Y2) > 0.0 && (ccw = (PX -= X2) * X2 + (PY -= Y2) * Y2) < 0.0) {
             ccw = 0.0;
         }
         return ccw < 0.0 ? -1 : (ccw > 0.0 ? 1 : 0);
     }*/
+
 
     static ccw(X1, Y1, X2, Y2, PX, PY) {
         const val = (Y2 - Y1) * (PX - X2) - (X2 - X1) * (PY - Y2);

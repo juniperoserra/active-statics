@@ -10,6 +10,7 @@ import TLine from './TLine';
 import TLineMember from './TLineMember';
 import TArrow from './TArrow';
 import TLoad from './TLoad';
+import TReaction from './TReaction';
 
 export default class Scene {
 
@@ -21,8 +22,8 @@ export default class Scene {
         this.mGraphics.setSize(size);
     }
 
-    createPoint([x = 0, y = 0]) {
-        return new TPoint(this.mGraphics, [x, y]);
+    createPoint([x = 0, y = 0], options = {}) {
+        return new TPoint(this.mGraphics, [x, y], options);
     }
 
     createButton([x = 0, y = 0], text, callback, options = {}) {
@@ -53,5 +54,8 @@ export default class Scene {
         return new TLoad(this.mGraphics, start, end, options);
     }
 
+    createReaction(start, end, options = {}) {
+        return new TReaction(this.mGraphics, start, end, options);
+    }
 
 }

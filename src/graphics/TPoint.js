@@ -10,9 +10,12 @@ export default class TPoint extends GraphicEntity {
     static DEFAULT_SIZE = 10;
     static LABEL_EXTENT_WIDTH = 30;
 
-    constructor(graphics, [x = 0, y = 0]) {
+    constructor(graphics, [x = 0, y = 0], options) {
         super(graphics);
-        this.mSize = TPoint.DEFAULT_SIZE;
+        this.mSize = (options.size === undefined) ? TPoint.DEFAULT_SIZE : options.size;
+        if (options.update) {
+            this.update = options.update.bind(this);
+        }
 
         const c1 = graphics.addCircle([x, y], this.mSize,
             {

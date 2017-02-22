@@ -3,6 +3,8 @@
  */
 
 import AppBase from './AppBase';
+import styles from '../graphics/styles';
+import TLine from '../graphics/TLine';
 
 export default class SinglePanelApp extends AppBase {
 
@@ -34,8 +36,7 @@ export default class SinglePanelApp extends AppBase {
         this.makeNodes();
         this.makeMembers();
         this.makeLoads();
-        //this.addNodes();
-        //this.makeRb();
+        this.makeRb();
         //this.makeLoadLine();
         //this.makeRa();
         //this.makeForcePolygon();
@@ -136,6 +137,47 @@ export default class SinglePanelApp extends AppBase {
 
     makeLoads() {
         this.mLoad = this.mScene.createLoad(this.mForceTail, this.mTrussNodes[1]);
+    }
+
+    makeRb() {
+        const app = this;
+        this.mRbTail = this.mScene.createPoint([0,0], {
+            size: 0,
+            update: function () {
+                this.moment = app.mLoad.moment(app.mTrussNodes[0]);
+                this.moment *= TLine.ccw(app.mTrussNodes[2].x, app.mTrussNodes[2].y - 10,
+                    app.mTrussNodes[2].x, app.mTrussNodes[2].y, app.mTrussNodes[0].x, app.mTrussNodes[0].y);
+                this.pDist = TLine.perpDist(app.mTrussNodes[2].x, app.mTrussNodes[2].y, app.mTrussNodes[2].x, app.mTrussNodes[2].y + 10,
+                    app.mTrussNodes[0].x, app.mTrussNodes[0].y);
+                if (Math.abs(this.pDist) < 0.1) {
+                    this.pDist = 1.0;
+                }
+                this.moment /= this.pDist;
+                this.item.position = [app.mTrussNodes[2].x, app.mTrussNodes[2].y + Math.abs(this.moment) + app.mRb.mArrowOffset];
+                app.mRb.mReverse = (this.moment < 0) ? -1 : 1;
+            }
+        });
+
+        this.mRb = this.mScene.createReaction(this.mRbTail, this.mTrussNodes[2], {
+            arrowOffset: 45, strokeColor: styles.green, label: 'Rb', labelOffset: [20, 0]
+        });
+/*
+        this.mRb = new TReaction();
+        this.mRb.ARROW_OFFSET = 45;
+        this.mRb.mArrowOffset = 45;
+        this.mRb.mStartPoint = this.mRbTail;
+        this.mRb.mEndPoint = this.mTrussNodes[2];
+        this.mRb.mColor = G.mGreen;
+        this.mRb.mLabel = "Rb";
+        this.mRb.mLabelXOff = 20;
+        this.mRb.mLabelYOff = 0;
+*/
+/*
+        TTextPointLength RbMag = new TTextPointLength(this.g);
+        RbMag.mBasePoint = this.mRbTail;
+        RbMag.mXOffset = -20;
+        RbMag.mYOffset = 20;
+        RbMag.mLine = this.mRb;*/
     }
 
     makeButtons() {
