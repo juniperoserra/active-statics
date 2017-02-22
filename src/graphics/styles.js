@@ -9,6 +9,7 @@ const styles = {
     yellow: '	#ddbb33', //new Color(221, 187, 51)
     background: 'ebe1cd', //new Color(235, 225, 205)
     controlPointColor: '#e1a028', //new Color(225, 160, 40)
+    labelSize: 14, //new Color(225, 160, 40)
     lengthDivisor: 1.0
 };
 

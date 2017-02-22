@@ -31,8 +31,8 @@ export default class Scene {
         return new TText(this.mGraphics, [x, y], text, options);
     }
 
-    createTextPoint([x = 0, y = 0], text, tpoint, options = {}) {
-        return new TTextPoint(this.mGraphics, [x, y], text, tpoint, options);
+    createTextPoint(tpoint, text, options = {}) {
+        return new TTextPoint(this.mGraphics, tpoint, text, options);
     }
 
     createLine(start, end, options = {}) {

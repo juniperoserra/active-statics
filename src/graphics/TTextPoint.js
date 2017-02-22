@@ -6,9 +6,9 @@ import TText from './TText';
 
 
 export default class TTextPoint extends TText {
-    constructor(graphics, [x = 0, y = 0], text, tpoint, options = {}) {
+    constructor(graphics, tpoint, text, options = {}) {
         super(graphics, [0, 0], text, options);
-        this.mOffset = [x, y];
+        this.mOffset = options.offset || [0, 0];
         this.mTPoint = tpoint;
         this.update();
     }

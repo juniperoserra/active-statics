@@ -102,42 +102,24 @@ export default class SinglePanelApp extends AppBase {
 
     makeMembers() {
         this.mMembers = [];
+
         this.mMembers[0] = this.mScene.createMember(this.mTrussNodes[0], this.mTrussNodes[1],
-            {thickness: 20});
+            {thickness: 20, label: 'A', labelOffset: [-14, -14]});
         this.mMembers[0].dragAlso(this.mTrussNodes[0]);
         this.mMembers[0].dragAlso(this.mTrussNodes[1]);
         this.mMembers[0].dragAlso(this.mTrussNodes[2]);
 
-        /*
-        for (let i = 0; i < 3; ++i) {
-            this.mMembers[i] = new TLineMember(this.g);
-        }
-        this.mMembers[0].mStartPoint = this.mTrussNodes[0];
-        this.mMembers[0].mEndPoint = this.mTrussNodes[1];
-        this.mMembers[0].mLabelXOff = -14;
-        this.mMembers[0].mLabelYOff = -14;
-        this.mMembers[0].mLabel = "A";
-        this.mMembers[0].dragAlso(this.mTrussNodes[0]);
-        this.mMembers[0].dragAlso(this.mTrussNodes[1]);
-        this.mMembers[0].dragAlso(this.mTrussNodes[2]);
-
-        this.mMembers[1].mStartPoint = this.mTrussNodes[1];
-        this.mMembers[1].mEndPoint = this.mTrussNodes[2];
-        this.mMembers[1].mLabelXOff = 14;
-        this.mMembers[1].mLabelYOff = -14;
-        this.mMembers[1].mLabel = "B";
+        this.mMembers[1] = this.mScene.createMember(this.mTrussNodes[1], this.mTrussNodes[2],
+            {thickness: 20, label: 'B', labelOffset: [14, -14]});
         this.mMembers[1].dragAlso(this.mTrussNodes[0]);
         this.mMembers[1].dragAlso(this.mTrussNodes[1]);
         this.mMembers[1].dragAlso(this.mTrussNodes[2]);
-        this.mMembers[2].mStartPoint = this.mTrussNodes[2];
-        this.mMembers[2].mEndPoint = this.mTrussNodes[0];
-        this.mMembers[2].mLabelXOff = 0;
-        this.mMembers[2].mLabelYOff = 20;
-        this.mMembers[2].mLabel = "C";
+
+        this.mMembers[2] = this.mScene.createMember(this.mTrussNodes[2], this.mTrussNodes[0],
+            {thickness: 20, label: 'C', labelOffset: [0, 20]});
         this.mMembers[2].dragAlso(this.mTrussNodes[0]);
         this.mMembers[2].dragAlso(this.mTrussNodes[1]);
         this.mMembers[2].dragAlso(this.mTrussNodes[2]);
-        */
     }
 
     makeNodes() {
@@ -222,8 +204,8 @@ export default class SinglePanelApp extends AppBase {
 
     makeText() {
         this.mScene.createText([20, 50], 'Single Panel Truss', {fontSize: 24});
-        this.mScene.createTextPoint([20, 50], 'Truss Node', this.mTrussNodes[0],
-            {fontSize: 14});
+        this.mScene.createTextPoint(this.mTrussNodes[1], 'Form Diagram',
+            {fontSize: 20, offset: [-155, -20]});
 
 
         /*
@@ -234,13 +216,6 @@ export default class SinglePanelApp extends AppBase {
         forcePoly.mSize = 20;
         forcePoly.mText = "Force Polygon";
         this.addToDrawList(forcePoly);
-        TTextPoint formDiag = new TTextPoint();
-        formDiag.mBasePoint = this.mTrussNodes[1];
-        formDiag.mXOffset = -220;
-        formDiag.mYOffset = 0;
-        formDiag.mSize = 20;
-        formDiag.mText = "Form Diagram";
-        this.addToDrawList(formDiag);
         */
     }
 }

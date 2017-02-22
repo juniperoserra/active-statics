@@ -67,19 +67,10 @@ export default class TLine extends GraphicEntity {
         //this.mDashLength = 10;
         //this.mGapLength = 10;
 
-        //private Point mHitPoint = new Point();
-        //private Point mDragOffset = new Point();
-        //private Point tempPoint = new Point();
-
-        //int[] xPoints = new int[4];
-        //int[] yPoints = new int[4];
-        //int[] xTaperPoints = new int[6];
-        //int[] yTaperPoints = new int[6];
-
         this.mSize = options.thickness || TLine.DEFAULT_SIZE;
         this.mColor = styles.green;
-        this.mLabelXOff = 0;
-        this.mLabelYOff = -20;
+        this.mLabelText = options.label || null;
+        this.mLabelOffset = options.labelOffset || [0, -20];
         const pts = getThickTaperPoints(
             this.mStartPoint.x, this.mStartPoint.y,
             this.mEndPoint.x, this.mEndPoint.y, 1
@@ -91,12 +82,23 @@ export default class TLine extends GraphicEntity {
         this.item.closePath();
         //this.item.smooth({ type: 'catmull-rom', factor: 0.2 });
         this.item.sendToBack();
+
         this.update();
         this.item.onMouseDrag = this::this.onMouseDrag;
     }
 
 
     update() {
+        if (this.mLabelText && !this.mLabel) {
+            this.mLabel = this.mGraphics.addText(this.mLabelOffset, this.mLabelText,
+                {fontSize: styles.labelSize});
+        }
+        if (this.mLabel) {
+            this.mLabel.content = this.mLabelText || '';
+            this.mLabel.position = [this.mLabelOffset[0] + (this.mStartPoint.x + this.mEndPoint.x) / 2.0,
+                this.mLabelOffset[1] + (this.mStartPoint.y + this.mEndPoint.y) / 2.0];
+        }
+
         if (!this.mDashed) {
             const pts = getThickTaperPoints(
                 this.mStartPoint.x, this.mStartPoint.y,
