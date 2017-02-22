@@ -8,6 +8,8 @@ import TText from './TText';
 import TTextPoint from './TTextPoint';
 import TLine from './TLine';
 import TLineMember from './TLineMember';
+import TArrow from './TArrow';
+import TLoad from './TLoad';
 
 export default class Scene {
 
@@ -41,6 +43,14 @@ export default class Scene {
 
     createMember(start, end, options = {}) {
         return new TLineMember(this.mGraphics, start, end, options);
+    }
+
+    createArrow(start, end, options = {}) {
+        return new TArrow(this.mGraphics, start, end, options);
+    }
+
+    createLoad(start, end, options = {}) {
+        return new TLoad(this.mGraphics, start, end, options);
     }
 
 

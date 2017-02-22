@@ -4,29 +4,11 @@
 
 import GraphicEntity from './GraphicEntity';
 import styles from './styles';
-
-function near(first, second, tolerance) {
-    return Math.abs(first - second) <= tolerance;
-}
-
-function direction(x1, y1, x2, y2) {
-    let dir = Math.atan2(y2 - y1, x2 - x1);
-    if (dir < 0) {
-        dir += 6.2831855;
-    }
-    if (near(dir, 6.283185307179586, 1.0E-4)) {
-        dir = 0.0;
-    }
-    return dir;
-}
-
-function distance(x1, y1, x2, y2) {
-    return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-}
+import util from './util';
 
 function getThickTaperPoints(x1, y1, x2, y2, thickness) {
-    const taperLength = Math.min(thickness / 1.6, distance(x1, y1, x2, y2) / 2.4);
-    const dir = direction(x1, y1, x2, y2);
+    const taperLength = Math.min(thickness / 1.6, util.distance(x1, y1, x2, y2) / 2.4);
+    const dir = util.direction(x1, y1, x2, y2);
     const mX1 = x1 + taperLength * Math.cos(dir);
     const mY1 = y1 + taperLength * Math.sin(dir);
     const mX2 = x2 - taperLength * Math.cos(dir);
@@ -99,10 +81,16 @@ export default class TLine extends GraphicEntity {
                 this.mLabelOffset[1] + (this.mStartPoint.y + this.mEndPoint.y) / 2.0];
         }
 
+        const endOffset = this.mArrowOffset ? this.mArrowOffset : 0;
+        let tempDir = util.direction(this.mEndPoint.x, this.mEndPoint.y, this.mStartPoint.x, this.mStartPoint.y);
+        const endPoint = [(this.mEndPoint.x + endOffset * Math.cos(tempDir)),
+            (this.mEndPoint.y + endOffset * Math.sin(tempDir))];
+
+
         if (!this.mDashed) {
             const pts = getThickTaperPoints(
                 this.mStartPoint.x, this.mStartPoint.y,
-                this.mEndPoint.x, this.mEndPoint.y, this.mSize
+                endPoint[0], endPoint[1], this.mSize
             );
             let i = 0;
             for (let seg of this.item.segments) {

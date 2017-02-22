@@ -33,7 +33,7 @@ export default class SinglePanelApp extends AppBase {
         this.makeButtons();
         this.makeNodes();
         this.makeMembers();
-        //this.makeLoads();
+        this.makeLoads();
         //this.addNodes();
         //this.makeRb();
         //this.makeLoadLine();
@@ -130,8 +130,12 @@ export default class SinglePanelApp extends AppBase {
         this.mTrussNodes[1] = this.mScene.createPoint([x + 90.0, 350 - height]);
         this.mTrussNodes[2] = this.mScene.createPoint([x + 180, 350.0]);
         x = 240;
-        this.mForceTail = this.mScene.createPoint([x, 350 - height - 165]);
+        this.mForceTail = this.mScene.createPoint([x, 350 - height - 168]);
         this.mTrussNodes[1].dragAlso(this.mForceTail);
+    }
+
+    makeLoads() {
+        this.mLoad = this.mScene.createLoad(this.mForceTail, this.mTrussNodes[1]);
     }
 
     makeButtons() {
