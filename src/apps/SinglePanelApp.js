@@ -161,23 +161,9 @@ export default class SinglePanelApp extends AppBase {
         this.mRb = this.mScene.createReaction(this.mRbTail, this.mTrussNodes[2], {
             arrowOffset: 45, strokeColor: styles.green, label: 'Rb', labelOffset: [20, 0]
         });
-/*
-        this.mRb = new TReaction();
-        this.mRb.ARROW_OFFSET = 45;
-        this.mRb.mArrowOffset = 45;
-        this.mRb.mStartPoint = this.mRbTail;
-        this.mRb.mEndPoint = this.mTrussNodes[2];
-        this.mRb.mColor = G.mGreen;
-        this.mRb.mLabel = "Rb";
-        this.mRb.mLabelXOff = 20;
-        this.mRb.mLabelYOff = 0;
-*/
-/*
-        TTextPointLength RbMag = new TTextPointLength(this.g);
-        RbMag.mBasePoint = this.mRbTail;
-        RbMag.mXOffset = -20;
-        RbMag.mYOffset = 20;
-        RbMag.mLine = this.mRb;*/
+        this.mScene.createTextPoint(this.mRbTail, '', {
+           offset: [0, 20], lineLength: this.mRb
+        });
     }
 
     makeButtons() {

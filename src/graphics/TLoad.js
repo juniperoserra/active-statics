@@ -4,7 +4,7 @@
 
 import TArrow from './TArrow';
 import styles from './styles';
-//import util from './util';
+import util from './util';
 
 export default class TLoad extends TArrow {
 
@@ -14,7 +14,7 @@ export default class TLoad extends TArrow {
     }
 
     update() {
-        this.mLabelText = '' + Math.round(this.length() / styles.lengthDivisor);
+        this.mLabelText = util.tenthStr(this.length() / styles.lengthDivisor);
         this.mReverse = this.mTrueLength < this.mArrowOffset ? -1 : (this.mTrueLength == 0 ? 0 : 1);
         super.update();
         if (this.mLabel) {

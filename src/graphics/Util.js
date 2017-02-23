@@ -21,7 +21,9 @@ const util = {
             dir = 0.0;
         }
         return dir;
-    }
+    },
+
+    tenthStr: n => Number(n).toFixed(1)
 };
 
 export default util;
