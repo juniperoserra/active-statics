@@ -8,14 +8,20 @@ import styles from './styles';
 export default class TPoint extends GraphicEntity {
 
     static DEFAULT_SIZE = 10;
-    static LABEL_EXTENT_WIDTH = 30;
 
-    constructor(graphics, [x = 0, y = 0], options) {
+    constructor(graphics, [x = 0, y = 0] = [0, 0], options = {}) {
         super(graphics);
         this.mSize = (options.size === undefined) ? TPoint.DEFAULT_SIZE : options.size;
         if (options.update) {
-            this.update = options.update.bind(this);
+            const oldUpdate = this.update.bind(this);
+            this.update = () => {
+                options.update.bind(this)();
+                oldUpdate();
+            }
         }
+
+        this.mLabelText = options.label || null;
+        this.mLabelOffset = options.labelOffset || [0, -20];
 
         const c1 = graphics.addCircle([x, y], this.mSize,
             {
@@ -38,6 +44,18 @@ export default class TPoint extends GraphicEntity {
 
     get y() {
         return this.item.position.y;
+    }
+
+    update() {
+        if (this.mLabelText && !this.mLabel) {
+            this.mLabel = this.mGraphics.addText(this.mLabelOffset, this.mLabelText,
+                {fontSize: styles.labelSize});
+        }
+        if (this.mLabel) {
+            this.mLabel.content = this.mLabelText || '';
+            this.mLabel.position = [this.mLabelOffset[0] + this.x,
+                this.mLabelOffset[1] + this.y];
+        }
     }
 
 }

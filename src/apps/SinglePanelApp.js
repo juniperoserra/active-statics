@@ -5,6 +5,7 @@
 import AppBase from './AppBase';
 import styles from '../graphics/styles';
 import TLine from '../graphics/TLine';
+import util from '../graphics/util';
 
 export default class SinglePanelApp extends AppBase {
 
@@ -37,8 +38,8 @@ export default class SinglePanelApp extends AppBase {
         this.makeMembers();
         this.makeLoads();
         this.makeRb();
-        //this.makeLoadLine();
-        //this.makeRa();
+        this.makeLoadLine();
+        this.makeRa();
         //this.makeForcePolygon();
         //this.makeTriangleLabels();
         this.makeText();
@@ -161,10 +162,54 @@ export default class SinglePanelApp extends AppBase {
         this.mRb = this.mScene.createReaction(this.mRbTail, this.mTrussNodes[2], {
             arrowOffset: 45, strokeColor: styles.green, label: 'Rb', labelOffset: [20, 0]
         });
-        this.mScene.createTextPoint(this.mRbTail, '', {
-           offset: [0, 20], lineLength: this.mRb
+    }
+
+    makeRa() {
+        const app = this;
+        this.mRaTail = this.mScene.createPoint([0,0], {
+            size: 0,
+            update: function () {
+                this.mDir = util.direction(app.mLoadLine[2].x, app.mLoadLine[2].y, app.mLoadLine[0].x, app.mLoadLine[0].y);
+                this.mDist = util.distance(app.mLoadLine[2].x, app.mLoadLine[2].y, app.mLoadLine[0].x, app.mLoadLine[0].y) + app.mRa.mArrowOffset;
+                this.item.position = [ app.mTrussNodes[0].x - this.mDist * Math.cos(this.mDir),
+                    app.mTrussNodes[0].y - this.mDist * Math.sin(this.mDir)];
+                console.log(this.item.position.x);
+            }
+        });
+
+        this.mRa = this.mScene.createReaction(this.mRaTail, this.mTrussNodes[0], {
+            arrowOffset: 45, strokeColor: styles.green, label: 'Ra', labelOffset: [-24, 0]
         });
     }
+
+    makeLoadLine() {
+
+        this.mLoadLine = [];
+        this.mLoadLine[0] = this.mScene.createPoint([480.0, 120.0], {
+            label: 'a', labelOffset: [14, 0], size: 7
+        });
+        this.mLoadLine[1] = this.mScene.createPointTranslated(this.mLoadLine[0], this.mForceTail, this.mLoad.mArrowHead, {
+           label: 'b', labelOffset: [14, 0], size: 7
+        });
+        this.mLoadLine[1].dragAlso(this.mLoadLine[0]);
+
+        this.mLoadLine[2] = this.mScene.createPointTranslated(this.mLoadLine[1], this.mRb.mArrowTail, this.mRb.mArrowHead, {
+            label: 'c', labelOffset: [14, 0], size: 7
+        });
+        this.mLoadLine[2].dragAlso(this.mLoadLine[0]);
+
+        this.mLoadLineLines = [];
+        for (let i = 0; i < 3; i++) {
+            this.mLoadLineLines[i] = this.mScene.createLine(this.mLoadLine[i], this.mLoadLine[(i + 1) % 3], {
+                thickness: 4, fillColor: 'black'
+            });
+            this.mLoadLineLines[i].dragAlso(this.mLoadLine[0]);
+        }
+        this.mLoadLineLines[0].mColor = 'gray'; //this.mLoad.mColor;
+        this.mLoadLineLines[1].mColor = styles.green;
+        this.mLoadLineLines[2].mColor = styles.green;
+    }
+
 
     makeButtons() {
         const x = SinglePanelApp.BUTTON_START_X;

@@ -22,5 +22,6 @@ export default class TTextPoint extends TText {
             this.item.content = this.mPrefix + util.tenthStr(this.mLineLength.length() / styles.lengthDivisor) + this.mPostfix;
         }
         this.item.position = this.mTPoint.item.position.add(this.mOffset);
+        super.update();
     }
 };

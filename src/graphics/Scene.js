@@ -11,6 +11,7 @@ import TLineMember from './TLineMember';
 import TArrow from './TArrow';
 import TLoad from './TLoad';
 import TReaction from './TReaction';
+import TPointTranslated from './TPointTranslated';
 
 export default class Scene {
 
@@ -24,6 +25,10 @@ export default class Scene {
 
     createPoint([x = 0, y = 0], options = {}) {
         return new TPoint(this.mGraphics, [x, y], options);
+    }
+
+    createPointTranslated(base, from, to, options = {}) {
+        return new TPointTranslated(this.mGraphics, base, from, to, options);
     }
 
     createButton([x = 0, y = 0], text, callback, options = {}) {
