@@ -84,6 +84,13 @@ export default class TLine extends GraphicEntity {
 
 
     update() {
+        if (this.mTapered) {
+            this.item.fillColor = this.mColor;
+        } else {
+            this.item.strokeColor = this.mColor;
+        }
+
+
         if (this.mLabelText && !this.mLabel) {
             this.mLabel = this.mGraphics.addText(this.mLabelOffset, this.mLabelText,
                 {fontSize: styles.labelSize});
@@ -117,6 +124,14 @@ export default class TLine extends GraphicEntity {
             this.item.segments[1].point.x = endPoint[0];
             this.item.segments[1].point.y = endPoint[1];
         }
+    }
+
+    length() {
+        return util.distance(this.mStartPoint.x, this.mStartPoint.y, this.mEndPoint.x, this.mEndPoint.y);
+    }
+
+    direction() {
+        return util.direction(this.mStartPoint.x, this.mStartPoint.y, this.mEndPoint.x, this.mEndPoint.y);
     }
 
     paramToPoint(t) {

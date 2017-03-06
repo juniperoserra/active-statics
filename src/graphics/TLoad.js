@@ -10,7 +10,7 @@ export default class TLoad extends TArrow {
 
     constructor(graphics, start, end, options) {
         super(graphics, start, end, options);
-        this.item.fillColor = 'gray';
+        this.mColor = 'gray';
     }
 
     update() {

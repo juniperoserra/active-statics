@@ -16,7 +16,8 @@ module.exports = function (env) {
         devServer: {
             contentBase: path.resolve(__dirname, './src'),  // New
         },
-        devtool: env === 'dev' ? 'cheap-module-eval-source-map' : 'cheap-module-source-map',
+        //devtool: env === 'dev' ? 'cheap-module-eval-source-map' : 'cheap-module-source-map',
+        devtool: env === 'dev' ? 'inline-source-map' : 'cheap-module-source-map',
         module: {
             rules: [
                 {

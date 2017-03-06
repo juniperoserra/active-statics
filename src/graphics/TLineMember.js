@@ -10,6 +10,10 @@ export default class TLineMember extends TLine {
     static MIN_WIDTH = 2.0;
     static WIDTH_MULT = 0.1;
 
+    static COMPRESSIVE = 1;
+    static TENSILE = -1;
+    static NONE = 0;
+
     static ColorCompressive = styles.red;
     static ColorTensile = styles.blue;
     static ColorZero = styles.yellow;
@@ -20,10 +24,14 @@ export default class TLineMember extends TLine {
         this.mForcePolyMember = null; //TLineForcePoly
     }
 
+    setForcePolyMember(member) {
+        this.mForcePolyMember = member;
+    }
+
     update() {
         if (this.mForcePolyMember) {
-            this.item.fillColor = this.mForcePolyMember.mCharacter === 0 ?
-                TLineMember.ColorZero : (this.mForcePolyMember.mCharacter === 1 ?
+            this.item.fillColor = this.mForcePolyMember.mCharacter === TLineMember.NONE ?
+                TLineMember.ColorZero : (this.mForcePolyMember.mCharacter === TLineMember.COMPRESSIVE ?
                 TLineMember.ColorCompressive : TLineMember.ColorTensile);
             this.mSize = Math.min(Math.max(
                 TLineMember.MIN_WIDTH,

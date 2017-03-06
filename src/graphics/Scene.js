@@ -12,6 +12,8 @@ import TArrow from './TArrow';
 import TLoad from './TLoad';
 import TReaction from './TReaction';
 import TPointTranslated from './TPointTranslated';
+import TPointForcePoly from './TPointForcePoly';
+import TLineForcePoly from './TLineForcePoly';
 
 export default class Scene {
 
@@ -29,6 +31,14 @@ export default class Scene {
 
     createPointTranslated(base, from, to, options = {}) {
         return new TPointTranslated(this.mGraphics, base, from, to, options);
+    }
+
+    createPointForcePoly(member1, member2, force1start, force2start, options = {}) {
+        return new TPointForcePoly(this.mGraphics, member1, member2, force1start, force2start, options);
+    }
+
+    createLineForcePoly(start, end, memberStart, memberEnd, member, options = {}) {
+        return new TLineForcePoly(this.mGraphics, start, end, memberStart, memberEnd, member, options);
     }
 
     createButton([x = 0, y = 0], text, callback, options = {}) {
