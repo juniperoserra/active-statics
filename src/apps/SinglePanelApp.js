@@ -41,7 +41,7 @@ export default class SinglePanelApp extends AppBase {
         this.makeLoadLine();
         this.makeRa();
         this.makeForcePolygon();
-        //this.makeTriangleLabels();
+        this.makeTriangleLabels();
         this.makeText();
         //this.makeSupports();
         //this.makeReport();
@@ -225,6 +225,10 @@ export default class SinglePanelApp extends AppBase {
                 this.mMembers[i]
             );
         }
+    }
+
+    makeTriangleLabels() {
+        this.mScene.createTextTriangle(this.mTrussNodes[0], this.mTrussNodes[1], this.mTrussNodes[2], '1');
     }
 
     makeButtons() {

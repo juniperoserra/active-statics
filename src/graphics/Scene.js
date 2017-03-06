@@ -6,6 +6,7 @@ import TPoint from './TPoint';
 import TButton from './TButton';
 import TText from './TText';
 import TTextPoint from './TTextPoint';
+import TTextTriangle from './TTextTriangle';
 import TLine from './TLine';
 import TLineMember from './TLineMember';
 import TArrow from './TArrow';
@@ -51,6 +52,10 @@ export default class Scene {
 
     createTextPoint(tpoint, text, options = {}) {
         return new TTextPoint(this.mGraphics, tpoint, text, options);
+    }
+
+    createTextTriangle(p1, p2, p3, text, options = {}) {
+        return new TTextTriangle(this.mGraphics, p1, p2, p3, text, options);
     }
 
     createLine(start, end, options = {}) {
