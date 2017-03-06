@@ -119,6 +119,7 @@ export default class TLine extends GraphicEntity {
             }
         }
         else {
+            this.item.strokeWidth = this.mSize;
             this.item.segments[0].point.x = this.mStartPoint.x;
             this.item.segments[0].point.y = this.mStartPoint.y;
             this.item.segments[1].point.x = endPoint[0];

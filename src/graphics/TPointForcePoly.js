@@ -14,7 +14,7 @@ export default class TPointForcePoly extends TPoint {
         this.mMember2 = member2;
         this.mMember1ForceBegin = force1start;
         this.mMember2ForceBegin = force2start;
-        this.mSize = options.size || 7;
+        this.mSize = options.size || 3;
         this.mControlPoint = !!options.controlPoint;
         this.update();
     }

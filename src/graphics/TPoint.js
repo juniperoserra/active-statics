@@ -23,18 +23,18 @@ export default class TPoint extends GraphicEntity {
         this.mLabelText = options.label || null;
         this.mLabelOffset = options.labelOffset || [0, -20];
 
-        const c1 = graphics.addCircle([x, y], this.mSize,
+        this.c1 = graphics.addCircle([x, y], this.mSize,
             {
                 fillColor: styles.controlPointColor,
                 strokeColor: 'black'
             });
-        const c2 = graphics.addCircle([x, y], this.mSize / 1.4,
+        this.c2 = graphics.addCircle([x, y], this.mSize / 1.4,
             {
                 fillColor: styles.controlPointColor,
                 strokeColor: 'black'
             });
 
-        this.item = graphics.addGroup([c1, c2]);
+        this.item = graphics.addGroup([this.c1, this.c2]);
         this.item.onMouseDrag = this::this.onMouseDrag;
     }
 
@@ -47,6 +47,9 @@ export default class TPoint extends GraphicEntity {
     }
 
     update() {
+        this.c1.radius = this.mSize;
+        this.c2.radius = this.mSize / 1.4;
+
         if (this.mLabelText && !this.mLabel) {
             this.mLabel = this.mGraphics.addText(this.mLabelOffset, this.mLabelText,
                 {fontSize: styles.labelSize});

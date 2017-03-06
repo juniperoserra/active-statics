@@ -30,7 +30,7 @@ export default class TLineMember extends TLine {
 
     update() {
         if (this.mForcePolyMember) {
-            this.item.fillColor = this.mForcePolyMember.mCharacter === TLineMember.NONE ?
+            this.mColor = this.mForcePolyMember.mCharacter === TLineMember.NONE ?
                 TLineMember.ColorZero : (this.mForcePolyMember.mCharacter === TLineMember.COMPRESSIVE ?
                 TLineMember.ColorCompressive : TLineMember.ColorTensile);
             this.mSize = Math.min(Math.max(

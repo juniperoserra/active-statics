@@ -188,12 +188,12 @@ export default class SinglePanelApp extends AppBase {
             label: 'a', labelOffset: [14, 0], size: 7
         });
         this.mLoadLine[1] = this.mScene.createPointTranslated(this.mLoadLine[0], this.mForceTail, this.mLoad.mArrowHead, {
-           label: 'b', labelOffset: [14, 0], size: 7
+           label: 'b', labelOffset: [14, 0], size: 3
         });
         this.mLoadLine[1].dragAlso(this.mLoadLine[0]);
 
         this.mLoadLine[2] = this.mScene.createPointTranslated(this.mLoadLine[1], this.mRb.mArrowTail, this.mRb.mArrowHead, {
-            label: 'c', labelOffset: [14, 0], size: 7
+            label: 'c', labelOffset: [14, 0], size: 3
         });
         this.mLoadLine[2].dragAlso(this.mLoadLine[0]);
 
@@ -210,21 +210,6 @@ export default class SinglePanelApp extends AppBase {
     }
 
     makeForcePolygon() {
-
-        /*
-        TPointForcePoly newNode;
-        int i;
-        this.mForcePolyNode = newNode = new TPointForcePoly();
-        newNode.mMember1 = this.mMembers[0];
-        newNode.mMember1ForceBegin = this.mLoadLine[0];
-        newNode.mMember2 = this.mMembers[1];
-        newNode.mMember2ForceBegin = this.mLoadLine[1];
-        newNode.mLabel = "1";
-        newNode.mLabelXOff = -14;
-        newNode.mLabelYOff = -8;
-        newNode.dragAlso(this.mLoadLine[0]);
-        */
-
         this.mForcePolyNode = this.mScene.createPointForcePoly(
             this.mMembers[0], this.mMembers[1],
             this.mLoadLine[0], this.mLoadLine[1],
@@ -239,48 +224,7 @@ export default class SinglePanelApp extends AppBase {
                 this.mTrussNodes[i], this.mTrussNodes[(i+1)%3],
                 this.mMembers[i]
             );
-
-
-            //this.mMembers[i].mForcePolyMember = this.mForcePolyLines[i];
-            //this.mForcePolyLines[i].dragAlso(this.mLoadLine[0]);
         }
-
-
-        /*
-        this.addToUpdateList(newNode);
-        for (i = 0; i < 3; ++i) {
-            this.mForcePolyLines[i] = new TLineForcePoly();
-            this.mMembers[i].mForcePolyMember = this.mForcePolyLines[i];
-            this.mForcePolyLines[i].dragAlso(this.mLoadLine[0]);
-        }
-
-        TLineForcePoly newLine = this.mForcePolyLines[0];
-        newLine.mStartPoint = this.mLoadLine[0];
-        newLine.mEndPoint = this.mForcePolyNode;
-        newLine.mMemberStart = this.mTrussNodes[0];
-        newLine.mMemberEnd = this.mTrussNodes[1];
-        this.addToDrawList(newLine);
-
-        newLine = this.mForcePolyLines[1];
-        newLine.mStartPoint = this.mLoadLine[1];
-        newLine.mEndPoint = this.mForcePolyNode;
-        newLine.mMemberStart = this.mTrussNodes[1];
-        newLine.mMemberEnd = this.mTrussNodes[2];
-        this.addToDrawList(newLine);
-
-        newLine = this.mForcePolyLines[2];
-        newLine.mStartPoint = this.mLoadLine[2];
-        newLine.mEndPoint = this.mForcePolyNode;
-        newLine.mMemberStart = this.mTrussNodes[2];
-        newLine.mMemberEnd = this.mTrussNodes[0];
-        this.addToDrawList(newLine);
-
-
-        for (i = 0; i < this.mLoadLine.length; ++i) {
-            this.addToDrawListOnly(this.mLoadLine[i]);
-        }
-        this.addToDrawListOnly(this.mForcePolyNode);
-        */
     }
 
     makeButtons() {
