@@ -234,8 +234,6 @@ export default class SinglePanelApp extends AppBase {
     makeSupports() {
         this.mScene.createPin(this.mTrussNodes[0]);
         /*
-        TPin pin = new TPin(mTrussNodes[0]);
-        addToDrawList(pin);
         TRoller roller = new TRoller(mTrussNodes[2]);
         addToDrawList(roller);*/
     }
@@ -312,16 +310,7 @@ export default class SinglePanelApp extends AppBase {
         this.mScene.createText([20, 50], 'Single Panel Truss', {fontSize: 24});
         this.mScene.createTextPoint(this.mTrussNodes[1], 'Form Diagram',
             {fontSize: 20, offset: [-155, -20]});
-
-
-        /*
-        TTextPoint forcePoly = new TTextPoint();
-        forcePoly.mBasePoint = this.mLoadLine[0];
-        forcePoly.mXOffset = -100;
-        forcePoly.mYOffset = -20;
-        forcePoly.mSize = 20;
-        forcePoly.mText = "Force Polygon";
-        this.addToDrawList(forcePoly);
-        */
+        this.mScene.createTextPoint(this.mLoadLine[0], 'Force Polygon',
+            {fontSize: 20, offset: [-100, -20]});
     }
 }
