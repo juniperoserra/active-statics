@@ -15,6 +15,7 @@ import TReaction from './TReaction';
 import TPointTranslated from './TPointTranslated';
 import TPointForcePoly from './TPointForcePoly';
 import TLineForcePoly from './TLineForcePoly';
+import TPin from './TPin';
 
 export default class Scene {
 
@@ -76,6 +77,10 @@ export default class Scene {
 
     createReaction(start, end, options = {}) {
         return new TReaction(this.mGraphics, start, end, options);
+    }
+
+    createPin(point = [0, 0], direction = 270, options = {}) {
+        return new TPin(this.mGraphics, point, direction, options);
     }
 
 }

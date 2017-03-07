@@ -43,7 +43,7 @@ export default class SinglePanelApp extends AppBase {
         this.makeForcePolygon();
         this.makeTriangleLabels();
         this.makeText();
-        //this.makeSupports();
+        this.makeSupports();
         //this.makeReport();
         //this.makeLinesOfAction();
     }
@@ -229,6 +229,15 @@ export default class SinglePanelApp extends AppBase {
 
     makeTriangleLabels() {
         this.mScene.createTextTriangle(this.mTrussNodes[0], this.mTrussNodes[1], this.mTrussNodes[2], '1');
+    }
+
+    makeSupports() {
+        this.mScene.createPin(this.mTrussNodes[0]);
+        /*
+        TPin pin = new TPin(mTrussNodes[0]);
+        addToDrawList(pin);
+        TRoller roller = new TRoller(mTrussNodes[2]);
+        addToDrawList(roller);*/
     }
 
     makeButtons() {

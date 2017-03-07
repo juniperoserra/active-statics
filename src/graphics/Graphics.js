@@ -95,4 +95,12 @@ export default class Graphics {
         }
         return item;
     }
+
+    addLine(from, to, style) {
+        const item = new this.paper.Path.Line(from, to);
+        if (style) {
+            this.setStyle(item, style);
+        }
+        return item;
+    }
 }
