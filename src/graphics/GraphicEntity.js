@@ -32,7 +32,6 @@ export default class GraphicEntity {
         for (let dragEntity of dragSet) {
             dragEntity.item.position = dragEntity.item.position.add(event.delta);
         }
-
     };
 
     get visible() {

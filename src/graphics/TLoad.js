@@ -14,9 +14,9 @@ export default class TLoad extends TArrow {
     }
 
     update() {
-        this.mLabelText = util.tenthStr(this.length() / styles.lengthDivisor);
         this.mReverse = this.mTrueLength < this.mArrowOffset ? -1 : (this.mTrueLength == 0 ? 0 : 1);
         super.update();
+        this.mLabelText = util.tenthStr(this.length() / styles.lengthDivisor);
         if (this.mLabel) {
             this.mLabel.content = this.mLabelText || '';
             this.mLabel.position = [this.mLabelOffset[0] + this.mStartPoint.x,
