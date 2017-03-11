@@ -224,6 +224,7 @@ export default class SinglePanelApp extends AppBase {
                 this.mTrussNodes[i], this.mTrussNodes[(i+1)%3],
                 this.mMembers[i]
             );
+            this.mForcePolyLines[i].dragAlso(this.mLoadLine[0]);
         }
     }
 
