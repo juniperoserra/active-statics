@@ -233,9 +233,7 @@ export default class SinglePanelApp extends AppBase {
 
     makeSupports() {
         this.mScene.createPin(this.mTrussNodes[0]);
-        /*
-        TRoller roller = new TRoller(mTrussNodes[2]);
-        addToDrawList(roller);*/
+        this.mScene.createRoller(this.mTrussNodes[2]);
     }
 
     makeButtons() {

@@ -16,6 +16,7 @@ import TPointTranslated from './TPointTranslated';
 import TPointForcePoly from './TPointForcePoly';
 import TLineForcePoly from './TLineForcePoly';
 import TPin from './TPin';
+import TRoller from './TRoller';
 
 export default class Scene {
 
@@ -81,6 +82,10 @@ export default class Scene {
 
     createPin(point = [0, 0], direction = 270, options = {}) {
         return new TPin(this.mGraphics, point, direction, options);
+    }
+
+    createRoller(point = [0, 0], direction = 270, options = {}) {
+        return new TRoller(this.mGraphics, point, direction, options);
     }
 
 }
