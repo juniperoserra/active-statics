@@ -37,7 +37,7 @@ export default class TRoller extends GraphicEntity {
 
         this.mItems.push(this.mGraphics.addCircle([x2, y2], (this.mSize / 4) - 1.5, { strokeColor: 'gray', strokeWidth: 1 }));
         this.mItems.push(this.mGraphics.addCircle([x3, y3], (this.mSize / 4) - 1.5, { strokeColor: 'gray', strokeWidth: 1 }));
-        
+
         x2 = (x - this.mSize * Math.cos(radDir1));
         y2 = (y - this.mSize * Math.sin(radDir1));
         x3 = (x - this.mSize * Math.cos(radDir2));
