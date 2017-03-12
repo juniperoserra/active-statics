@@ -314,38 +314,33 @@ export default class SinglePanelApp extends AppBase {
     }
 
     makeReport() {
-        let x = SinglePanelApp.REPORT_X_START;
-        let y = SinglePanelApp.REPORT_Y_START;
+        const x = SinglePanelApp.REPORT_X_START;
+        const y = SinglePanelApp.REPORT_Y_START;
 
-        this.mScene.createText([x, y], 'Member forces', {fontSize: 18});
+        const reportHeader = this.mScene.createText([x, y], 'Member forces', {fontSize: 18, draggable: true});
 
-        y += SinglePanelApp.REPORT_LINE_SPACE * 1.2;
-        this.mScene.createText([x, y], '', {prefix: 'A1 = ', lineLength: this.mForcePolyLines[0]});
-/*
-        TTextLength newReport;
+        this.mScene.createTextPoint(reportHeader, '', {
+            offset: [0, SinglePanelApp.REPORT_LINE_SPACE * 1.2],
+            prefix: 'A1 = ',
+            lineLength: this.mForcePolyLines[0],
+            stabilizeLeft: true,
+            draggable: true
+        }).dragAlso(reportHeader);
 
-        newReport = new TTextLength(g);
-        newReport.mForcePolyLine = mForcePolyLines[0];
-        newReport.mPrefix = "A1 = ";
-        newReport.x = x;
-        newReport.y = y;
-        addToDrawList(newReport);
-        y += REPORT_LINE_SPACE;
+        this.mScene.createTextPoint(reportHeader, '', {
+            offset: [0, 2 * SinglePanelApp.REPORT_LINE_SPACE * 1.2],
+            prefix: 'B1 = ',
+            lineLength: this.mForcePolyLines[1],
+            stabilizeLeft: true,
+            draggable: true
+        }).dragAlso(reportHeader);
 
-        newReport = new TTextLength(g);
-        newReport.mForcePolyLine = mForcePolyLines[1];
-        newReport.mPrefix = "B1 = ";
-        newReport.x = x;
-        newReport.y = y;
-        addToDrawList(newReport);
-        y += REPORT_LINE_SPACE;
-
-        newReport = new TTextLength(g);
-        newReport.mForcePolyLine = mForcePolyLines[2];
-        newReport.mPrefix = "C1 = ";
-        newReport.x = x;
-        newReport.y = y;
-        addToDrawList(newReport);
-        */
+        this.mScene.createTextPoint(reportHeader, '', {
+            offset: [0, 3 * SinglePanelApp.REPORT_LINE_SPACE * 1.2],
+            prefix: 'C1 = ',
+            lineLength: this.mForcePolyLines[2],
+            stabilizeLeft: true,
+            draggable: true
+        }).dragAlso(reportHeader);
     }
 }
