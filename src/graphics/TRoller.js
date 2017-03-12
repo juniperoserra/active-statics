@@ -60,8 +60,8 @@ export default class TRoller extends GraphicEntity {
             this.mItems.push(this.mGraphics.addLine([gx, gy], [gx+dx, gy+dy], { strokeColor: 'black' }));
         }
 
-        this.mItem = this.mGraphics.addGroup(this.mItems);
-        this.mOffset = [this.mItem.position.x - this.mPoint.x, this.mItem.position.y - this.mPoint.y];
+        this.item = this.mGraphics.addGroup(this.mItems);
+        this.mOffset = [this.item.position.x - this.mPoint.x, this.item.position.y - this.mPoint.y];
     }
 
     constructor(graphics, aPoint = [0, 0], dir = 270, options) {
@@ -72,9 +72,10 @@ export default class TRoller extends GraphicEntity {
 
         this.mItems = [];
         this.draw();
+        this.item.sendToBack();
     }
 
     update() {
-        this.mItem.position = [this.mPoint.x + this.mOffset[0], this.mPoint.y + this.mOffset[1]];
+        this.item.position = [this.mPoint.x + this.mOffset[0], this.mPoint.y + this.mOffset[1]];
     }
 }
