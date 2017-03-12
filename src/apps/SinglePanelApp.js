@@ -44,7 +44,7 @@ export default class SinglePanelApp extends AppBase {
         this.makeTriangleLabels();
         this.makeText();
         this.makeSupports();
-        //this.makeReport();
+        this.makeReport();
         //this.makeLinesOfAction();
     }
 
@@ -311,5 +311,41 @@ export default class SinglePanelApp extends AppBase {
             {fontSize: 20, offset: [-155, -20], draggable: true}).dragAlso(this.mMembers[0]);
         this.mScene.createTextPoint(this.mLoadLine[0], 'Force Polygon',
             {fontSize: 20, offset: [-100, -20], draggable: true}).dragAlso(this.mLoadLine[0]);
+    }
+
+    makeReport() {
+        let x = SinglePanelApp.REPORT_X_START;
+        let y = SinglePanelApp.REPORT_Y_START;
+
+        this.mScene.createText([x, y], 'Member forces', {fontSize: 18});
+
+        y += SinglePanelApp.REPORT_LINE_SPACE * 1.2;
+        this.mScene.createText([x, y], '', {prefix: 'A1 = ', lineLength: this.mForcePolyLines[0]});
+/*
+        TTextLength newReport;
+
+        newReport = new TTextLength(g);
+        newReport.mForcePolyLine = mForcePolyLines[0];
+        newReport.mPrefix = "A1 = ";
+        newReport.x = x;
+        newReport.y = y;
+        addToDrawList(newReport);
+        y += REPORT_LINE_SPACE;
+
+        newReport = new TTextLength(g);
+        newReport.mForcePolyLine = mForcePolyLines[1];
+        newReport.mPrefix = "B1 = ";
+        newReport.x = x;
+        newReport.y = y;
+        addToDrawList(newReport);
+        y += REPORT_LINE_SPACE;
+
+        newReport = new TTextLength(g);
+        newReport.mForcePolyLine = mForcePolyLines[2];
+        newReport.mPrefix = "C1 = ";
+        newReport.x = x;
+        newReport.y = y;
+        addToDrawList(newReport);
+        */
     }
 }

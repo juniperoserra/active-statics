@@ -8,4 +8,6 @@ export default class AppBase {
         this.mScene = scene;
         this.mScene.setSize(size);
     }
+
+    globalUpdate() {}
 };

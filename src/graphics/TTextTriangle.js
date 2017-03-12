@@ -21,7 +21,7 @@ export default class TTextTriagle extends TText {
             return;
         }
 
-        this.item.position = [(this.p1.x + this.p2.x + this.p3.x) / 3.0 - 10 * (this.mText.content.length - 1),
+        this.item.position = [(this.p1.x + this.p2.x + this.p3.x) / 3.0 - 10 * (this.item.content.length - 1),
             (this.p1.y + this.p2.y + this.p3.y) / 3.0];
         super.update();
     }
