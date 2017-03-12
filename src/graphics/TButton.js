@@ -14,7 +14,7 @@ export default class TButton extends GraphicEntity {
     static DEFAULT_SIZE = 12;
 
     constructor(graphics, [x = 0, y = 0], text, callback, options = {}) {
-        super(graphics);
+        super(graphics, options);
         this.mIsToggle = !!options.isToggle;
         this.mSelected = this.mIsToggle && !!options.selected;
         this.mCallback = callback;

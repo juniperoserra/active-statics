@@ -51,7 +51,7 @@ export default class TPin extends GraphicEntity {
     }
 
     constructor(graphics, aPoint = [0, 0], dir = 270, options) {
-        super(graphics);
+        super(graphics, options);
         this.mSize = options.size || TPin.DEFAULT_SIZE;
         this.mPoint = aPoint;
         this.mDir = dir;

@@ -14,7 +14,7 @@ const collectDragAlsoRecursive = (entity, dragSet) => {
 
 export default class GraphicEntity {
 
-    constructor(graphics) {
+    constructor(graphics, options = {}) {
         this.mGraphics = graphics;
         this.mDragAlso = [];
         this.mGraphics.mEntities.push(this);
@@ -40,6 +40,21 @@ export default class GraphicEntity {
 
     set visible(val) {
         this.item.visible = val;
+    }
+
+    set draggable(val) {
+        if (this.item) {
+            if (val) {
+                this.item.onMouseDrag = this::this.onMouseDrag;
+            }
+            else {
+                this.item.onMouseDrag = undefined;
+            }
+        }
+    }
+
+    get draggable() {
+        return this.item && this.item.onMouseDrag;
     }
 
 };

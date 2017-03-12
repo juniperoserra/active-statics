@@ -308,8 +308,8 @@ export default class SinglePanelApp extends AppBase {
     makeText() {
         this.mScene.createText([20, 50], 'Single Panel Truss', {fontSize: 24});
         this.mScene.createTextPoint(this.mTrussNodes[1], 'Form Diagram',
-            {fontSize: 20, offset: [-155, -20]});
+            {fontSize: 20, offset: [-155, -20], draggable: true}).dragAlso(this.mMembers[0]);
         this.mScene.createTextPoint(this.mLoadLine[0], 'Force Polygon',
-            {fontSize: 20, offset: [-100, -20]});
+            {fontSize: 20, offset: [-100, -20], draggable: true}).dragAlso(this.mLoadLine[0]);
     }
 }

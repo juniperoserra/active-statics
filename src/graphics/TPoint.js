@@ -10,7 +10,7 @@ export default class TPoint extends GraphicEntity {
     static DEFAULT_SIZE = 10;
 
     constructor(graphics, [x = 0, y = 0] = [0, 0], options = {}) {
-        super(graphics);
+        super(graphics, options);
         this.mSize = (options.size === undefined) ? TPoint.DEFAULT_SIZE : options.size;
         if (options.update) {
             const oldUpdate = this.update.bind(this);
@@ -35,7 +35,7 @@ export default class TPoint extends GraphicEntity {
             });
 
         this.item = graphics.addGroup([this.c1, this.c2]);
-        this.item.onMouseDrag = this::this.onMouseDrag;
+        this.draggable = (options.draggable !== undefined) ? options.draggable : true;
     }
 
     get x() {

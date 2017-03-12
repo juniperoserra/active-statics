@@ -39,7 +39,7 @@ export default class TLine extends GraphicEntity {
     static DEFAULT_GAP_LENGTH = 10;
 
     constructor(graphics, startPoint, endPoint, options = {}) {
-        super(graphics);
+        super(graphics, options);
 
         this.mStartPoint = startPoint;
         this.mEndPoint = endPoint;
@@ -79,7 +79,7 @@ export default class TLine extends GraphicEntity {
         this.item.sendToBack();
 
         this.update();
-        this.item.onMouseDrag = this::this.onMouseDrag;
+        this.draggable = (options.draggable !== undefined) ? options.draggable : true;
     }
 
 
