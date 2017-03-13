@@ -323,7 +323,7 @@ export default class SinglePanelApp extends AppBase {
             offset: [0, SinglePanelApp.REPORT_LINE_SPACE * 1.2],
             prefix: 'A1 = ',
             lineLength: this.mForcePolyLines[0],
-            stabilizeLeft: true,
+            leftJustify: true,
             draggable: true
         }).dragAlso(reportHeader);
 
@@ -331,7 +331,7 @@ export default class SinglePanelApp extends AppBase {
             offset: [0, 2 * SinglePanelApp.REPORT_LINE_SPACE * 1.2],
             prefix: 'B1 = ',
             lineLength: this.mForcePolyLines[1],
-            stabilizeLeft: true,
+            leftJustify: true,
             draggable: true
         }).dragAlso(reportHeader);
 
@@ -339,7 +339,7 @@ export default class SinglePanelApp extends AppBase {
             offset: [0, 3 * SinglePanelApp.REPORT_LINE_SPACE * 1.2],
             prefix: 'C1 = ',
             lineLength: this.mForcePolyLines[2],
-            stabilizeLeft: true,
+            leftJustify: true,
             draggable: true
         }).dragAlso(reportHeader);
     }

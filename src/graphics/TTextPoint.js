@@ -11,23 +11,20 @@ export default class TTextPoint extends TText {
         super(graphics, [0, 0], text, options);
         this.mOffset = options.offset || [0, 0];
         this.mTPoint = tpoint;
-        this.mStabilizeLeft = options.stabilizeLeft;
+        this.mLeftJustify = options.leftJustify;
         this.update();
     }
 
     update() {
-        const previousWidth = this.item.bounds.width;
         super.update();
-        if (this.mStabilizeLeft) {
-            const newWidth = this.item.bounds.width;
-            this.mOffset = [this.mOffset[0] + (newWidth - previousWidth) / 2, this.mOffset[1]];
-
-            if (!this.mHasAdjusted) {
-                this.mOffset = [this.mOffset[0] - (previousWidth + newWidth)/2, this.mOffset[1]];
-                this.mHasAdjusted = true;
-            }
-
+        if (this.mLeftJustify) {
+            const trueLeft = this.mTPoint.item.position.x - this.mTPoint.item.bounds.width / 2 + this.mOffset[0];
+            const currentLeft = this.item.position.x - this.item.bounds.width / 2;
+            const currentX = this.item.position.x;
+            this.item.position = [trueLeft + (currentX - currentLeft), this.mTPoint.item.position.y + this.mOffset[1]];
         }
-        this.item.position = this.mTPoint.item.position.add(this.mOffset);
+        else {
+            this.item.position = this.mTPoint.item.position.add(this.mOffset);
+        }
     }
 };
