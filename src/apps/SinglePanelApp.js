@@ -320,7 +320,7 @@ export default class SinglePanelApp extends AppBase {
         const reportHeader = this.mScene.createText([x, y], 'Member forces', {fontSize: 18, draggable: true});
 
         this.mScene.createTextPoint(reportHeader, '', {
-            offset: [0, SinglePanelApp.REPORT_LINE_SPACE * 1.2],
+            offset: [3, SinglePanelApp.REPORT_LINE_SPACE * 1.2],
             prefix: 'A1 = ',
             lineLength: this.mForcePolyLines[0],
             leftJustify: true,
@@ -328,7 +328,7 @@ export default class SinglePanelApp extends AppBase {
         }).dragAlso(reportHeader);
 
         this.mScene.createTextPoint(reportHeader, '', {
-            offset: [0, 2 * SinglePanelApp.REPORT_LINE_SPACE * 1.2],
+            offset: [3, 2 * SinglePanelApp.REPORT_LINE_SPACE * 1.2],
             prefix: 'B1 = ',
             lineLength: this.mForcePolyLines[1],
             leftJustify: true,
@@ -336,11 +336,51 @@ export default class SinglePanelApp extends AppBase {
         }).dragAlso(reportHeader);
 
         this.mScene.createTextPoint(reportHeader, '', {
-            offset: [0, 3 * SinglePanelApp.REPORT_LINE_SPACE * 1.2],
+            offset: [3, 3 * SinglePanelApp.REPORT_LINE_SPACE * 1.2],
             prefix: 'C1 = ',
             lineLength: this.mForcePolyLines[2],
             leftJustify: true,
             draggable: true
         }).dragAlso(reportHeader);
     }
+
+    makeLinesOfAction() {
+        this.mDummyPoints = [];
+
+
+        mActionIntersect = new TPointIntersect(mRa, mRb);
+        mActionIntersect.x = 20;
+        mActionIntersect.y = 20;
+        mActionIntersect.mConsiderExtents = false;
+        addToDrawList(mActionIntersect);
+
+
+        mRaLineOfAction = new TLine();
+        mRaLineOfAction.mStartPoint = mRa.mEndPoint;
+        mRaLineOfAction.mEndPoint = mActionIntersect;
+        mRaLineOfAction.mSize = 2;
+        mRaLineOfAction.mDashed = true;
+        mRaLineOfAction.mConsiderExtents = false;
+        mRaLineOfAction.mColor = g.mGreen;
+        addToDrawList(mRaLineOfAction);
+
+        mRbLineOfAction = new TLine();
+        mRbLineOfAction.mStartPoint = mRb.mEndPoint;
+        mRbLineOfAction.mEndPoint = mActionIntersect;
+        mRbLineOfAction.mSize = 2;
+        mRbLineOfAction.mDashed = true;
+        mRbLineOfAction.mConsiderExtents = false;
+        mRbLineOfAction.mColor = g.mGreen;
+        addToDrawList(mRbLineOfAction);
+
+        mLoadLineOfAction = new TLine();
+        mLoadLineOfAction.mStartPoint = mTrussNodes[1];
+        mLoadLineOfAction.mEndPoint = mActionIntersect;
+        mLoadLineOfAction.mSize = 2;
+        mLoadLineOfAction.mDashed = true;
+        mLoadLineOfAction.mConsiderExtents = false;
+        mLoadLineOfAction.mColor = Color.darkGray;
+        addToDrawList(mLoadLineOfAction);
+    }
+
 }
