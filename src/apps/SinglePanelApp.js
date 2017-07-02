@@ -46,6 +46,14 @@ export default class SinglePanelApp extends AppBase {
         this.makeSupports();
         this.makeReport();
         //this.makeLinesOfAction();
+        this.setZOrders();
+    }
+
+    setZOrders() {
+        this.mRa.item.bringToFront();
+        this.mRb.item.bringToFront();
+        this.mLoad.item.bringToFront();
+        this.mForceTail.item.bringToFront();
     }
 
 
