@@ -19,6 +19,7 @@ export default class GraphicEntity {
         this.mGraphics = graphics;
         this.mDragAlso = [];
         this.mGraphics.mEntities.push(this);
+        this.mIsAnimating = 0;
     }
 
     update() {}
@@ -33,7 +34,7 @@ export default class GraphicEntity {
             this.mGraphics.mDragEntity = this;
             this.mGraphics.setDragResetOff();
         }
-        if (this.mGraphics.mDragEntity !== this) {
+        if (this.mGraphics.mDragEntity !== this || this.isAnimating) {
             return;
         }
 
@@ -67,7 +68,19 @@ export default class GraphicEntity {
     }
 
     get draggable() {
-        return this.item && this.item.onMouseDrag;
+        return this.item && this.item.onMouseDrag && !this.isAnimating;
+    }
+
+    get startingPosition() {
+        return this._startingPosition || [0, 0];
+    }
+
+    set isAnimating(val) {
+        this.mIsAnimating = this.mIsAnimating + (val ? 1 : -1);
+    }
+
+    get isAnimating() {
+        return this.mIsAnimating > 0;
     }
 
 };

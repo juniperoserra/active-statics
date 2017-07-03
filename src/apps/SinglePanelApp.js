@@ -6,6 +6,7 @@ import AppBase from './AppBase';
 import styles from '../graphics/styles';
 import TLine from '../graphics/TLine';
 import util from '../graphics/util';
+import { MoveToStartJob } from '../graphics/AnimationJob';
 
 export default class SinglePanelApp extends AppBase {
 
@@ -250,27 +251,12 @@ export default class SinglePanelApp extends AppBase {
         let y = SinglePanelApp.BUTTON_START_Y;
         const moveButton = this.mScene.createButton([x, y], 'Return To Starting Position',
             () => {
-                /*
-                 if (SinglePanelApplet.this.mCircleLoad != null) {
-                 SinglePanelApplet.this.g.mTimer.removeJob(SinglePanelApplet.this.mCircleLoad);
-                 SinglePanelApplet.this.mCircleLoad = null;
-                 SinglePanelApplet.access$1((SinglePanelApplet)SinglePanelApplet.this).mSelected = false;
-                 }
-                 JobMoveViewToOrigin originMove = new JobMoveViewToOrigin(SinglePanelApplet.this.g);
-                 originMove.mView = SinglePanelApplet.this.mUpdateCanvas;
-                 SinglePanelApplet.this.g.mTimer.addJob(originMove);
-                 JobMovePointToStart newJob = new JobMovePointToStart(SinglePanelApplet.this.g);
-                 newJob.mMovePoint = SinglePanelApplet.this.mLoadLine[0];
-                 SinglePanelApplet.this.g.mTimer.addJob(newJob);
-                 for (int i = 0; i < 3; ++i) {
-                 newJob = new JobMovePointToStart(SinglePanelApplet.this.g);
-                 newJob.mMovePoint = SinglePanelApplet.this.mTrussNodes[i];
-                 SinglePanelApplet.this.g.mTimer.addJob(newJob);
-                 }
-                 newJob = new JobMovePointToStart(SinglePanelApplet.this.g);
-                 newJob.mMovePoint = SinglePanelApplet.this.mForceTail;
-                 SinglePanelApplet.this.g.mTimer.addJob(newJob);
-                 */
+                this.mScene.mGraphics.addJob(new MoveToStartJob(this.mLoadLine[0]));
+                for (let node of this.mTrussNodes) {
+                    this.mScene.mGraphics.addJob(new MoveToStartJob(node));
+                }
+                this.mScene.mGraphics.addJob(new MoveToStartJob(this.mForceTail));
+                this.mScene.mGraphics.addJob(new MoveToStartJob(this.mReportHeader));
             }, {width: SinglePanelApp.BUTTON_WIDTH}
         );
 
@@ -326,6 +312,7 @@ export default class SinglePanelApp extends AppBase {
         const y = SinglePanelApp.REPORT_Y_START;
 
         const reportHeader = this.mScene.createText([x, y], 'Member forces', {fontSize: 18, draggable: true});
+        this.mReportHeader = reportHeader;
 
         this.mScene.createTextPoint(reportHeader, '', {
             offset: [3, SinglePanelApp.REPORT_LINE_SPACE * 1.2],

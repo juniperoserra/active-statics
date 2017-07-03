@@ -20,11 +20,40 @@ export default class Graphics {
         //this.paper.project.view.onMouseDrag = onMouseDown;
         this.paper.project.view.onFrame = this::this.onFrame;
         this.mEntities = [];
+        this.mHasRecordedStartingPositions = false;
+        this.mJobs = [];
+        this.mLastAnimationTime = Date.now();
+    }
+
+    updateAnimations() {
+        const prevTime = this.mLastAnimationTime;
+        this.mLastAnimationTime = Date.now();
+        const elapsed = (this.mLastAnimationTime - prevTime) / 1000.0;
+        for (let job of this.mJobs) {
+            job.step(elapsed);
+            if (job.isDone() && job.nextJob()) {
+                this.mJobs.push(job.nextJob());
+            }
+        }
+        this.mJobs = this.mJobs.filter(job => !job.isDone());
+    }
+
+    addJob(job) {
+        if (!this.mJobs.includes(job)) {
+            this.mJobs.push(job);
+        }
     }
 
     onFrame(event) {
+        this.updateAnimations();
         for (let entity of this.mEntities) {
             entity.update();
+        }
+        if (!this.mHasRecordedStartingPositions) {
+            for (let entity of this.mEntities) {
+                entity._startingPosition = [entity.item.position.x, entity.item.position.y];
+            }
+            this.mHasRecordedStartingPositions = true;
         }
     }
 
