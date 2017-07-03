@@ -12,26 +12,11 @@ const gHitOptions = {
     tolerance: 5
 };
 
-/*
-const onMouseDown = (event) => {
-    var hitResult = Paper.project.hitTest(event.point, gHitOptions);
-    if (!hitResult) {
-        return;
-    }
-
-    const item = hitResult.item;
-    if (!item) {
-        return;
-    }
-
-    item.position = event.point;
-};
-*/
 
 export default class Graphics {
     constructor() {
         this.paper = Paper;
-        //this.paper.project.view.onMouseDown = onMouseDown;
+        this.paper.project.view.onMouseDown = this::this.onMouseDown;
         //this.paper.project.view.onMouseDrag = onMouseDown;
         this.paper.project.view.onFrame = this::this.onFrame;
         this.mEntities = [];
@@ -41,6 +26,24 @@ export default class Graphics {
         for (let entity of this.mEntities) {
             entity.update();
         }
+    }
+
+    onMouseDown(event) {
+        this._resetDrag = true;
+        this._dragStartPosition = {x: event.point.x, y: event.point.y};
+        for (let entity of this.mEntities) {
+            entity._dragStartPosition = [entity.item.position.x, entity.item.position.y];
+        }
+    }
+
+    getDragStartPosition() {
+        return this._dragStartPosition;
+    }
+    isDragReset() {
+        return !!this._resetDrag;
+    }
+    setDragResetOff() {
+        this._resetDrag = false;
     }
 
     setSize(size) {
