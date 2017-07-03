@@ -198,7 +198,7 @@ export default class TLine extends GraphicEntity {
     static intersection(x0, y0, x1, y1, x2, y2, x3, y3) {
         const m1 = ((x1 - x0) != 0) ? (y1 - y0) / (x1 - x0) : 1.0E10;
         const m2 = ((x3 - x2) != 0) ? (y3 - y2) / (x3 - x2) : 1.0E10;
-        if (m1 === m2 && TLine.perpDist(x0, y0, x1, y1, x2, y2) === 0) {
+        if (m1 === m2) {
             return undefined;
         }
         const a1 = m1;
