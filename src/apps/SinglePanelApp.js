@@ -48,6 +48,7 @@ export default class SinglePanelApp extends AppBase {
         this.makeReport();
         //this.makeLinesOfAction();
         this.setZOrders();
+        scene.mGraphics.setAppUpdate(this::this.globalUpdate);
     }
 
     setZOrders() {
@@ -59,16 +60,16 @@ export default class SinglePanelApp extends AppBase {
 
 
     globalUpdate() {
-        if (this.mLinesOfAction) {
-            this.mRaLineOfAction.mInvisible = false;
-            this.mRbLineOfAction.mInvisible = false;
-            this.mLoadLineOfAction.mInvisible = false;
-            this.mActionIntersect.mInvisible = false;
+        /*if (this.mLinesOfAction) {
+            this.mRaLineOfAction.visible = true;
+            this.mRbLineOfAction.visible = true;
+            this.mLoadLineOfAction.visible = true;
+            this.mActionIntersect.visible = true;
         } else {
-            this.mRaLineOfAction.mInvisible = true;
-            this.mRbLineOfAction.mInvisible = true;
-            this.mLoadLineOfAction.mInvisible = true;
-            this.mActionIntersect.mInvisible = true;
+            this.mRaLineOfAction.visible = false;
+            this.mRbLineOfAction.visible = false;
+            this.mLoadLineOfAction.visible = false;
+            this.mActionIntersect.visible = false;
         }
         if (!this.mActionIntersect.mExists) {
             this.mRaLineOfAction.mStartPoint = this.mDummyPoint[0];
@@ -98,17 +99,17 @@ export default class SinglePanelApp extends AppBase {
             this.mRbLineOfAction.mEndPoint = this.mActionIntersect;
             this.mLoadLineOfAction.mStartPoint = this.mTrussNodes[1];
             this.mLoadLineOfAction.mEndPoint = this.mActionIntersect;
-        }
+        }*/
         if (this.mLoadsVertical) {
-            this.mForceTail.x = this.mLoad.mEndPoint.x;
-        }
+            this.mForceTail.item.position = [this.mTrussNodes[1].item.position.x, this.mForceTail.item.position.y];
+        }/*
         if (this.mVerticalsVertical) {
             this.mTrussNodes[2].x = this.mTrussNodes[1].x;
             this.mTrussNodes[4].x = this.mTrussNodes[3].x;
             this.mTrussNodes[6].x = this.mTrussNodes[5].x;
             this.mTrussNodes[8].x = this.mTrussNodes[7].x;
             this.mTrussNodes[10].x = this.mTrussNodes[9].x;
-        }
+        }*/
     }
 
     makeMembers() {
@@ -274,7 +275,8 @@ export default class SinglePanelApp extends AppBase {
 
         y += SinglePanelApp.BUTTON_Y_OFFSET;
         this.mLoadsVertCheck = this.mScene.createButton([x, y], 'Keep Load Vertical',
-            () => {
+            (vertical) => {
+                this.mLoadsVertical = vertical;
                 /*
                  SinglePanelApplet.this.mLoadsVertical = SinglePanelApplet.access$2((SinglePanelApplet)SinglePanelApplet.this).mSelected;
                  SinglePanelApplet.this.repaint();

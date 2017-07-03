@@ -25,6 +25,10 @@ export default class Graphics {
         this.mLastAnimationTime = Date.now();
     }
 
+    setAppUpdate(updateFcn) {
+        this.mAppUpdateFcn = updateFcn;
+    }
+
     updateAnimations() {
         const prevTime = this.mLastAnimationTime;
         this.mLastAnimationTime = Date.now();
@@ -56,6 +60,10 @@ export default class Graphics {
 
     onFrame(event) {
         this.updateAnimations();
+
+        if (this.mAppUpdateFcn) {
+            this.mAppUpdateFcn();
+        }
         for (let entity of this.mEntities) {
             entity.update();
         }
