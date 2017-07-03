@@ -18,6 +18,8 @@ export default class TButton extends GraphicEntity {
         this.mIsToggle = !!options.isToggle;
         this.mSelected = this.mIsToggle && !!options.selected;
         this.mCallback = callback;
+        this.mCondition = options.condition;
+        this.mTracking = false;
 
         this.mText = graphics.addText([x, y], text, {
             fontSize: TButton.DEFAULT_SIZE
@@ -41,7 +43,19 @@ export default class TButton extends GraphicEntity {
         this.item.onMouseUp = this::this.onMouseUp;
     }
 
+    update() {
+        this.mRect.fillColor.alpha = selectedAlpha(this.mSelected);
+        super.update();
+        if (this.mTracking) {
+            return;
+        }
+        if (this.mCondition && this.mIsToggle) {
+            this.mSelected = this.mCondition();
+        }
+    }
+
     onMouseDown(event) {
+        this.mTracking = true;
         this.mRect.fillColor = 'gray';
         if (this.mIsToggle) {
             this.mWasSelected = this.mSelected;
@@ -70,6 +84,7 @@ export default class TButton extends GraphicEntity {
     };
 
     onMouseUp(event) {
+        this.mTracking = false;
         this.onMouseDrag(event);
         if (this.mIsToggle) {
             if (this.mCallback && this.mSelected !== this.mWasSelected) {

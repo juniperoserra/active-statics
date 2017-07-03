@@ -38,10 +38,20 @@ export default class Graphics {
         this.mJobs = this.mJobs.filter(job => !job.isDone());
     }
 
+    clearJobs() {
+        for (let job of this.mJobs) {
+            job.complete();
+        }
+    }
+
     addJob(job) {
         if (!this.mJobs.includes(job)) {
             this.mJobs.push(job);
         }
+    }
+
+    hasJob(name) {
+        return this.mJobs.some(job => job.name === name);
     }
 
     onFrame(event) {

@@ -1,11 +1,34 @@
 
+import util from '../graphics/util';
 
 export default class AnimationJob {
 
-    step(msElapsed) {}
+    constructor(entity, name) {
+        this.mName = name;
+        this.mDone = false;
+        this.mEntity = entity;
+        if (entity) {
+            entity.isAnimating = true;
+        }
+    }
+
+    get name() {
+        return this.mName;
+    }
+
+    step(msElapsed) {
+        this.mEntity._dragStartPosition = [this.mEntity.item.position.x, this.mEntity.item.position.y];
+    }
+
+    complete() {
+        if (this.mEntity) {
+            this.mEntity.isAnimating = false;
+        }
+        this.mDone = true;
+    }
 
     isDone() {
-        return true;
+        return this.mDone;
     }
 
     nextJob() {
@@ -15,12 +38,8 @@ export default class AnimationJob {
 
 export class MoveToStartJob extends AnimationJob {
     constructor(entity) {
-        super();
+        super(entity);
         this.mMoveProportion = 0.1;
-        this.mEntity = entity;
-        this.mDone = false;
-        this.mEntityWasDraggable = entity.draggable;
-        entity.isAnimating = true;
     }
 
     step(msElapsed) {
@@ -40,13 +59,44 @@ export class MoveToStartJob extends AnimationJob {
         }
 
         this.mEntity.item.position = [this.mEntity.item.position.x - dx, this.mEntity.item.position.y - dy];
-        this.mDone = dx === 0 && dy === 0;
-        if (this.mDone) {
-            this.mEntity.isAnimating = false;
+        if (dx === 0 && dy === 0) {
+            this.complete();
         }
+        super.step();
+    }
+}
+
+export class CircleAroundJob extends AnimationJob {
+    constructor(entity, pivot, name) {
+        super(entity, name);
+        this.mSpeed = -0.02;
+        this.mPivot = pivot;
+
+        this.mTheta = Math.atan2(this.mEntity.item.position.y - this.mPivot.item.position.y, this.mEntity.item.position.x - this.mPivot.item.position.x);
+        this.mLength = util.distance(this.mEntity.item.position.x, this.mEntity.item.position.y, this.mPivot.item.position.x,  this.mPivot.item.position.y);
+
     }
 
-    isDone() {
-        return this.mDone;
+    step(msElapsed) {
+        if (this.mDone) {
+            return;
+        }
+
+        const speed = this.mSpeed * (msElapsed / .02);
+        this.mTheta += speed;
+
+        if (this.mTheta > Math.PI * 2.0) {
+            this.mTheta -= Math.PI * 2.0;
+        }
+        if (this.mTheta < - Math.PI * 2.0) {
+            this.mTheta += Math.PI * 2.0;
+        }
+
+        this.mEntity.item.position = [
+            this.mPivot.item.position.x + this.mLength * Math.cos(this.mTheta),
+            this.mPivot.item.position.y + this.mLength * Math.sin(this.mTheta)
+        ];
+
+        super.step();
     }
 }

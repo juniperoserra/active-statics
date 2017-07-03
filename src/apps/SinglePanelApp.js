@@ -6,7 +6,7 @@ import AppBase from './AppBase';
 import styles from '../graphics/styles';
 import TLine from '../graphics/TLine';
 import util from '../graphics/util';
-import { MoveToStartJob } from '../graphics/AnimationJob';
+import { MoveToStartJob, CircleAroundJob } from '../graphics/AnimationJob';
 
 export default class SinglePanelApp extends AppBase {
 
@@ -251,6 +251,7 @@ export default class SinglePanelApp extends AppBase {
         let y = SinglePanelApp.BUTTON_START_Y;
         const moveButton = this.mScene.createButton([x, y], 'Return To Starting Position',
             () => {
+                this.mScene.mGraphics.clearJobs();
                 this.mScene.mGraphics.addJob(new MoveToStartJob(this.mLoadLine[0]));
                 for (let node of this.mTrussNodes) {
                     this.mScene.mGraphics.addJob(new MoveToStartJob(node));
@@ -262,19 +263,13 @@ export default class SinglePanelApp extends AppBase {
 
         y += SinglePanelApp.BUTTON_Y_OFFSET;
         this.mCircleLoadButton = this.mScene.createButton([x, y], 'Circle Load',
-            () => {
-                /*
-                if (SinglePanelApplet.this.mCircleLoad == null) {
-                    SinglePanelApplet.this.mCircleLoad = new JobCirclePoint(SinglePanelApplet.this.g);
-                    SinglePanelApplet.this.mCircleLoad.mMovePoint = SinglePanelApplet.this.mForceTail;
-                    SinglePanelApplet.this.mCircleLoad.mPivot = SinglePanelApplet.this.mTrussNodes[1];
-                    SinglePanelApplet.this.g.mTimer.addJob(SinglePanelApplet.this.mCircleLoad);
-                } else {
-                    SinglePanelApplet.this.g.mTimer.removeJob(SinglePanelApplet.this.mCircleLoad);
-                    SinglePanelApplet.this.mCircleLoad = null;
+            (circle) => {
+                this.mScene.mGraphics.clearJobs();
+                if (circle) {
+                    this.mScene.mGraphics.addJob(new CircleAroundJob(this.mForceTail, this.mTrussNodes[1], 'CircleLoad'));
                 }
-                */
-            }, {isToggle: true, width: SinglePanelApp.BUTTON_WIDTH}
+            }, {isToggle: true, width: SinglePanelApp.BUTTON_WIDTH,
+                condition: () => this.mScene.mGraphics.hasJob('CircleLoad')}
         );
 
         y += SinglePanelApp.BUTTON_Y_OFFSET;
