@@ -3,6 +3,7 @@
  */
 
 require("script-loader!paper");
+//require("script-loader!../lib/paper/dist/paper-full");
 require('../app.css');
 
 export const init = () => {

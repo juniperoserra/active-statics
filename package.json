@@ -5,10 +5,10 @@
   "scripts": {
     "dev": "npm start",
     "build": "webpack --env=prod -p",
-    "start": "webpack-dev-server --env=dev --inline"
+    "start": "webpack-dev-server --env=dev --debug --output-pathinfo"
   },
   "dependencies": {
-    "paper": "^0.10.2"
+    "paper": "^0.11.4"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
