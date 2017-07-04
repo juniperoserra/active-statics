@@ -52,6 +52,7 @@ export default class TLine extends GraphicEntity {
         this.mColor = options.color || styles.green;
         this.mLabelText = options.label || null;
         this.mLabelOffset = options.labelOffset || [0, -20];
+        this.mMaxLength = options.maxLength;
 
         if (this.mTapered) {
             const pts = getThickTaperPoints(
@@ -103,7 +104,7 @@ export default class TLine extends GraphicEntity {
 
         const endOffset = this.mArrowOffset ? this.mArrowOffset : 0;
         let tempDir = util.direction(this.mEndPoint.x, this.mEndPoint.y, this.mStartPoint.x, this.mStartPoint.y);
-        const endPoint = [(this.mEndPoint.x + endOffset * Math.cos(tempDir)),
+        let endPoint = [(this.mEndPoint.x + endOffset * Math.cos(tempDir)),
             (this.mEndPoint.y + endOffset * Math.sin(tempDir))];
 
         if (this.mTapered) {
@@ -119,6 +120,14 @@ export default class TLine extends GraphicEntity {
             }
         }
         else {
+            if (this.mMaxLength && this.length() > this.mMaxLength) {
+                tempDir = util.direction(this.mStartPoint.x, this.mStartPoint.y, this.mEndPoint.x, this.mEndPoint.y);
+                endPoint = [
+                    this.mStartPoint.x + this.mMaxLength * Math.cos(tempDir),
+                    this.mStartPoint.y + this.mMaxLength * Math.sin(tempDir)
+                ];
+            }
+
             this.item.strokeWidth = this.mSize;
             this.item.segments[0].point.x = this.mStartPoint.x;
             this.item.segments[0].point.y = this.mStartPoint.y;

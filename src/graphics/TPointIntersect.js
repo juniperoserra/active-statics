@@ -27,8 +27,15 @@ export default class TPointIntersect extends TPoint {
         const intersection = TLine.intersection(x1, y1, x2, y2, x3, y3, x4, y4);
         if (intersection) {
             this.item.position = intersection;
+            this.mValid = true;
+        }
+        else {
+            this.mValid = false;
         }
         super.update();
     }
 
+    get isValid() {
+        return this.mValid;
+    }
 }

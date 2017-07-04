@@ -290,10 +290,10 @@ export default class SinglePanelApp extends AppBase {
 
     makeLinesOfAction() {
         this.mActionIntersect = this.mScene.createPointIntersect(this.mRa, this.mRb, {size: 3});
-        this.mRaLineOfAction = this.mScene.createLine(this.mRa.mStartPoint, this.mActionIntersect, { dashed: true });
-        this.mRbLineOfAction = this.mScene.createLine(this.mRb.mStartPoint, this.mActionIntersect, { dashed: true });
+        this.mRaLineOfAction = this.mScene.createLine(this.mTrussNodes[0], this.mActionIntersect, { dashed: true, thickness: 2, maxLength: 100000 });
+        this.mRbLineOfAction = this.mScene.createLine(this.mTrussNodes[2], this.mActionIntersect, { dashed: true, thickness: 2, maxLength: 100000 });
         this.mLoadLineOfAction = this.mScene.createLine(this.mForceTail, this.mActionIntersect, {
-            color: 'gray', dashed: true
+            color: 'gray', dashed: true, thickness: 2, maxLength: 100000
         });
     }
 
