@@ -45,14 +45,11 @@ export default class TLine extends GraphicEntity {
         this.mEndPoint = endPoint;
         this.mTapered = !!options.tapered;
 
-        //mLocation = new Point();
         this.mOutline = true;
-        this.mDashed = false;
-        //this.mDashLength = 10;
-        //this.mGapLength = 10;
+        this.mDashed = !!options.dashed;
 
         this.mSize = options.thickness || TLine.DEFAULT_SIZE;
-        this.mColor = styles.green;
+        this.mColor = options.color || styles.green;
         this.mLabelText = options.label || null;
         this.mLabelOffset = options.labelOffset || [0, -20];
 
@@ -74,6 +71,9 @@ export default class TLine extends GraphicEntity {
                 strokeColor: options.strokeColor || 'black',
                 strokeWidth: this.mSize
             });
+            if (this.mDashed) {
+                this.item.dashArray = [12, 10];
+            }
         }
 
         this.item.sendToBack();

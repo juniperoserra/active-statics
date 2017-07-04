@@ -46,7 +46,7 @@ export default class SinglePanelApp extends AppBase {
         this.makeText();
         this.makeSupports();
         this.makeReport();
-        //this.makeLinesOfAction();
+        this.makeLinesOfAction();
         this.setZOrders();
         scene.mGraphics.setAppUpdate(this::this.globalUpdate);
     }
@@ -60,7 +60,7 @@ export default class SinglePanelApp extends AppBase {
 
 
     globalUpdate() {
-        /*if (this.mLinesOfAction) {
+        if (this.mLinesOfAction) {
             this.mRaLineOfAction.visible = true;
             this.mRbLineOfAction.visible = true;
             this.mLoadLineOfAction.visible = true;
@@ -71,45 +71,9 @@ export default class SinglePanelApp extends AppBase {
             this.mLoadLineOfAction.visible = false;
             this.mActionIntersect.visible = false;
         }
-        if (!this.mActionIntersect.mExists) {
-            this.mRaLineOfAction.mStartPoint = this.mDummyPoint[0];
-            this.mRaLineOfAction.mStartPoint.x = this.mRa.mEndPoint.x;
-            this.mRaLineOfAction.mStartPoint.y = -5000.0;
-            this.mRaLineOfAction.mEndPoint = this.mDummyPoint[1];
-            this.mRaLineOfAction.mEndPoint.x = this.mRa.mEndPoint.x;
-            this.mRaLineOfAction.mEndPoint.y = 5000.0;
-            this.mRbLineOfAction.mStartPoint = this.mDummyPoint[2];
-            this.mRbLineOfAction.mStartPoint.x = this.mRb.mEndPoint.x;
-            this.mRbLineOfAction.mStartPoint.y = -5000.0;
-            this.mRbLineOfAction.mEndPoint = this.mDummyPoint[3];
-            this.mRbLineOfAction.mEndPoint.x = this.mRb.mEndPoint.x;
-            this.mRbLineOfAction.mEndPoint.y = 5000.0;
-            this.mLoadLineOfAction.mStartPoint = this.mDummyPoint[4];
-            this.mLoadLineOfAction.mStartPoint.x = this.mTrussNodes[1].x;
-            this.mLoadLineOfAction.mStartPoint.y = -5000.0;
-            this.mLoadLineOfAction.mEndPoint = this.mDummyPoint[5];
-            this.mLoadLineOfAction.mEndPoint.x = this.mTrussNodes[1].x;
-            this.mLoadLineOfAction.mEndPoint.y = 5000.0;
-            this.mActionIntersect.x = 5000.0;
-            this.mActionIntersect.y = 5000.0;
-        } else {
-            this.mRaLineOfAction.mStartPoint = this.mRa.mEndPoint;
-            this.mRaLineOfAction.mEndPoint = this.mActionIntersect;
-            this.mRbLineOfAction.mStartPoint = this.mRb.mEndPoint;
-            this.mRbLineOfAction.mEndPoint = this.mActionIntersect;
-            this.mLoadLineOfAction.mStartPoint = this.mTrussNodes[1];
-            this.mLoadLineOfAction.mEndPoint = this.mActionIntersect;
-        }*/
         if (this.mLoadsVertical) {
             this.mForceTail.item.position = [this.mTrussNodes[1].item.position.x, this.mForceTail.item.position.y];
-        }/*
-        if (this.mVerticalsVertical) {
-            this.mTrussNodes[2].x = this.mTrussNodes[1].x;
-            this.mTrussNodes[4].x = this.mTrussNodes[3].x;
-            this.mTrussNodes[6].x = this.mTrussNodes[5].x;
-            this.mTrussNodes[8].x = this.mTrussNodes[7].x;
-            this.mTrussNodes[10].x = this.mTrussNodes[9].x;
-        }*/
+        }
     }
 
     makeMembers() {
@@ -192,7 +156,6 @@ export default class SinglePanelApp extends AppBase {
     }
 
     makeLoadLine() {
-
         this.mLoadLine = [];
         this.mLoadLine[0] = this.mScene.createPoint([480.0, 120.0], {
             label: 'a', labelOffset: [14, 0], size: 7
@@ -275,24 +238,13 @@ export default class SinglePanelApp extends AppBase {
 
         y += SinglePanelApp.BUTTON_Y_OFFSET;
         this.mLoadsVertCheck = this.mScene.createButton([x, y], 'Keep Load Vertical',
-            (vertical) => {
-                this.mLoadsVertical = vertical;
-                /*
-                 SinglePanelApplet.this.mLoadsVertical = SinglePanelApplet.access$2((SinglePanelApplet)SinglePanelApplet.this).mSelected;
-                 SinglePanelApplet.this.repaint();
-                 SinglePanelApplet.this.mUpdateCanvas.globalUpdate();
-                 SinglePanelApplet.this.repaint();
-                 */
-            }, {isToggle: true, width: SinglePanelApp.BUTTON_WIDTH});
+            (vertical) => this.mLoadsVertical = vertical, 
+            {isToggle: true, width: SinglePanelApp.BUTTON_WIDTH});
 
         y += SinglePanelApp.BUTTON_Y_OFFSET;
         this.mLinesOfActionCheck = this.mScene.createButton([x, y], 'Extend Lines of Action',
-            () => {
-                /*
-                 SinglePanelApplet.this.mLinesOfAction = SinglePanelApplet.access$3((SinglePanelApplet)SinglePanelApplet.this).mSelected;
-                 SinglePanelApplet.this.repaint();
-                 */
-            }, {isToggle: true, width: SinglePanelApp.BUTTON_WIDTH}
+            (actionLines) => this.mLinesOfAction = actionLines,
+            {isToggle: true, width: SinglePanelApp.BUTTON_WIDTH}
         );
     }
 
@@ -337,42 +289,12 @@ export default class SinglePanelApp extends AppBase {
     }
 
     makeLinesOfAction() {
-        this.mDummyPoints = [];
-
-
-        mActionIntersect = new TPointIntersect(mRa, mRb);
-        mActionIntersect.x = 20;
-        mActionIntersect.y = 20;
-        mActionIntersect.mConsiderExtents = false;
-        addToDrawList(mActionIntersect);
-
-
-        mRaLineOfAction = new TLine();
-        mRaLineOfAction.mStartPoint = mRa.mEndPoint;
-        mRaLineOfAction.mEndPoint = mActionIntersect;
-        mRaLineOfAction.mSize = 2;
-        mRaLineOfAction.mDashed = true;
-        mRaLineOfAction.mConsiderExtents = false;
-        mRaLineOfAction.mColor = g.mGreen;
-        addToDrawList(mRaLineOfAction);
-
-        mRbLineOfAction = new TLine();
-        mRbLineOfAction.mStartPoint = mRb.mEndPoint;
-        mRbLineOfAction.mEndPoint = mActionIntersect;
-        mRbLineOfAction.mSize = 2;
-        mRbLineOfAction.mDashed = true;
-        mRbLineOfAction.mConsiderExtents = false;
-        mRbLineOfAction.mColor = g.mGreen;
-        addToDrawList(mRbLineOfAction);
-
-        mLoadLineOfAction = new TLine();
-        mLoadLineOfAction.mStartPoint = mTrussNodes[1];
-        mLoadLineOfAction.mEndPoint = mActionIntersect;
-        mLoadLineOfAction.mSize = 2;
-        mLoadLineOfAction.mDashed = true;
-        mLoadLineOfAction.mConsiderExtents = false;
-        mLoadLineOfAction.mColor = Color.darkGray;
-        addToDrawList(mLoadLineOfAction);
+        this.mActionIntersect = this.mScene.createPointIntersect(this.mRa, this.mRb, {size: 3});
+        this.mRaLineOfAction = this.mScene.createLine(this.mRa.mStartPoint, this.mActionIntersect, { dashed: true });
+        this.mRbLineOfAction = this.mScene.createLine(this.mRb.mStartPoint, this.mActionIntersect, { dashed: true });
+        this.mLoadLineOfAction = this.mScene.createLine(this.mForceTail, this.mActionIntersect, {
+            color: 'gray', dashed: true
+        });
     }
 
 }
