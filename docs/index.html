@@ -10,45 +10,47 @@
     <link rel="stylesheet" href="styles.css"/>
   </head>
   <body>
-    <nav class="navbar navbar-inverse bg-inverse">
+    <nav class="navbar navbar-toggleable-md">
       <a class="navbar-brand" href="#">Active Statics</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav nav-tabs role="tablist"">
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#" role="tab">Single Panel Truss</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#" role="tab">Simple Truss</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#" role="tab">Hanging Cable/Arch</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#" role="tab">Cantilever Truss</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#" role="tab">Fanlike Structure</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#" role="tab">Overhanging Truss</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#" role="tab">Minimum Material Truss</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#" role="tab">Beam Loading</a>
+          </li>
+          </ul>
+          </div>
     </nav>
 
     <div class="container-fluid">
       <div class="row">
 
-          <ul class="nav col-md-2 flex-column">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Single Panel Truss</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Simple Truss</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Hanging Cable/Arch</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Cantilever Truss</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Fanlike Structure</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Overhanging Truss</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Minimum Material Truss</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Beam Loading</a>
-          </li>
-        </ul>
+        <!--ul class="nav col-md-2 flex-column">
+          
+        </ul-->
 
 
-          <div class="col-md-7" id="left">
+          <div class="col-md-9" id="left">
             <canvas id="myCanvas" resize="true"></canvas>
           </div>
           <div class="col-md-3" id="right">
