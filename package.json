@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "npm start",
     "build": "webpack --env=prod -p",
-    "start": "webpack-dev-server --env=dev --debug --output-pathinfo"
+    "start": "webpack-dev-server --env=dev --debug --output-pathinfo",
+    "copyToDoc": "cp dist/assets/app.bundle.js docs/js"
   },
   "dependencies": {
     "paper": "^0.11.4"

@@ -1,0 +1,19 @@
+body, html {
+  margin: 0;
+  overflow: hidden;
+  height:100%;
+}
+
+#left {
+  height: 100px;
+  overflow-y: hidden;
+  background-color: rgb(235,225,205);
+  text-align: left;
+}
+
+#right {
+  overflow-y: scroll;
+  height: 100px;
+  background-color: #4FC1E9;
+  text-align: center;
+}

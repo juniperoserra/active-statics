@@ -1,149 +1,105 @@
-<html>
-<head>
-<title>Graphic Statics Demos</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<style type="text/css">
-<!--
-a
-{
-    COLOR: #FFCC33;
-    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
-    FONT-SIZE: 12px;
-    FONT-WEIGHT: bold;
-	TEXT-DECORATION: none
-}
-.head
-{
-    COLOR: #FFDDDD;
-    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
-    FONT-SIZE: 18px;
-    FONT-WEIGHT: normal
-}
-b
-{
-    COLOR: #FFCC33;
-    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
-    FONT-SIZE: 11px;
-    FONT-WEIGHT: bold
-}
-h3
-{
-    COLOR: #CCCC99;
-    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
-    FONT-SIZE: 24px;
-    FONT-WEIGHT: bold
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-//-->
-</style>
-</head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">Navbar</a>
 
-<body  bgcolor="#660033" text="#FFFFFF" class="head">
-<p>Graphic Statics Demos</p>
-<table width="305" border="0" cellspacing="0" cellpadding="0">
-  <tr> 
-    <td width="23"><img src="images/1pix.gif" width="20"></td>
-    <td width="100"><a href="classes/SinglePanelApplet.html"><img src="images/SinglePanelSmall.gif" width="100" height="100" border="0"></a></td>
-    <td width="13"><img src="images/1pix.gif" width="20"></td>
-    <td valign="bottom" width="161"><a href="classes/SinglePanelApplet.html">Single 
-      Panel Truss</a></td>
-  </tr>
-  <tr> 
-    <td width="23">&nbsp;</td>
-    <td width="100">&nbsp;</td>
-    <td width="13">&nbsp;</td>
-    <td valign="bottom" width="161">&nbsp;</td>
-  </tr>
-  <tr> 
-    <td width="23">&nbsp;</td>
-    <td width="100"><a href="classes/TrussApplet.html"><img src="images/SimpleTrussSmall.gif" width="100" height="100" border="0"></a></td>
-    <td width="13">&nbsp;</td>
-    <td valign="bottom" width="161"><a href="classes/TrussApplet.html">Multipanel 
-      Truss</a></td>
-  </tr>
-  <tr> 
-    <td width="23">&nbsp;</td>
-    <td width="100">&nbsp;</td>
-    <td width="13">&nbsp;</td>
-    <td valign="bottom" width="161">&nbsp;</td>
-  </tr>
-  <tr> 
-    <td width="23">&nbsp;</td>
-    <td width="100"><a href="classes/HangingCableApplet.html"><img src="images/HangingCableSmall.gif" width="100" height="75" border="0"></a></td>
-    <td width="13">&nbsp;</td>
-    <td valign="bottom" width="161"><a href="classes/HangingCableApplet.html">Hanging 
-      Cable/Arch</a></td>
-  </tr>
-  <tr> 
-    <td width="23">&nbsp;</td>
-    <td width="100">&nbsp;</td>
-    <td width="13">&nbsp;</td>
-    <td valign="bottom" width="161">&nbsp;</td>
-  </tr>
-  <tr> 
-    <td width="23">&nbsp;</td>
-    <td width="100"><a href="classes/CantileverApplet.html"><img src="images/CantileverSmall.gif" width="100" height="74" border="0"></a></td>
-    <td width="13">&nbsp;</td>
-    <td valign="bottom" width="161"><a href="classes/CantileverApplet.html">Cantilever 
-      Truss </a></td>
-  </tr>
-  <tr> 
-    <td width="23">&nbsp;</td>
-    <td width="100">&nbsp;</td>
-    <td width="13">&nbsp;</td>
-    <td valign="bottom" width="161">&nbsp;</td>
-  </tr>
-  <tr> 
-    <td width="23">&nbsp;</td>
-    <td width="100"><a href="classes/CableStayApplet.html"><img src="images/CableStaySmall.gif" width="100" height="103" border="0"></a></td>
-    <td width="13">&nbsp;</td>
-    <td valign="bottom" width="161"><a href="classes/CableStayApplet.html">Fanlike 
-      Structure</a></td>
-  </tr>
-  <tr> 
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td valign="bottom">&nbsp;</td>
-  </tr>
-  <tr> 
-    <td>&nbsp;</td>
-    <td><a href="classes/OverhangApplet.html"><img src="images/OverhangSmall.gif" width="100" height="100" border="0"></a></td>
-    <td>&nbsp;</td>
-    <td valign="bottom"><a href="classes/OverhangApplet.html">Overhanging Truss</a></td>
-  </tr>
-  <tr> 
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td valign="bottom">&nbsp;</td>
-  </tr>
-  <tr> 
-    <td>&nbsp;</td>
-    <td><a href="classes/MinWeightApplet.html"><img src="images/MinWeightSmall.gif" width="100" height="110" border="0"></a></td>
-    <td>&nbsp;</td>
-    <td valign="bottom"><a href="classes/MinWeightApplet.html">Minimum Weight 
-      Truss</a></td>
-  </tr>
-  <tr> 
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td valign="bottom">&nbsp;</td>
-  </tr>
-  <tr> 
-    <td>&nbsp;</td>
-    <td><a href="classes/BeamLoadApplet.html"><img src="images/BeamLoadSmall.gif" width="100" height="75" border="0"></a></td>
-    <td>&nbsp;</td>
-    <td valign="bottom"><a href="classes/BeamLoadApplet.html">Beam Loading (Preliminary)</a></td>
-  </tr>
-  <tr> 
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td valign="bottom">&nbsp;</td>
-  </tr>
-</table>
-<p>&nbsp; </p>
-</body>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Single Panel Truss</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Simple Truss</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Hanging Cable/Arch</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Cantilever Truss</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Fanlike Structure</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Overhanging Truss</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Minimum Material Truss</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Beam Loading</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-8" id="left">
+            <!--p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents</p><p>Left contents              
+            </p-->
+            <canvas id="myCanvas" resize="true"></canvas>
+          </div>
+          <div class="col-md-4" id="right">
+            <p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p><p>Right contents</p>
+          </div>
+      </div>
+    </div>
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">//<![CDATA[
+      function resizeApp(height) {
+          if (window.appScene) {
+            console.log('window.appSceneSet!');
+            window.appScene.setSize([$( "#left" ).innerWidth(), height]);
+          } else {
+            setTimeout(() => resizeApp(window.innerHeight), 100);
+          }
+      }
+      
+      function resize()
+      {
+          var height = window.innerHeight;
+          document.getElementById("left").style.height = height + "px";
+          document.getElementById("right").style.height = height + "px";
+          resizeApp(height);
+      }
+      resize();
+      window.onresize = function() {
+          resize();
+      };
+      //]]>  
+    </script>
+
+    <script src="/js/app.bundle.js"></script>
+    <script type="text/javascript">//<![CDATA[
+        // Only executed our code once the DOM is ready.
+        window.onload = function() {
+            window.startApp();
+        };
+      //]]> 
+    </script>
+
+  </body>
 </html>
+

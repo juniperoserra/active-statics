@@ -2,7 +2,7 @@
  * Created by simong on 2/20/17.
  */
 
-require("script-loader!paper");
+require("script-loader!paper/dist/paper-core");
 //require("script-loader!../lib/paper/dist/paper-full");
 require('../app.css');
 
