@@ -14,6 +14,6 @@ body, html {
 #right {
   overflow-y: scroll;
   height: 100px;
-  background-color: #4FC1E9;
+  background-color: rgb(255,255,255);
   text-align: center;
 }
