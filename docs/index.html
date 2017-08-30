@@ -2,7 +2,12 @@
     <head>
         <title>Simple Split Panels - jquery-resizable</title>
         <meta charset="utf-8"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+        </script>
+        <script src="semantic/semantic.min.js"></script>
         <script src="js/jquery-resizable.js"></script>
         <link rel="stylesheet" href="styles.css" />
     </head>
@@ -31,53 +36,12 @@
                 </div>
     
                 <div class="panel-right">
-                    <div id="left">
+                    <div id="app">
                         <canvas id="myCanvas"></canvas>
                     </div>
                 </div>
             </div>
-    
-            <label>Vertical Splitter Panes:</label>
-            <div class="panel-container-vertical">
-    
-                <div class="panel-top">
-                    top panel
-                </div>
-    
-                <div class="splitter-horizontal">
-                </div>
-    
-                <div class="panel-bottom">
-                    bottom panel
-                </div>
-            </div>
-    
-    
-    
-            <hr />
-    
-            <p>
-                This example creates two resizables for the horizontal and vertical splitter panes:
-            </p>
-    <pre>
-    
-
-    &lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js&quot;&gt;&lt;/script&gt;
-    &lt;script src=&quot;../src/jquery-resizable.js&quot;&gt;&lt;/script&gt;
-    &lt;script&gt;
-        $(&quot;.panel-left&quot;).resizable({
-            handleSelector: &quot;.splitter&quot;,
-            resizeHeight: false
-        });
-        $(&quot;.panel-top&quot;).resizable({
-            handleSelector: &quot;.splitter-horizontal&quot;,
-            resizeWidth: false
-        });
-    &lt;/script&gt;
-    </pre>
         </div>
-    
-    
     </body>
     <script type="text/javascript">//<![CDATA[
         $(function() {
@@ -86,47 +50,40 @@
             resizeHeight: false
             });
 
-            var myElement = document.getElementById('left');
-            addResizeListener(myElement, resize);
+            addResizeListener(document.getElementById('app'), resizeApp);
 
+            /* TODO: Add this back for vertical stacking layout option
             $(".panel-top").resizable({
             handleSelector: ".splitter-horizontal",
             resizeWidth: false
-            });
+            });*/
         });
     //]]>
     </script>
     <script src="js/resize-listener.js"></script>
+    <script src="js/app.bundle.js"></script>
     <script type="text/javascript">//<![CDATA[
-        var resize = function() {
-            var top = $("#left").offset().top;
-            var height = window.innerHeight - top;
-            document.getElementById("left").style.height = height + "px";
+        function resizeApp() {
+            var top = $("#app").offset().top;
+            var margin = 32;
+            var height = window.innerHeight - top - margin;
+            document.getElementById("app").style.height = height + "px";
             //document.getElementById("right").style.height = height + "px";
-            resizeApp(height);
-        }
-        
-        function resizeApp(height) {
             if (window.appScene) {
-              window.appScene.setSize([$( "#left" ).innerWidth(), height]);
+              window.appScene.setSize([$("#app").innerWidth(), height]);
             } else {
-              setTimeout(resize, 100);
+              setTimeout(resizeApp, 100);
             }
         }
         
-        resize();
-        window.onresize = function() {
-            resize();
-        };
-        //]]>  
-      </script>
-      <script src="js/app.bundle.js"></script>
-      <script type="text/javascript">//<![CDATA[
-          // Only executed our code once the DOM is ready.
-          window.onload = function() {
+        resizeApp();
+        window.onresize = resizeApp;
+
+        // Only executed our code once the DOM is ready.
+        window.onload = function() {
               window.startApp();
           };
-        //]]> 
+        //]]>  
       </script>
     </html>
     
