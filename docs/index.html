@@ -18,29 +18,33 @@
         <div class="page-container">
     
             <h1>
-               jquery-resizable - A simple splitter panel
+               Active Statics
             </h1>
-            <hr />
-    
-            <p>
-                Simple example that demonstrates how to create slidable two-pane layouts <a href="http://caniuse.com/#search=flexbox">using FlexBox</a> and the resizable plug-in.
-                Note that Flexbox is not required, but used here to keep the layout simple.
-            </p>
-    
-            <label>Horizontal Splitter Panes:</label>
     
             <div class="panel-container">
 
-                <div id="text" class="panel-left">
+                <div id="text" class="panel-left" style="overflow: auto">
                         <table width="100%"><tr><td><!--div-->
 
-                        <div><h1>The Screen</h1></div>
+                        <div><h2>The Screen</h2></div>
                         
-                        <div><p>The <strong>Form Diagram</strong> shows the simplest possible 
+                        <div>The <strong>Form Diagram</strong> shows the simplest possible 
                         truss, a triangle made of three members. It is supported on a pin at one 
                         end and a roller at the other, and supports a single load at its apex. 
                         Its <strong>Force Polygon</strong> is to the right, and numerical member 
-                        forces are tabulated below.</p></div>
+                        forces are tabulated below.</div>
+                        
+                        <div>The <strong>Toggle Switches</strong> include</div>
+                        <ul>
+                            <li>Return to Starting Position: Clears away all 
+                                that you have done and puts everything back where it was.</li>
+                            <li>Circle Load: Activates an animation in which 
+                                the load on the apex of the truss rotates continually.</li>
+                            <li>Keep Load Vertical: Prevents the load from 
+                                being applied at any angle other than vertical.</li>
+                            <li>Extend Lines of Action: Adds extensions of 
+                                the lines of action of the three external forces on the truss.</li>
+                        </ul>
 
                         </tr></td></table><!--/div-->
                     <!--div>

@@ -31,14 +31,14 @@ body {
   min-height: 200px;
   min-width: 150px;
   white-space: nowrap;
-  background: #838383;
+  background: #eee;
   color: white;
 }
 
 .splitter {
   flex: 0 0 auto;
-  width: 18px;  
-  background: url(https://raw.githubusercontent.com/RickStrahl/jquery-resizable/master/assets/vsizegrip.png) center center no-repeat #535353;
+  width: 12px;  
+  background: url(images/vsizegrip.png) center center no-repeat #B0B0B0;
   min-height: 200px;
   cursor: col-resize;  
 }
