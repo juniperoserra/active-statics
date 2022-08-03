@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--JBuilder XML Project-->
+<project>
+  <property category="idl" name="ProcessIDL" value="false"/>
+  <property category="javaFormatting" name="packagePrefixGroups.1" value="java"/>
+  <property category="javaFormatting" name="packagePrefixGroups.2" value="&lt;blank line&gt;"/>
+  <property category="javaFormatting" name="packagePrefixGroups.3" value="javax"/>
+  <property category="javaFormatting" name="packagePrefixGroups.4" value="&lt;blank line&gt;"/>
+  <property category="javaFormatting" name="packagePrefixGroups.5" value="&lt;*&gt;"/>
+  <property category="javaFormatting" name="packageThreshold" value="0"/>
+  <property category="optimize.0" name="OptimizableType" value="com.borland.jbuilder.optimize.IntroOptimizeitProfiler"/>
+  <property category="runtime" name="ConfigurationCount" value="10"/>
+  <property category="runtime.0" name="BuildTargetOnRun" value="com.borland.jbuilder.build.ProjectBuilder$ProjectBuildAction;make"/>
+  <property category="runtime.0" name="ConfigurationName" value="Truss"/>
+  <property category="runtime.0" name="RunnableType" value="com.borland.jbuilder.runtime.AppletRunner"/>
+  <property category="runtime.0" name="applet.appletviewer" value="1"/>
+  <property category="runtime.0" name="applet.class" value="truss.HangingCableApplet"/>
+  <property category="runtime.0" name="applet.html" value="classes/LauncherApplet.html"/>
+  <property category="runtime.0" name="applet.vmparameters" value="-nojit"/>
+  <property category="runtime.0" name="application.vmparameters" value="-nojit"/>
+  <property category="runtime.0" name="appserver.ejbJarsSaved" value="1"/>
+  <property category="runtime.0" name="appserver.parameters" value="-jts -jns -jss -jdb"/>
+  <property category="runtime.0" name="appserver.servername" value="ejbcontainer"/>
+  <property category="runtime.0" name="appserver.vmparameters" value=""/>
+  <property category="runtime.0" name="jsprunner.docbase" value="."/>
+  <property category="runtime.0" name="jsprunner.jspfile" value="../Moment"/>
+  <property category="runtime.0" name="jsprunner.launchuri" value="/../Moment"/>
+  <property category="runtime.0" name="test.harness" value="junit.textui.TestRunner"/>
+  <property category="runtime.1" name="ConfigurationName" value="Truss"/>
+  <property category="runtime.1" name="RunnableType" value="com.borland.jbuilder.runtime.AppletRunner"/>
+  <property category="runtime.1" name="applet.appletviewer" value="1"/>
+  <property category="runtime.1" name="applet.html" value="classes/TrussApplet.html"/>
+  <property category="runtime.1" name="appserver.ejbJarsSaved" value="1"/>
+  <property category="runtime.1" name="appserver.parameters" value="-jts -jns -jss -jdb"/>
+  <property category="runtime.1" name="appserver.servername" value="ejbcontainer"/>
+  <property category="runtime.1" name="appserver.vmparameters" value=""/>
+  <property category="runtime.1" name="jsprunner.docbase" value="."/>
+  <property category="runtime.1" name="jsprunner.jspfile" value="."/>
+  <property category="runtime.1" name="test.harness" value="junit.textui.TestRunner"/>
+  <property category="runtime.10" name="BuildTargetOnRun" value="com.borland.jbuilder.build.ProjectBuilder$ProjectBuildAction;make"/>
+  <property category="runtime.10" name="ConfigurationName" value="Untitled Runtime Configuration1"/>
+  <property category="runtime.10" name="RunnableType" value="com.borland.jbuilder.runtime.AppletRunner"/>
+  <property category="runtime.10" name="applet.appletviewer" value="1"/>
+  <property category="runtime.10" name="applet.html" value="classes/SilentLauncherApplet.html"/>
+  <property category="runtime.2" name="ConfigurationName" value="SinglePanel"/>
+  <property category="runtime.2" name="RunnableType" value="com.borland.jbuilder.runtime.AppletRunner"/>
+  <property category="runtime.2" name="applet.appletviewer" value="1"/>
+  <property category="runtime.2" name="applet.html" value="classes/SinglePanelApplet.html"/>
+  <property category="runtime.2" name="appserver.ejbJarsSaved" value="1"/>
+  <property category="runtime.2" name="appserver.parameters" value="-jts -jns -jss -jdb"/>
+  <property category="runtime.2" name="appserver.servername" value="ejbcontainer"/>
+  <property category="runtime.2" name="appserver.vmparameters" value=""/>
+  <property category="runtime.2" name="jsprunner.docbase" value="."/>
+  <property category="runtime.2" name="jsprunner.jspfile" value="."/>
+  <property category="runtime.2" name="test.harness" value="junit.textui.TestRunner"/>
+  <property category="runtime.3" name="ConfigurationName" value="Hanging Cable"/>
+  <property category="runtime.3" name="RunnableType" value="com.borland.jbuilder.runtime.AppletRunner"/>
+  <property category="runtime.3" name="applet.appletviewer" value="1"/>
+  <property category="runtime.3" name="applet.html" value="classes/HangingCableApplet.html"/>
+  <property category="runtime.3" name="appserver.ejbJarsSaved" value="1"/>
+  <property category="runtime.3" name="appserver.parameters" value="-jts -jns -jss -jdb"/>
+  <property category="runtime.3" name="appserver.servername" value="ejbcontainer"/>
+  <property category="runtime.3" name="appserver.vmparameters" value=""/>
+  <property category="runtime.3" name="jsprunner.docbase" value="."/>
+  <property category="runtime.3" name="jsprunner.jspfile" value="."/>
+  <property category="runtime.3" name="test.harness" value="junit.textui.TestRunner"/>
+  <property category="runtime.4" name="ConfigurationName" value="Cantilever"/>
+  <property category="runtime.4" name="RunnableType" value="com.borland.jbuilder.runtime.AppletRunner"/>
+  <property category="runtime.4" name="applet.appletviewer" value="1"/>
+  <property category="runtime.4" name="applet.html" value="classes/CantileverApplet.html"/>
+  <property category="runtime.4" name="appserver.ejbJarsSaved" value="1"/>
+  <property category="runtime.4" name="appserver.parameters" value="-jts -jns -jss -jdb"/>
+  <property category="runtime.4" name="appserver.servername" value="ejbcontainer"/>
+  <property category="runtime.4" name="appserver.vmparameters" value=""/>
+  <property category="runtime.4" name="jsprunner.docbase" value="."/>
+  <property category="runtime.4" name="jsprunner.jspfile" value="../../../../../JBuilder4/bin"/>
+  <property category="runtime.4" name="jsprunner.launchuri" value="/../../../../../JBuilder4/bin"/>
+  <property category="runtime.4" name="test.harness" value="junit.textui.TestRunner"/>
+  <property category="runtime.5" name="ConfigurationName" value="Cable Stay"/>
+  <property category="runtime.5" name="RunnableType" value="com.borland.jbuilder.runtime.AppletRunner"/>
+  <property category="runtime.5" name="applet.appletviewer" value="1"/>
+  <property category="runtime.5" name="applet.html" value="classes/CableStayApplet.html"/>
+  <property category="runtime.5" name="appserver.ejbJarsSaved" value="1"/>
+  <property category="runtime.5" name="appserver.parameters" value="-jts -jns -jss -jdb"/>
+  <property category="runtime.5" name="appserver.servername" value="ejbcontainer"/>
+  <property category="runtime.5" name="appserver.vmparameters" value=""/>
+  <property category="runtime.5" name="jsprunner.docbase" value="."/>
+  <property category="runtime.5" name="jsprunner.jspfile" value="."/>
+  <property category="runtime.5" name="test.harness" value="junit.textui.TestRunner"/>
+  <property category="runtime.6" name="ConfigurationName" value="Overhanging Truss"/>
+  <property category="runtime.6" name="RunnableType" value="com.borland.jbuilder.runtime.AppletRunner"/>
+  <property category="runtime.6" name="applet.appletviewer" value="1"/>
+  <property category="runtime.6" name="applet.html" value="classes/OverhangApplet.html"/>
+  <property category="runtime.6" name="applet.vmparameters" value="-nojit"/>
+  <property category="runtime.6" name="appserver.ejbJarsSaved" value="1"/>
+  <property category="runtime.6" name="appserver.parameters" value="-jts -jns -jss -jdb"/>
+  <property category="runtime.6" name="appserver.servername" value="ejbcontainer"/>
+  <property category="runtime.6" name="appserver.vmparameters" value=""/>
+  <property category="runtime.6" name="jsprunner.docbase" value="."/>
+  <property category="runtime.6" name="jsprunner.jspfile" value="."/>
+  <property category="runtime.6" name="test.harness" value="junit.textui.TestRunner"/>
+  <property category="runtime.7" name="ConfigurationName" value="Minimum Weight Truss"/>
+  <property category="runtime.7" name="RunnableType" value="com.borland.jbuilder.runtime.AppletRunner"/>
+  <property category="runtime.7" name="applet.appletviewer" value="1"/>
+  <property category="runtime.7" name="applet.html" value="classes/MinWeightApplet.html"/>
+  <property category="runtime.7" name="appserver.ejbJarsSaved" value="1"/>
+  <property category="runtime.7" name="appserver.parameters" value="-jts -jns -jss -jdb"/>
+  <property category="runtime.7" name="appserver.servername" value="ejbcontainer"/>
+  <property category="runtime.7" name="appserver.vmparameters" value=""/>
+  <property category="runtime.7" name="jsprunner.docbase" value="."/>
+  <property category="runtime.7" name="jsprunner.jspfile" value="../../../../../JBuilder4/bin"/>
+  <property category="runtime.8" name="ConfigurationName" value="Beam Loading"/>
+  <property category="runtime.8" name="RunnableType" value="com.borland.jbuilder.runtime.AppletRunner"/>
+  <property category="runtime.8" name="applet.appletviewer" value="1"/>
+  <property category="runtime.8" name="applet.html" value="classes/BeamLoadApplet.html"/>
+  <property category="runtime.8" name="applet.vmparameters" value="-nojit"/>
+  <property category="runtime.8" name="appserver.ejbJarsSaved" value="1"/>
+  <property category="runtime.8" name="appserver.parameters" value="-jts -jns -jss -jdb"/>
+  <property category="runtime.8" name="appserver.servername" value="ejbcontainer"/>
+  <property category="runtime.8" name="appserver.vmparameters" value=""/>
+  <property category="runtime.8" name="jsprunner.docbase" value="."/>
+  <property category="runtime.8" name="jsprunner.jspfile" value="../../../../../JBuilder4/bin"/>
+  <property category="runtime.9" name="ConfigurationName" value="Launcher"/>
+  <property category="runtime.9" name="RunnableType" value="com.borland.jbuilder.runtime.AppletRunner"/>
+  <property category="runtime.9" name="applet.appletviewer" value="1"/>
+  <property category="runtime.9" name="applet.html" value="classes/LauncherApplet.html"/>
+  <property category="runtime.9" name="appserver.ejbJarsSaved" value="1"/>
+  <property category="runtime.9" name="appserver.parameters" value="-jts -jns -jss -jdb"/>
+  <property category="runtime.9" name="appserver.servername" value="ejbcontainer"/>
+  <property category="runtime.9" name="appserver.vmparameters" value=""/>
+  <property category="runtime.9" name="jsprunner.docbase" value="."/>
+  <property category="runtime.9" name="jsprunner.jspfile" value="../../../../../JBuilder4/bin"/>
+  <property category="serverservices" name="disabled.services" value="connector;jdatastore"/>
+  <property category="sys" name="AuthorLabel" value="@author"/>
+  <property category="sys" name="BackupPath" value="bak"/>
+  <property category="sys" name="CheckStable" value="1"/>
+  <property category="sys" name="Company" value=""/>
+  <property category="sys" name="CompanyLabel" value="Company:"/>
+  <property category="sys" name="Copyright" value="Copyright (c) 2001"/>
+  <property category="sys" name="CopyrightLabel" value="Copyright:"/>
+  <property category="sys" name="DefaultPath" value="src"/>
+  <property category="sys" name="Description" value=""/>
+  <property category="sys" name="DescriptionLabel" value="Description:"/>
+  <property category="sys" name="DocPath" value="doc"/>
+  <property category="sys" name="ExcludeClassEnabled" value="0"/>
+  <property category="sys" name="IncludeTestPath" value="1"/>
+  <property category="sys" name="JDK" value="java version 1.1.8_008"/>
+  <property category="sys" name="LastTag" value="0"/>
+  <property category="sys" name="Libraries" value=""/>
+  <property category="sys" name="MakeStable" value="0"/>
+  <property category="sys" name="OutPath" value="classes"/>
+  <property category="sys" name="SourcePath" value="src;test"/>
+  <property category="sys" name="TestPath" value="test"/>
+  <property category="sys" name="Title" value="Truss"/>
+  <property category="sys" name="TitleLabel" value="Title:"/>
+  <property category="sys" name="Version" value="1.0"/>
+  <property category="sys" name="VersionLabel" value="@version"/>
+  <property category="sys" name="WorkingDirectory" value="."/>
+  <file path="src/truss/BeamLoadApplet.java"/>
+  <file path="src/truss/CableStayApplet.java"/>
+  <file path="src/truss/CantileverApplet.java"/>
+  <file path="src/truss/Comparable.java"/>
+  <file path="src/truss/G.java"/>
+  <file path="src/truss/GraphicEntity.java"/>
+  <file path="classes/HangingCableApplet.html"/>
+  <file path="src/truss/HangingCableApplet.java"/>
+  <file path="src/truss/JobCirclePoint.java"/>
+  <file path="src/truss/JobMovePointTo.java"/>
+  <file path="src/truss/JobMovePointToPoint.java"/>
+  <file path="src/truss/JobMovePointToStart.java"/>
+  <file path="src/truss/JobMoveViewToOrigin.java"/>
+  <file path="classes/LauncherApplet.html"/>
+  <file path="src/truss/LauncherApplet.java"/>
+  <file path="classes/MinWeightApplet.html"/>
+  <file path="src/truss/MinWeightApplet.java"/>
+  <file path="src/truss/NoScrollUpdateCanvas.java"/>
+  <file path="src/truss/OverhangApplet.java"/>
+  <file path="src/truss/QuickSort.java"/>
+  <file path="classes/SinglePanelApplet.html"/>
+  <file path="src/truss/SinglePanelApplet.java"/>
+  <file path="src/truss/Sortable.java"/>
+  <file path="src/truss/TAction.java"/>
+  <file path="src/truss/TArrow.java"/>
+  <file path="src/truss/TArrowOneSide.java"/>
+  <file path="src/truss/TButton.java"/>
+  <file path="src/truss/THalfPlane.java"/>
+  <file path="src/truss/TImage.java"/>
+  <file path="src/truss/TImageButton.java"/>
+  <file path="src/truss/Timer.java"/>
+  <file path="src/truss/TimerJob.java"/>
+  <file path="src/truss/TLine.java"/>
+  <file path="src/truss/TLineForcePoly.java"/>
+  <file path="src/truss/TLineMember.java"/>
+  <file path="src/truss/TLineThin.java"/>
+  <file path="src/truss/TLoad.java"/>
+  <file path="src/truss/TPin.java"/>
+  <file path="src/truss/TPoint.java"/>
+  <file path="src/truss/TPointForcePoly.java"/>
+  <file path="src/truss/TPointIntersect.java"/>
+  <file path="src/truss/TPointTranslate.java"/>
+  <file path="src/truss/TPolygon.java"/>
+  <file path="src/truss/TReaction.java"/>
+  <file path="src/truss/TRoller.java"/>
+  <file path="Truss.html"/>
+  <file path="classes/TrussApplet.html"/>
+  <file path="src/truss/TrussApplet.java"/>
+  <file path="src/truss/TText.java"/>
+  <file path="src/truss/TTextLength.java"/>
+  <file path="src/truss/TTextPoint.java"/>
+  <file path="src/truss/TTextPointLength.java"/>
+  <file path="src/truss/TTextTriangle.java"/>
+  <file path="src/truss/Types.java"/>
+  <file path="src/truss/Util.java"/>
+</project>
