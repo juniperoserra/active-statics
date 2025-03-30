@@ -16,9 +16,9 @@ const gHitOptions = {
 export default class Graphics {
     constructor() {
         this.paper = Paper;
-        this.paper.project.view.onMouseDown = this::this.onMouseDown;
+        this.paper.project.view.onMouseDown = this.onMouseDown.bind(this);
         //this.paper.project.view.onMouseDrag = onMouseDown;
-        this.paper.project.view.onFrame = this::this.onFrame;
+        this.paper.project.view.onFrame = this.onFrame.bind(this);
         this.mEntities = [];
         this.mHasRecordedStartingPositions = false;
         this.mJobs = [];

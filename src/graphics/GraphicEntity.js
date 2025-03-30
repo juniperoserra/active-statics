@@ -59,7 +59,7 @@ export default class GraphicEntity {
     set draggable(val) {
         if (this.item) {
             if (val) {
-                this.item.onMouseDrag = this::this.onMouseDrag;
+                this.item.onMouseDrag = this.onMouseDrag.bind(this);
             }
             else {
                 this.item.onMouseDrag = undefined;

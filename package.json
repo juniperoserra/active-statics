@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "npm start",
-    "build": "webpack --env=prod -p",
-    "start": "webpack-dev-server --env=dev --debug --output-pathinfo",
+    "dev": "webpack serve --env=dev --mode=development --open",
+    "build": "webpack --env=prod --mode=production",
+    "start": "webpack-dev-server --env=dev --output-pathinfo",
     "copyToDoc": "cp dist/assets/app.bundle.js docs/js",
     "serveDoc": "cd docs; python -m SimpleHTTPServer 8000"
   },
@@ -13,14 +13,15 @@
     "paper": "^0.11.4"
   },
   "devDependencies": {
-    "babel-core": "^6.23.1",
-    "babel-loader": "^6.3.2",
-    "babel-preset-es2015": "^6.22.0",
-    "babel-preset-stage-0": "^6.22.0",
-    "css-loader": "^0.26.1",
-    "script-loader": "^0.7.0",
-    "style-loader": "^0.13.1",
-    "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.4.1"
+    "@babel/core": "^7.22.0",
+    "@babel/preset-env": "^7.22.0",
+    "babel-loader": "^9.1.2",
+    "core-js": "^3.41.0",
+    "css-loader": "^6.8.1",
+    "script-loader": "^0.7.2",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }

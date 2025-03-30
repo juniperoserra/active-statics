@@ -48,7 +48,7 @@ export default class SinglePanelApp extends AppBase {
         this.makeReport();
         this.makeLinesOfAction();
         this.setZOrders();
-        scene.mGraphics.setAppUpdate(this::this.globalUpdate);
+        scene.mGraphics.setAppUpdate(this.globalUpdate.bind(this));
     }
 
     setZOrders() {

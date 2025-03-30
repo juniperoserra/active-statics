@@ -38,9 +38,9 @@ export default class TButton extends GraphicEntity {
         this.mRect.fillColor.alpha = selectedAlpha(this.mSelected);
 
         this.item = graphics.addGroup([this.mText, this.mRect]);
-        this.item.onMouseDown = this::this.onMouseDown;
-        this.item.onMouseDrag = this::this.onMouseDrag;
-        this.item.onMouseUp = this::this.onMouseUp;
+        this.item.onMouseDown = this.onMouseDown.bind(this);
+        this.item.onMouseDrag = this.onMouseDrag.bind(this);
+        this.item.onMouseUp = this.onMouseUp.bind(this);
     }
 
     update() {
