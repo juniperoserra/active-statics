@@ -61,7 +61,7 @@ export default class TRoller extends GraphicEntity {
         }
 
         this.item = this.mGraphics.addGroup(this.mItems);
-        this.mOffset = [this.item.position.x - this.mPoint.x, this.item.position.y - this.mPoint.y];
+        this.mOffset = [this.x - this.mPoint.x, this.y - this.mPoint.y];
     }
 
     constructor(graphics, aPoint = [0, 0], dir = 270, options) {

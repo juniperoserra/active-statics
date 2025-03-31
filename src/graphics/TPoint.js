@@ -38,14 +38,6 @@ export default class TPoint extends GraphicEntity {
         this.draggable = (options.draggable !== undefined) ? options.draggable : true;
     }
 
-    get x() {
-        return this.item.position.x;
-    }
-
-    get y() {
-        return this.item.position.y;
-    }
-
     update() {
         this.c1.radius = this.mSize;
         this.c2.radius = this.mSize / 1.4;

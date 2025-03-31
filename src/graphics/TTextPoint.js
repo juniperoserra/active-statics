@@ -18,13 +18,12 @@ export default class TTextPoint extends TText {
     update() {
         super.update();
         if (this.mLeftJustify) {
-            const trueLeft = this.mTPoint.item.position.x - this.mTPoint.item.bounds.width / 2 + this.mOffset[0];
-            const currentLeft = this.item.position.x - this.item.bounds.width / 2;
-            const currentX = this.item.position.x;
-            this.item.position = [trueLeft + (currentX - currentLeft), this.mTPoint.item.position.y + this.mOffset[1]];
+            const trueLeft = this.mTPoint.x - this.mTPoint.item.bounds.width / 2 + this.mOffset[0];
+            const currentLeft = this.x - this.item.bounds.width / 2;
+            const currentX = this.x;
+            this.item.position = [trueLeft + (currentX - currentLeft), this.mTPoint.y + this.mOffset[1]];
         }
         else {
-            this.item.position = this.mTPoint.item.position.add(this.mOffset);
-        }
+            this.item.position = this.mTPoint.item.position.add(this.mOffset);        }
     }
 };

@@ -16,14 +16,14 @@ export default class TPointIntersect extends TPoint {
     }
 
     update() {
-        const x1 = this.mLine1.mStartPoint.item.position.x;
-        const x2 = this.mLine1.mEndPoint.item.position.x;
-        const x3 = this.mLine2.mStartPoint.item.position.x;
-        const x4 = this.mLine2.mEndPoint.item.position.x;
-        const y1 = this.mLine1.mStartPoint.item.position.y;
-        const y2 = this.mLine1.mEndPoint.item.position.y;
-        const y3 = this.mLine2.mStartPoint.item.position.y;
-        const y4 = this.mLine2.mEndPoint.item.position.y;
+        const x1 = this.mLine1.mStartPoint.x;
+        const x2 = this.mLine1.mEndPoint.x;
+        const x3 = this.mLine2.mStartPoint.x;
+        const x4 = this.mLine2.mEndPoint.x;
+        const y1 = this.mLine1.mStartPoint.y;
+        const y2 = this.mLine1.mEndPoint.y;
+        const y3 = this.mLine2.mStartPoint.y;
+        const y4 = this.mLine2.mEndPoint.y;
         const intersection = TLine.intersection(x1, y1, x2, y2, x3, y3, x4, y4);
         if (intersection) {
             this.item.position = intersection;

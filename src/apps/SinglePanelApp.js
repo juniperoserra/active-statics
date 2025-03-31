@@ -72,7 +72,7 @@ export default class SinglePanelApp extends AppBase {
             this.mActionIntersect.visible = false;
         }
         if (this.mLoadsVertical) {
-            this.mForceTail.item.position = [this.mTrussNodes[1].item.position.x, this.mForceTail.item.position.y];
+            this.mForceTail.item.position = [this.mTrussNodes[1].x, this.mForceTail.y];
         }
     }
 

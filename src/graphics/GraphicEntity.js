@@ -48,6 +48,14 @@ export default class GraphicEntity {
         }
     };
 
+    get x() {
+        return this.item.position.x;
+    }
+
+    get y() {
+        return this.item.position.y;
+    }
+
     get visible() {
         return this.item.visible;
     }

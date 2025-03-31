@@ -69,7 +69,7 @@ export default class Graphics {
         }
         if (!this.mHasRecordedStartingPositions) {
             for (let entity of this.mEntities) {
-                entity._startingPosition = [entity.item.position.x, entity.item.position.y];
+                entity._startingPosition = [entity.x, entity.y];
             }
             this.mHasRecordedStartingPositions = true;
         }
@@ -79,7 +79,7 @@ export default class Graphics {
         this._resetDrag = true;
         this._dragStartPosition = {x: event.point.x, y: event.point.y};
         for (let entity of this.mEntities) {
-            entity._dragStartPosition = [entity.item.position.x, entity.item.position.y];
+            entity._dragStartPosition = [entity.x, entity.y];
         }
     }
 

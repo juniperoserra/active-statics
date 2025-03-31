@@ -20,7 +20,7 @@ export default class AnimationJob { // Keep existing base class
     step(msElapsed) {
          // Update the internal drag start position in case the animation is interrupted by a drag
         if (this.mEntity?._startingPosition && this.mEntity?.item?.position) {
-           this.mEntity._dragStartPosition = [this.mEntity.item.position.x, this.mEntity.item.position.y];
+           this.mEntity._dragStartPosition = [this.mEntity.x, this.mEntity.y];
         }
     }
 
@@ -184,8 +184,8 @@ export class CircleAroundJob extends AnimationJob { // Keep existing class
         this.mSpeed = -0.02;
         this.mPivot = pivot;
 
-        this.mTheta = Math.atan2(this.mEntity.item.position.y - this.mPivot.item.position.y, this.mEntity.item.position.x - this.mPivot.item.position.x);
-        this.mLength = util.distance(this.mEntity.item.position.x, this.mEntity.item.position.y, this.mPivot.item.position.x,  this.mPivot.item.position.y);
+        this.mTheta = Math.atan2(this.mEntity.y - this.mPivot.y, this.mEntity.x - this.mPivot.x);
+        this.mLength = util.distance(this.mEntity.x, this.mEntity.y, this.mPivot.x,  this.mPivot.y);
 
     }
 
@@ -214,16 +214,16 @@ export class CircleAroundJob extends AnimationJob { // Keep existing class
         }
 
         this.mEntity.item.position = [
-            this.mPivot.item.position.x + this.mLength * Math.cos(this.mTheta),
-            this.mPivot.item.position.y + this.mLength * Math.sin(this.mTheta)
+            this.mPivot.x + this.mLength * Math.cos(this.mTheta),
+            this.mPivot.y + this.mLength * Math.sin(this.mTheta)
         ];
 
         super.step(msElapsed);
     }
 
      start() { // Added method to recalculate on drag interruption
-        this.mTheta = Math.atan2(this.mEntity.item.position.y - this.mPivot.item.position.y, this.mEntity.item.position.x - this.mPivot.item.position.x);
-        this.mLength = util.distance(this.mEntity.item.position.x, this.mEntity.item.position.y, this.mPivot.item.position.x,  this.mPivot.item.position.y);
+        this.mTheta = Math.atan2(this.mEntity.y - this.mPivot.y, this.mEntity.x - this.mPivot.x);
+        this.mLength = util.distance(this.mEntity.x, this.mEntity.y, this.mPivot.x,  this.mPivot.y);
     }
 }
 
