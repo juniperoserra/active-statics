@@ -3,6 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <title>Active Statics</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        #app-container {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #text-panel {
+            display: none;
+            width: 500px;
+            overflow-y: auto;
+            padding: 20px;
+            background: #f9f9f9;
+            border-right: 2px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        #text-panel.visible {
+            display: block;
+        }
+
+        #main {
+            flex: 1;
+            position: relative;
+        }
+
+        #myCanvas {
+            display: block;
+        }
+
+        #text-panel h1 {
+            font-size: 28px;
+            margin-top: 0;
+        }
+
+        #text-panel h2 {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        #text-panel h3 {
+            font-size: 16px;
+            margin-top: 15px;
+            color: #666;
+        }
+
+        #text-panel p {
+            line-height: 1.6;
+        }
+
+        #text-panel ul {
+            line-height: 1.8;
+        }
+
+        #text-panel hr {
+            margin: 25px 0;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+    </style>
     <script type="text/javascript">
         // Only executed our code once the DOM is ready.
         window.onload = function() {
@@ -11,8 +78,11 @@
     </script>
 </head>
 <body>
-<div id="main">
-    <canvas id="myCanvas"></canvas>
+<div id="app-container">
+    <div id="text-panel"></div>
+    <div id="main">
+        <canvas id="myCanvas"></canvas>
+    </div>
 </div>
 </body>
 </html>

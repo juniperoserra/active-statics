@@ -1,0 +1,127 @@
+export const singlePanelInstructions = `
+<h1>Single Panel Truss</h1>
+
+<h2>The Screen</h2>
+
+<p>The <b>Form Diagram</b> shows the simplest possible truss, a triangle made of three
+    members. It is supported on a pin at one end and a roller at the other, and supports a single
+    load at its apex. Its <b>Force Polygon</b> is to the right, and numerical member
+    forces are tabulated below.</p>
+
+<p>The <b>Toggle Switches</b> include</p>
+<ul>
+    <li><em>Return to Starting Position:</em> Clears away all that you have done and puts everything back
+        where it was.</li>
+    <li><em>Circle Load:</em> Activates an animation in which the load on the apex of the truss rotates continually.</li>
+    <li><em>Keep Load Vertical:</em> Prevents the load from being applied at any angle other than vertical.</li>
+    <li><em>Extend Lines of Action:</em> Adds extensions of the lines of action of the three external forces
+        on the truss.</li>
+</ul>
+
+<p><b>You may move any node that is marked with a yellow
+    circle. </b>All the other parts of the screen will change instantaneously to reflect the
+    consequences of each move–the reactions are recalculated, the force polygon is modified,
+    and the values of member forces change.
+</p>
+
+<hr/>
+<h3>Exercise One:</h3>
+<h2>Play</h2>
+<p>Use the mouse to play with the truss in any way that you like. Move some of the yellow circles
+    to explore the possibilities and discover how the various features work. Try the various
+    toggles.
+</p>
+
+<p>Notice that there are three ways to see what's happening to the forces in the members of the
+    truss:
+</p>
+
+<p>1. The members grow thicker as forces increase, and thinner as forces decrease. <em>(Note: There are limits
+    on the thickness and thinness of the members. Member thicknesses will
+    not change further after they reach these limits.)</em>
+</p>
+<p>2. The lines of the Force Polygon grow longer as forces increase, and shorter as forces decrease.</p>
+<p>3. The numerical values for member forces in the table at the bottom change.</p>
+
+<hr/>
+<h3>Exercise Two:</h3>
+<h2>Truss Depth</h2>
+<p><em>Toggles On</em>: Return to Starting Position; Keep Load Vertical</p>
+<p>A. Click on the top node of the truss.</p>
+<p>Move it up slowly, increasing the depth of the truss, and watch what happens to member forces.
+    Pay particular attention to the Force Polygon as you do this, but note the other ways in
+    which the magnitudes of the forces are represented.</p>
+<p>Move the top node down slowly, decreasing the depth of the truss. What happens as the top node
+    approaches the lower chord?</p>
+
+<hr/>
+<h3>Exercise Three:</h3>
+<h2>Inverting the Truss</h2>
+<p>A. Continue moving the top node down until it crosses the lower chord.
+</p>
+<p>What happens to the magnitude and character of the forces in the truss members as the top node
+    crosses the lower chord?<br>
+    <br> What happens after the top node has crossed the lower chord, as the node continues to
+    move downward, away from the lower chord?
+</p>
+
+<hr/>
+<h3>Exercise Four:</h3>
+<h2>Changing the Load</h2>
+<p><em>Toggles On</em>: Return to Starting Position; Keep Load Vertical.</p>
+<p>A. Click on the yellow circle at the top of the arrow that represents the load on the top of
+    the truss.
+</p>
+<p>Move the circle up and down, increasing and decreasing the load, watching what happens to the
+    forces in the members of the truss as you do so.
+</p>
+
+<hr/>
+<h3>Exercise Five:</h3>
+<h2>Changing the Form of the Truss</h2>
+<p><em>Toggles On</em>: Return to Starting Position; Keep Load Vertical.</p>
+<p>A. Click on the top node of the truss again and move it from side to side. What happens to the
+    reactions as you do this? What happens to the member forces? How are changes in the two reactions
+    reflected in the force polygon?</p>
+<p>B. Move the top node slowly leftward until it is directly over the left support. What happens
+    to member forces at this point? What happens when the top node moves still farther leftward,
+    outside the left support? What is happening in the force polygon when you do this?</p>
+<p>C. Click on "Return to Starting Position," then move the left support up and down, watching what
+    happens to member forces as you do this.
+</p>
+
+<hr/>
+<h3>Exercise Six:</h3>
+<h2>Changing the Span</h2>
+<p><em>Toggles On</em>: Return to Starting Position; Keep Load Vertical.</p>
+<p>A. Move the right support rightward, increasing the span of the truss, and note what happens
+    to member forces. Move it leftward until the span is very small. Generally speaking, what
+    is the influence of span on member forces?
+</p>
+
+<hr/>
+<h3>Exercise Seven:</h3>
+<h2>Changing the Direction of the Load</h2>
+<p><em>Toggles On</em>: Return to Starting Position. Be sure all other toggles are off.</p>
+<p>A. Click on the yellow circle at the top of the load arrow and move it left and right. What happens
+    to the member forces as you do this? What happens to the reactions? Notice the difference
+    in the directions of the reactions at the pin connection and at the roller.</p>
+<p>B. Align the load so that its line of action runs directly along the axis of one of the top chords
+    of the truss. What happens to the forces in the other two truss members when you do this?
+    What is the magnitude of the force in the member with which the load is aligned?
+</p>
+
+<hr/>
+<h3>Exercise Eight:</h3>
+<h2>Concurrence of External Forces</h2>
+<p><em>Toggles On</em>: Return to Starting Position; Extend Lines of Action.</p>
+<p>A. There are three external forces acting on the truss: the load, and the two reactions. Click
+    on the top node of the truss and move it from side to side. The broken green lines extend
+    the lines of action of these forces. Formulate a general rule about these lines of action.
+</p>
+<p>B. Turn on the Circle Load toggle and watch what happens. Does this confirm the rule that you
+    just formulated? What other things can you learn from watching the action?</p>
+<p>C. What kinds of loads can be transmitted through
+    a pin connection? Through a roller?
+</p>
+`;

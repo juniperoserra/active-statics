@@ -20,6 +20,9 @@ export default class LauncherApp extends AppBase {
     constructor(scene) {
         super(scene, [LauncherApp.APPLET_WIDTH, LauncherApp.APPLET_HEIGHT]);
 
+        // Hide instructions panel for launcher
+        this.hideInstructions();
+
         this.demos = [
             {
                 id: 'single-panel',
@@ -232,5 +235,13 @@ export default class LauncherApp extends AppBase {
 
         // Launch the selected demo
         new demo.app(this.mScene);
+    }
+
+    hideInstructions() {
+        const textPanel = document.getElementById('text-panel');
+        if (textPanel) {
+            textPanel.classList.remove('visible');
+            textPanel.innerHTML = '';
+        }
     }
 }

@@ -7,6 +7,7 @@ import styles from '../graphics/styles';
 import TLine from '../graphics/TLine';
 import util from '../graphics/util';
 import { MoveToStartJob, CircleAroundJob } from '../graphics/AnimationJob';
+import { singlePanelInstructions } from './singlePanelInstructions';
 
 export default class SinglePanelApp extends AppBase {
 
@@ -33,6 +34,9 @@ export default class SinglePanelApp extends AppBase {
     constructor(scene) {
         super(scene,
             [SinglePanelApp.APPLET_WIDTH, SinglePanelApp.APPLET_HEIGHT]);
+
+        // Show instructions panel
+        this.showInstructions();
 
         this.makeButtons();
         this.makeNodes();
@@ -213,6 +217,16 @@ export default class SinglePanelApp extends AppBase {
     makeButtons() {
         const x = SinglePanelApp.BUTTON_START_X;
         let y = SinglePanelApp.BUTTON_START_Y;
+
+        // Back to launcher button
+        this.mBackButton = this.mScene.createButton([x, y], '← Back to Launcher',
+            () => {
+                // Reload to go back to launcher
+                window.location.reload();
+            }, {width: SinglePanelApp.BUTTON_WIDTH}
+        );
+
+        y += SinglePanelApp.BUTTON_Y_OFFSET;
         const moveButton = this.mScene.createButton([x, y], 'Return To Starting Position',
             () => {
                 this.mScene.mGraphics.clearJobs();
@@ -295,6 +309,14 @@ export default class SinglePanelApp extends AppBase {
         this.mLoadLineOfAction = this.mScene.createLine(this.mForceTail, this.mActionIntersect, {
             color: 'gray', dashed: true, thickness: 2, maxLength: 100000
         });
+    }
+
+    showInstructions() {
+        const textPanel = document.getElementById('text-panel');
+        if (textPanel) {
+            textPanel.innerHTML = singlePanelInstructions;
+            textPanel.classList.add('visible');
+        }
     }
 
 }
