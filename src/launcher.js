@@ -6,6 +6,7 @@
 import router from './router';
 import SinglePanelApp from './apps/SinglePanelApp';
 import HangingCableApp from './apps/HangingCableApp';
+import singlePanelThumb from './assets/thumbnails/single-panel-thumb.png';
 
 export default class Launcher {
     constructor() {
@@ -16,7 +17,8 @@ export default class Launcher {
                 description: 'Explore forces in a simple three-member truss',
                 status: 'available',
                 app: SinglePanelApp,
-                route: '/single-panel'
+                route: '/single-panel',
+                thumbnail: singlePanelThumb
             },
             {
                 id: 'hanging-cable',
@@ -124,9 +126,14 @@ export default class Launcher {
             'locked': '🔒'
         }[demo.status];
 
+        // Use thumbnail image if available, otherwise use icon
+        const thumbnailContent = demo.thumbnail
+            ? `<div class="demo-thumbnail" style="background-image: url('${demo.thumbnail}'); background-size: contain; background-position: center; background-repeat: no-repeat;"></div>`
+            : `<div class="demo-thumbnail">${icon}</div>`;
+
         return `
             <div class="demo-card ${demo.status}" data-demo-id="${demo.id}" ${demo.status === 'available' ? 'data-clickable="true"' : ''}>
-                <div class="demo-thumbnail">${icon}</div>
+                ${thumbnailContent}
                 <div class="demo-card-content">
                     <h3 class="demo-card-title">${demo.title}</h3>
                     <p class="demo-card-description">${demo.description}</p>

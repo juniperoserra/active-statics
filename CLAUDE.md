@@ -124,3 +124,4 @@ Entities use a recursive drag propagation system:
 ### Animation
 Entities support animation via `mIsAnimating` flag. See `AnimationJob.js` for job-based animations (`MoveToStartJob`, `CircleAroundJob`).
 - When adding tests, please add them to a test directory next to src.
+- Whenever you make a change to a page that will result in a visual difference, please look at it and evaluate it from a design perspective to make sure your changes look good.

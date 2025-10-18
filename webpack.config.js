@@ -45,6 +45,10 @@ module.exports = (env, argv) => {
                         }
                     ],
                 },
+                {
+                    test: /\.(png|jpg|jpeg|gif|svg)$/,
+                    type: 'asset/resource',
+                },
             ],
         },
         plugins: [
