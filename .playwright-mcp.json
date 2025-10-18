@@ -6,5 +6,6 @@
       "headless": true,
       "args": ["--no-sandbox", "--disable-setuid-sandbox"]
     }
-  }
+  },
+  "baseURL": "http://localhost:8080"
 }

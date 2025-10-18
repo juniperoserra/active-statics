@@ -9,8 +9,5 @@
   "customizations": {
     "vscode": { "extensions": ["ms-python.python", "ms-python.pylint"] }
   },
-  "remoteUser": "vscode"//,
-    // make the workspace bind mount explicit and add a consistency hint
-  //"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/active-statics,type=bind,consistency=delegated",
-  //"workspaceFolder": "/workspaces/active-statics"
+  "remoteUser": "vscode"
 }

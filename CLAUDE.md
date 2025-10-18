@@ -22,7 +22,10 @@ npm start
 # or
 npm run dev
 ```
-Starts webpack-dev-server on localhost with hot reloading. Uses `--env=dev --debug --output-pathinfo` for development.
+Starts webpack-dev-server on http://localhost:8080 with hot module replacement (HMR).
+- Listens on `0.0.0.0:8080` for dev container port forwarding compatibility
+- Hot reloading enabled - changes update instantly
+- Serves launcher page as the index
 
 ### Production Build
 ```bash

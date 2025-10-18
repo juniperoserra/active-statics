@@ -2,9 +2,11 @@
  * Created by simong on 2/20/17.
  */
 
-require("script-loader!paper/dist/paper-core");
-//require("script-loader!../lib/paper/dist/paper-full");
-require('../app.css');
+import paper from 'paper/dist/paper-core';
+import '../app.css';
+
+// Make paper available globally for backward compatibility
+window.paper = paper;
 
 export const init = () => {
     var canvas = document.getElementById('myCanvas');

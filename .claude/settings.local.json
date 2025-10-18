@@ -56,7 +56,15 @@
       "Bash(mv /workspaces/active-statics/PLAYWRIGHT_ANALYSIS.md /workspaces/active-statics/info/notes/)",
       "Bash(mv /workspaces/active-statics/LAUNCHER_IMPLEMENTATION.md /workspaces/active-statics/info/planning/)",
       "Bash(mv /workspaces/active-statics/LAUNCHER_README.md /workspaces/active-statics/info/planning/)",
-      "Bash(mv /workspaces/active-statics/PORT_STATUS.md /workspaces/active-statics/info/notes/)"
+      "Bash(mv /workspaces/active-statics/PORT_STATUS.md /workspaces/active-statics/info/notes/)",
+      "Bash(npm install)",
+      "Bash(npm install --save-dev @babel/plugin-proposal-function-bind)",
+      "Bash(npm run dev)",
+      "Bash(curl -s http://localhost:8080)",
+      "Bash(curl -s http://localhost:8080/app.bundle.js)",
+      "Bash(lsof -i :8080)",
+      "Bash(netstat -tuln)",
+      "Bash(ss -tuln)"
     ],
     "deny": []
   },
