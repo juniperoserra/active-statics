@@ -196,7 +196,7 @@ strong, b {
 .demo-thumbnail {
     width: 100%;
     height: 180px;
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm);
     background: #ebe1cd;
     display: flex;
     align-items: center;

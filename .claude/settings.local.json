@@ -70,7 +70,11 @@
       "Bash(sudo ln -sf ~/.cache/ms-playwright/chromium-1194/chrome-linux/chrome /opt/google/chrome/chrome)",
       "Bash(kill 13915 13917)",
       "Bash(awk '{print $2}')",
-      "Bash(kill 36564 36565)"
+      "Bash(kill 36564 36565)",
+      "Bash(apt-get update)",
+      "Bash(apt-get install -y imagemagick)",
+      "Bash(sudo apt-get update)",
+      "Bash(sudo apt-get install -y imagemagick)"
     ],
     "deny": []
   },
