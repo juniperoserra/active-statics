@@ -217,16 +217,6 @@ export default class SinglePanelApp extends AppBase {
     makeButtons() {
         const x = SinglePanelApp.BUTTON_START_X;
         let y = SinglePanelApp.BUTTON_START_Y;
-
-        // Back to launcher button
-        this.mBackButton = this.mScene.createButton([x, y], '← Back to Launcher',
-            () => {
-                // Reload to go back to launcher
-                window.location.reload();
-            }, {width: SinglePanelApp.BUTTON_WIDTH}
-        );
-
-        y += SinglePanelApp.BUTTON_Y_OFFSET;
         const moveButton = this.mScene.createButton([x, y], 'Return To Starting Position',
             () => {
                 this.mScene.mGraphics.clearJobs();
@@ -263,7 +253,7 @@ export default class SinglePanelApp extends AppBase {
     }
 
     makeText() {
-        this.mScene.createText([20, 50], 'Single Panel Truss', {fontSize: 24});
+        // Title is now in breadcrumb and instructions panel, not needed on canvas
         this.mScene.createTextPoint(this.mTrussNodes[1], 'Form Diagram',
             {fontSize: 20, offset: [-155, -20], draggable: true}).dragAlso(this.mMembers[0]);
         this.mScene.createTextPoint(this.mLoadLine[0], 'Force Polygon',

@@ -67,7 +67,8 @@
       "Bash(ss -tuln)",
       "Bash(cat .devcontainer/devcontainer.json)",
       "Bash(sudo mkdir -p /opt/google/chrome)",
-      "Bash(sudo ln -sf ~/.cache/ms-playwright/chromium-1194/chrome-linux/chrome /opt/google/chrome/chrome)"
+      "Bash(sudo ln -sf ~/.cache/ms-playwright/chromium-1194/chrome-linux/chrome /opt/google/chrome/chrome)",
+      "Bash(kill 13915 13917)"
     ],
     "deny": []
   },

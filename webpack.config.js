@@ -40,7 +40,7 @@ module.exports = (env, argv) => {
                         {
                             loader: 'css-loader',
                             options: {
-                                modules: true
+                                modules: false
                             }
                         }
                     ],
