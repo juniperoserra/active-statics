@@ -7,6 +7,12 @@ logs
 *.log
 npm-debug.log*
 
+# bakcups
+*.bak
+*.bak1
+*.bak2
+*.bak3
+
 # Runtime data
 pids
 *.pid

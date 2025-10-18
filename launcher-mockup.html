@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Active Statics - Launcher Mockup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #ebe1cd;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 280px);
+            gap: 30px;
+        }
+
+        .demo-card {
+            width: 280px;
+            height: 320px;
+            background: #f5f5dc;
+            border: 2px solid #8b4513;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .demo-card.available:hover {
+            background: #fffacd;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .demo-card.in-progress {
+            background: #fff8dc;
+            border-color: #daa520;
+        }
+
+        .demo-card.locked {
+            background: #e8e8e8;
+            border-color: #999;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .thumbnail {
+            width: 240px;
+            height: 180px;
+            margin: 20px;
+            background: #d2b48c;
+            border: 1px solid #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        .demo-card.in-progress .thumbnail {
+            background: #daa520;
+        }
+
+        .demo-card.locked .thumbnail {
+            background: #ccc;
+        }
+
+        .card-content {
+            padding: 0 20px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .card-description {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.4;
+            min-height: 34px;
+        }
+
+        .status-badge {
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 8px;
+            margin-top: 10px;
+        }
+
+        .status-badge.available {
+            color: #2d5016;
+        }
+
+        .status-badge.in-progress {
+            color: #8b6914;
+        }
+
+        .status-badge.locked {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Active Statics</h1>
+        <p class="subtitle">Interactive explorations of graphic statics</p>
+
+        <div class="demo-grid">
+            <!-- Single Panel Truss - Available -->
+            <div class="demo-card available">
+                <div class="thumbnail">✓</div>
+                <div class="card-content">
+                    <div class="card-title">Single Panel Truss</div>
+                    <div class="card-description">Explore forces in a simple three-member truss</div>
+                    <div class="status-badge available">AVAILABLE</div>
+                </div>
+            </div>
+
+            <!-- Hanging Cable - In Progress -->
+            <div class="demo-card in-progress">
+                <div class="thumbnail">⏳</div>
+                <div class="card-content">
+                    <div class="card-title">Hanging Cable</div>
+                    <div class="card-description">Analyze forces in a suspended cable structure</div>
+                    <div class="status-badge in-progress">IN PROGRESS</div>
+                </div>
+            </div>
+
+            <!-- Multi-Panel Truss - Locked -->
+            <div class="demo-card locked">
+                <div class="thumbnail">🔒</div>
+                <div class="card-content">
+                    <div class="card-title">Multi-Panel Truss</div>
+                    <div class="card-description">Complex truss analysis with multiple panels</div>
+                    <div class="status-badge locked">COMING SOON</div>
+                </div>
+            </div>
+
+            <!-- Cantilever - Locked -->
+            <div class="demo-card locked">
+                <div class="thumbnail">🔒</div>
+                <div class="card-content">
+                    <div class="card-title">Cantilever Beam</div>
+                    <div class="card-description">Study cantilever beam behavior under load</div>
+                    <div class="status-badge locked">COMING SOON</div>
+                </div>
+            </div>
+
+            <!-- Beam Loading - Locked -->
+            <div class="demo-card locked">
+                <div class="thumbnail">🔒</div>
+                <div class="card-content">
+                    <div class="card-title">Beam Loading</div>
+                    <div class="card-description">Continuous beam with distributed loads</div>
+                    <div class="status-badge locked">COMING SOON</div>
+                </div>
+            </div>
+
+            <!-- Cable-Stayed - Locked -->
+            <div class="demo-card locked">
+                <div class="thumbnail">🔒</div>
+                <div class="card-content">
+                    <div class="card-title">Cable-Stayed Bridge</div>
+                    <div class="card-description">Cable-stayed structure analysis</div>
+                    <div class="status-badge locked">COMING SOON</div>
+                </div>
+            </div>
+
+            <!-- Overhang - Locked -->
+            <div class="demo-card locked">
+                <div class="thumbnail">🔒</div>
+                <div class="card-content">
+                    <div class="card-title">Overhanging Beam</div>
+                    <div class="card-description">Beam with overhanging sections</div>
+                    <div class="status-badge locked">COMING SOON</div>
+                </div>
+            </div>
+
+            <!-- Minimum Weight - Locked -->
+            <div class="demo-card locked">
+                <div class="thumbnail">🔒</div>
+                <div class="card-content">
+                    <div class="card-title">Minimum Weight</div>
+                    <div class="card-description">Optimize structure for minimum weight</div>
+                    <div class="status-badge locked">COMING SOON</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add click handlers
+        document.querySelectorAll('.demo-card.available').forEach(card => {
+            card.addEventListener('click', function() {
+                const title = this.querySelector('.card-title').textContent;
+                alert(`Loading demo: ${title}\n\n(This is a mockup - actual implementation will use Paper.js)`);
+            });
+        });
+    </script>
+</body>
+</html>

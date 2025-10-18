@@ -4,12 +4,10 @@
 import { init } from './graphics/Paper';
 import Graphics from './graphics/Graphics';
 import Scene from './graphics/Scene';
-
-
-import SinglePanelApp from './apps/SinglePanelApp';
+import LauncherApp from './apps/LauncherApp';
 
 window.startApp = function() {
     init();
     const graphics = new Graphics();
-    const singlePanelApp = new SinglePanelApp(new Scene(graphics));
+    const launcherApp = new LauncherApp(new Scene(graphics));
 }

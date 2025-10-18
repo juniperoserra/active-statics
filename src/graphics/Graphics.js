@@ -153,4 +153,29 @@ export default class Graphics {
         }
         return item;
     }
+
+    addRectangle(center, size, style) {
+        const item = new this.paper.Shape.Rectangle({
+            center: center,
+            size: size
+        });
+        if (style) {
+            this.setStyle(item, style);
+        }
+        return item;
+    }
+
+    clear() {
+        // Remove all Paper.js items from the project
+        this.paper.project.activeLayer.removeChildren();
+
+        // Clear entities array
+        this.mEntities = [];
+
+        // Clear any running jobs
+        this.clearJobs();
+
+        // Reset flags
+        this.mHasRecordedStartingPositions = false;
+    }
 }
