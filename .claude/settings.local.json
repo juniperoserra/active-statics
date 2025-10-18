@@ -64,7 +64,10 @@
       "Bash(curl -s http://localhost:8080/app.bundle.js)",
       "Bash(lsof -i :8080)",
       "Bash(netstat -tuln)",
-      "Bash(ss -tuln)"
+      "Bash(ss -tuln)",
+      "Bash(cat .devcontainer/devcontainer.json)",
+      "Bash(sudo mkdir -p /opt/google/chrome)",
+      "Bash(sudo ln -sf ~/.cache/ms-playwright/chromium-1194/chrome-linux/chrome /opt/google/chrome/chrome)"
     ],
     "deny": []
   },

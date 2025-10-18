@@ -49,3 +49,6 @@ jspm_packages
 /.yarnclean
 /dist/
 /yarn.lock
+
+# Playwright test artifacts
+.playwright-mcp/
