@@ -30,6 +30,12 @@ window.startApp = function() {
         .register('/single-panel', () => showDemo('single-panel'))
         .register('/hanging-cable', () => showDemo('hanging-cable'));
 
+    // Setup window resize handler
+    window.addEventListener('resize', handleResize);
+
+    // Initial resize to set correct size
+    handleResize();
+
     // Trigger initial route
     router.handleRoute();
 };
@@ -77,6 +83,9 @@ function showDemo(demoId) {
     // Create new app instance
     currentApp = new demo.app(scene);
 
+    // Resize canvas to fit the window after app initialization
+    handleResize();
+
     // Update breadcrumb
     updateBreadcrumb([
         { label: 'Home', route: '/' },
@@ -114,4 +123,34 @@ function updateBreadcrumb(crumbs) {
     }).join('');
 
     breadcrumbEl.innerHTML = html;
+}
+
+/**
+ * Handle window resize
+ */
+function handleResize() {
+    const canvas = document.getElementById('myCanvas');
+    const mainEl = document.getElementById('main');
+
+    if (!canvas || !mainEl || !scene) return;
+
+    // Get the available space for the canvas
+    const breadcrumbEl = document.getElementById('breadcrumb');
+    const launcherContainer = document.getElementById('launcher-container');
+
+    let availableHeight = mainEl.clientHeight;
+    let availableWidth = mainEl.clientWidth;
+
+    // Subtract breadcrumb height if visible
+    if (breadcrumbEl && breadcrumbEl.offsetHeight > 0) {
+        availableHeight -= breadcrumbEl.offsetHeight;
+    }
+
+    // If launcher is visible, use launcher container dimensions
+    if (launcherContainer && launcherContainer.offsetHeight > 0) {
+        availableHeight = launcherContainer.clientHeight;
+    }
+
+    // Update canvas size
+    scene.setSize([availableWidth, availableHeight]);
 }

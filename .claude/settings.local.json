@@ -74,7 +74,16 @@
       "Bash(apt-get update)",
       "Bash(apt-get install -y imagemagick)",
       "Bash(sudo apt-get update)",
-      "Bash(sudo apt-get install -y imagemagick)"
+      "Bash(sudo apt-get install -y imagemagick)",
+      "Bash(cat ~/.cache/ms-playwright/chromium-1194/chrome-linux/chrome --version)",
+      "Bash(npx node /tmp/test-playwright.js)",
+      "Bash(NODE_PATH=/workspaces/active-statics/node_modules node /tmp/test-playwright.js)",
+      "Bash(cat .playwright-mcp.json)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080)",
+      "Bash(npx @modelcontextprotocol/inspector mcp-server-playwright)",
+      "Bash(npm run serveDoc)",
+      "Bash(npx -y playwright@latest install chromium)",
+      "Read(//tmp/**)"
     ],
     "deny": []
   },

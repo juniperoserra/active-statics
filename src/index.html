@@ -4,26 +4,30 @@
     <meta charset="UTF-8">
     <title>Active Statics</title>
     <style>
-        body {
+        html, body {
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
         }
 
         #app-container {
             display: flex;
-            width: 100vw;
-            min-height: 100vh;
+            width: 100%;
+            height: 100%;
         }
 
         #text-panel {
             display: none;
             width: 500px;
+            height: 100%;
             overflow-y: auto;
             padding: 24px;
             background: #f9f9f9;
             border-right: 2px solid #ccc;
             box-sizing: border-box;
+            flex-shrink: 0;
         }
 
         #text-panel.visible {
@@ -71,10 +75,13 @@
             position: relative;
             display: flex;
             flex-direction: column;
+            height: 100%;
+            overflow: hidden;
         }
 
         #breadcrumb {
             /* Breadcrumb styling in design-system.css */
+            flex-shrink: 0;
         }
 
         #launcher-container {
@@ -84,6 +91,8 @@
 
         #myCanvas {
             display: block;
+            width: 100%;
+            /* Height set by JavaScript in handleResize() */
         }
     </style>
     <script type="text/javascript">
