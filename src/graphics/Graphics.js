@@ -17,7 +17,7 @@ export default class Graphics {
     constructor() {
         this.paper = Paper;
         this.paper.project.view.onMouseDown = this::this.onMouseDown;
-        //this.paper.project.view.onMouseDrag = onMouseDown;
+        this.paper.project.view.onMouseDrag = this::this.onMouseDrag;
         this.paper.project.view.onFrame = this::this.onFrame;
         this.mEntities = [];
         this.mHasRecordedStartingPositions = false;
@@ -81,6 +81,13 @@ export default class Graphics {
         for (let entity of this.mEntities) {
             entity._dragStartPosition = [entity.item.position.x, entity.item.position.y];
         }
+    }
+
+    onMouseDrag(event) {
+        // Empty handler - Paper.js requires this to be set at the view level
+        // for mouse tracking to work. The actual drag logic is in item-level
+        // onMouseDrag handlers (see GraphicEntity.js). Paper.js will dispatch
+        // the event to items automatically when this handler exists.
     }
 
     getDragStartPosition() {

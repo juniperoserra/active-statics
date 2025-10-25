@@ -83,7 +83,10 @@
       "Bash(npx @modelcontextprotocol/inspector mcp-server-playwright)",
       "Bash(npm run serveDoc)",
       "Bash(npx -y playwright@latest install chromium)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "WebFetch(domain:acg.media.mit.edu)",
+      "Bash(cat /workspaces/active-statics/package.json)",
+      "Bash(npm install --save-dev vitest @vitest/ui happy-dom)"
     ],
     "deny": []
   },

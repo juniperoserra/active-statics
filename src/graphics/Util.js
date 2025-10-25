@@ -23,6 +23,23 @@ const util = {
         return dir;
     },
 
+    slope: (x1, y1, x2, y2) => {
+        const dx = x2 - x1;
+        const dy = y2 - y1;
+
+        // Handle vertical line (or very close to vertical)
+        if (Math.abs(dx) < 1e-10) {
+            // Return very large number with correct sign
+            return dy > 0 ? 1e10 : (dy < 0 ? -1e10 : 0);
+        }
+
+        return dy / dx;
+    },
+
+    bound: (value, min, max) => {
+        return Math.max(min, Math.min(max, value));
+    },
+
     tenthStr: n => Number(n).toFixed(1)
 };
 

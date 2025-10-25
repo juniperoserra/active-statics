@@ -24,7 +24,7 @@ export default class Launcher {
                 id: 'hanging-cable',
                 title: 'Hanging Cable',
                 description: 'Analyze forces in a suspended cable structure',
-                status: 'in-progress',
+                status: 'available',
                 app: HangingCableApp,
                 route: '/hanging-cable'
             },
