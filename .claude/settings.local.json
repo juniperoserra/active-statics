@@ -86,7 +86,20 @@
       "Read(//tmp/**)",
       "WebFetch(domain:acg.media.mit.edu)",
       "Bash(cat /workspaces/active-statics/package.json)",
-      "Bash(npm install --save-dev vitest @vitest/ui happy-dom)"
+      "Bash(npm install --save-dev vitest @vitest/ui happy-dom)",
+      "WebFetch(domain:cheerpj.com)",
+      "Bash(javac -version)",
+      "Bash(chmod +x /workspaces/active-statics/build-applets.sh)",
+      "Bash(./build-applets.sh)",
+      "Bash(apt-cache search openjdk)",
+      "Bash(sudo apt-get install -y openjdk-11-jdk)",
+      "Bash(sudo apt-get install -y openjdk-21-jdk)",
+      "Bash(java -version)",
+      "Bash(npm install --save-dev @playwright/test)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/applets/index.html)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/applets/lib/ActiveStatics.jar)",
+      "Bash(pkill -f \"webpack-dev-server\")",
+      "Bash(jar tf:*)"
     ],
     "deny": []
   },

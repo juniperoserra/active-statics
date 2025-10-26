@@ -15,6 +15,7 @@ ActiveStatics is an interactive educational tool for exploring graphic statics, 
 - Architecture docs → `/info/architecture/`
 - Decision records → `/info/decisions/`
 - Working notes → `/info/notes/`
+- Java applets documentation → `/applets/README.md`
 
 ### Development Server
 ```bash
@@ -44,6 +45,12 @@ Copies the built bundle from `dist/assets/app.bundle.js` to `docs/js/` for GitHu
 npm run serveDoc
 ```
 Serves the `docs/` directory on port 8000 using Python's SimpleHTTPServer.
+
+### Build Java Applets
+```bash
+./build-applets.sh
+```
+Compiles the original Java source files and creates `applets/lib/ActiveStatics.jar` for use with CheerpJ.
 
 ## Architecture
 
@@ -108,6 +115,21 @@ Original Java applets are in `old_java_src/ActiveStatics/src/truss/`. The port i
 - ⏳ Other applets pending (TrussApplet, CantileverApplet, BeamLoadApplet, etc.)
 
 When porting, maintain the entity-based architecture and use Scene factory methods rather than direct instantiation.
+
+## CheerpJ Java Applets
+
+In addition to the JavaScript port, all original Java applets are available via CheerpJ in the `/applets/` directory.
+
+### Running Original Java Applets
+CheerpJ 3.0 allows the original Java applets to run in modern browsers without Java plugins:
+
+- **Access**: http://localhost:8080/applets/
+- **Technology**: WebAssembly-based JVM from Leaning Technologies
+- **Applets Available**: All 8 original applets plus interactive launcher
+- **Rebuild JAR**: `./build-applets.sh`
+- **Tests**: `npx playwright test test/applets/applets.spec.js`
+
+See `/applets/README.md` for complete documentation.
 
 ## Key Implementation Details
 

@@ -16,9 +16,15 @@ module.exports = (env, argv) => {
             clean: true
         },
         devServer: {
-            static: {
-                directory: path.resolve(__dirname, './dist'),
-            },
+            static: [
+                {
+                    directory: path.resolve(__dirname, './dist'),
+                },
+                {
+                    directory: path.resolve(__dirname, './applets'),
+                    publicPath: '/applets',
+                }
+            ],
             hot: true,
             port: 8080,
             host: '0.0.0.0',

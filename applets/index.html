@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Statics - Java Applets (CheerpJ)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-bottom: 10px;
+        }
+        .tech-badge {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        .intro {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        .intro h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .intro p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .intro ul {
+            color: #666;
+            line-height: 1.8;
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+        }
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .card-title {
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .card-description {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+        .launcher-card {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .launcher-card .card-content {
+            padding: 40px;
+            text-align: center;
+        }
+        .launcher-card .card-title {
+            color: white;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        .launcher-card .card-description {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1em;
+        }
+        @media (max-width: 768px) {
+            .launcher-card {
+                grid-column: span 1;
+            }
+            h1 {
+                font-size: 2em;
+            }
+        }
+        footer {
+            text-align: center;
+            color: white;
+            padding: 30px 0;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Active Statics</h1>
+            <div class="subtitle">Interactive Java Applets for Structural Engineering</div>
+            <div class="tech-badge">Powered by CheerpJ - Running Java in Your Browser</div>
+        </header>
+
+        <section class="intro">
+            <h2>About Active Statics</h2>
+            <p>
+                Active Statics is an interactive educational tool designed by Simon Greenwold at MIT Media Lab's
+                Aesthetics + Computation Group in 2001. It helps students and engineers explore the principles of
+                graphic statics and structural analysis through hands-on manipulation.
+            </p>
+            <p>
+                These applets demonstrate how forces distribute through different structural systems. You can
+                drag nodes, adjust loads, and watch force polygons update in real-time to build intuition about
+                structural behavior.
+            </p>
+            <p><strong>How to use:</strong></p>
+            <ul>
+                <li>Click on any applet below to launch it</li>
+                <li>Look for yellow circles - these are draggable nodes</li>
+                <li>Use toggle buttons to enable/disable various features and constraints</li>
+                <li>Watch how force polygons and member forces change as you manipulate the structure</li>
+            </ul>
+            <p>
+                <em>Note: These original Java applets are running via CheerpJ, which converts Java bytecode to
+                WebAssembly and JavaScript. First load may take a moment while the JVM initializes.</em>
+            </p>
+        </section>
+
+        <div class="grid">
+            <a href="launcher.html" class="card launcher-card">
+                <div class="card-content">
+                    <div class="card-title">🚀 Launch Interactive Menu</div>
+                    <div class="card-description">
+                        Start here! The launcher provides an interactive menu where you can access all 8 demonstration
+                        applets in a windowed interface, just like the original Java application.
+                    </div>
+                </div>
+            </a>
+
+            <a href="single-panel.html" class="card">
+                <div class="card-image">📐</div>
+                <div class="card-content">
+                    <div class="card-title">1. Single Panel Truss</div>
+                    <div class="card-description">
+                        The simplest possible truss - a triangle with three members. Perfect for learning the fundamentals
+                        of force distribution and equilibrium.
+                    </div>
+                </div>
+            </a>
+
+            <a href="truss.html" class="card">
+                <div class="card-image">🏗️</div>
+                <div class="card-content">
+                    <div class="card-title">2. Simple Truss</div>
+                    <div class="card-description">
+                        A more complex truss with 12 nodes and 21 members. Explore realistic force distributions in
+                        a multi-member structural system.
+                    </div>
+                </div>
+            </a>
+
+            <a href="hanging-cable.html" class="card">
+                <div class="card-image">⛓️</div>
+                <div class="card-content">
+                    <div class="card-title">3. Hanging Cable / Arch</div>
+                    <div class="card-description">
+                        Analyze funicular structures - hanging cables in tension or compression arches. See how loads
+                        create natural catenary curves.
+                    </div>
+                </div>
+            </a>
+
+            <a href="cantilever.html" class="card">
+                <div class="card-image">🌉</div>
+                <div class="card-content">
+                    <div class="card-title">4. Cantilever Truss</div>
+                    <div class="card-description">
+                        Study cantilevered structures and understand how overhanging members resolve forces back to
+                        the support points.
+                    </div>
+                </div>
+            </a>
+
+            <a href="cable-stay.html" class="card">
+                <div class="card-image">🎯</div>
+                <div class="card-content">
+                    <div class="card-title">5. Fanlike Structure (Cable Stay)</div>
+                    <div class="card-description">
+                        Explore cable-stayed bridges and structures with radiating tension members in a fan-like arrangement.
+                    </div>
+                </div>
+            </a>
+
+            <a href="overhang.html" class="card">
+                <div class="card-image">🏛️</div>
+                <div class="card-content">
+                    <div class="card-title">6. Overhanging Truss</div>
+                    <div class="card-description">
+                        Investigate trusses with extended overhanging sections and see how forces redistribute beyond
+                        support points.
+                    </div>
+                </div>
+            </a>
+
+            <a href="min-weight.html" class="card">
+                <div class="card-image">⚖️</div>
+                <div class="card-content">
+                    <div class="card-title">7. Minimum Weight Truss</div>
+                    <div class="card-description">
+                        Explore structural optimization - trusses designed for minimum weight while maintaining required
+                        strength and stability.
+                    </div>
+                </div>
+            </a>
+
+            <a href="beam-load.html" class="card">
+                <div class="card-image">📊</div>
+                <div class="card-content">
+                    <div class="card-title">8. Beam Loading</div>
+                    <div class="card-description">
+                        Study beams under various loading conditions. Visualize moment diagrams, shear forces, and
+                        distributed loads.
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <footer>
+            <p>
+                Original software © 2001 Simon Greenwold, MIT Media Lab<br>
+                Running via <a href="https://cheerpj.com/" target="_blank">CheerpJ 3.0</a> -
+                Java Virtual Machine for Modern Browsers
+            </p>
+            <p style="margin-top: 15px;">
+                <a href="../docs/index.html">← Back to Modern JavaScript Version</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Statics - Fanlike Structure (Cable Stay)</title>
+    <script src="https://cjrtnc.leaningtech.com/4.2/loader.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .description {
+            max-width: 750px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #666;
+        }
+        .applet-container {
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        #status {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #e8f4f8;
+            border-radius: 4px;
+            color: #31708f;
+            font-size: 14px;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fanlike Structure (Cable Stay)</h1>
+    <div class="description">
+        <p>Explore force distribution in a cable-stayed structure with a fan-like arrangement of tension members.</p>
+        <p><a href="index.html">← Back to Index</a></p>
+    </div>
+
+    <div class="applet-container">
+        <applet
+            archive="lib/ActiveStatics.jar"
+            code="truss.CableStayApplet"
+            width="750"
+            height="700">
+        </applet>
+    </div>
+
+    <div id="status">Loading applet... Please wait while CheerpJ initializes the Java Virtual Machine.</div>
+
+    <script>
+        cheerpjInit().then(() => {
+            document.getElementById('status').textContent = 'Applet loaded successfully!';
+            document.getElementById('status').style.backgroundColor = '#dff0d8';
+            document.getElementById('status').style.color = '#3c763d';
+        }).catch((error) => {
+            document.getElementById('status').textContent = 'Error loading applet: ' + error;
+            document.getElementById('status').style.backgroundColor = '#f2dede';
+            document.getElementById('status').style.color = '#a94442';
+            console.error('CheerpJ initialization error:', error);
+        });
+    </script>
+</body>
+</html>
