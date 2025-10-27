@@ -127,7 +127,7 @@ test.describe('CheerpJ Applets - Applet Initialization', () => {
       await expect(appletTag).toHaveAttribute('code', applet.appletCode);
       await expect(appletTag).toHaveAttribute('width', applet.width.toString());
       await expect(appletTag).toHaveAttribute('height', applet.height.toString());
-      await expect(appletTag).toHaveAttribute('archive', '/app/lib/ActiveStatics.jar');
+      await expect(appletTag).toHaveAttribute('archive', 'lib/ActiveStatics.jar');
     });
   });
 });

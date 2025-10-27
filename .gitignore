@@ -55,6 +55,9 @@ jspm_packages
 
 # Playwright test artifacts
 .playwright-mcp/
+test-results/
+playwright-report/
+test/applets/screenshots
 
 # Claude additional files
 claude-evals
